@@ -18,6 +18,10 @@ class UserController extends Controller
         return view("user.account");
     }
 
+    public function addListing(){
+        return view("user.add-listing");
+    }
+
     public function blogDetail(){
         return view("user.blog-details");
     }

@@ -17,9 +17,6 @@ use App\Http\Controllers\User\UserController ;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::controller(AuthController::class)->group(function(){
     Route::post('/register', 'register')->name('auth.register');
@@ -50,6 +47,7 @@ Route::prefix('frontend')->group(function(){
         Route::get('/', 'index');
         Route::get('/about', 'about')->name('about');
         Route::get('/account', 'account')->name('account');
+        Route::get('/add-listing', 'addListing')->name('add-listing');
         Route::get('/blog-detail', 'blogDetail')->name('blog-detail');
         Route::get('/blog-grid', 'blogGrid')->name('blog-grid');
         Route::get('/cart', 'cart')->name('cart');
@@ -82,5 +80,6 @@ Route::prefix('frontend')->group(function(){
     Route::controller(BlogController::class)->prefix('blogs')->group(function () {
         Route::get('/', 'index')->name('blogs.index');
         Route::get('/{id}/detail', 'show')->name('blogs.show');
+
     });
 });

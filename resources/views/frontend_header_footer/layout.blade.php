@@ -79,7 +79,7 @@
                         <div class="ltn__top-bar-menu">
                             <ul>
                                 <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="fas fa-mail-bulk    "></i> info@webmail.com</a></li>
-                                <li><a href="locations.html"><i class="fas fa-place-of-worship    "></i> 15/A, Nest Tower, NYC</a></li>
+                                <li><a href="{{ route('location')}}"><i class="fas fa-place-of-worship    "></i> 15/A, Nest Tower, NYC</a></li>
                             </ul>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                                     <li>
                                         <!-- header-top-btn -->
                                         <div class="header-top-btn">
-                                            <a href="add-listing.html">Add Listing</a>
+                                            <a href="{{ route('add-listing')}}">Add Listing</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -138,7 +138,7 @@
                     <div class="col">
                         <div class="site-logo-wrap">
                             <div class="site-logo">
-                                <a href="index.html"><img src="{{ asset('frontend_assets/img/logo.png')}}" alt="Logo"></a>
+                                <a href="/"><img src="{{ asset('frontend_assets/img/logo.png')}}" alt="Logo"></a>
                             </div>
                             <div class="get-support clearfix d-none">
                                 <div class="get-support-icon">
@@ -158,47 +158,39 @@
                                     <ul>
                                         <li class="menu-icon"><a href="#">Home</a>
                                         </li>
-                                        <li class="menu-icon"><a href="about.html">About</a>
+                                        <li class="menu-icon"><a href="{{ route('about')}}">About</a>
                                             <ul>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="service.html">Services</a></li>
-                                                <li><a href="service-details.html">Service Details</a></li>
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="portfolio-2.html">Portfolio - 02</a></li>
-                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="locations.html">Google Map Locations</a></li>
+                                                <li><a href="{{ route('about')}}">About</a></li>
+                                                <li><a href="{{ route('service')}}">Services</a></li>
+                                                <li><a href="{{ route('service-details')}}">Service Details</a></li>
+                                                <li><a href="{{ route('portfolio')}}">Portfolio</a></li>
+                                                <li><a href="{{ route('portfolio-Detail')}}">Portfolio Details</a></li>
+                                                <li><a href="{{ route('team')}}">Team</a></li>
+                                                <li><a href="{{ route('team-details')}}">Team Details</a></li>
+                                                <li><a href="{{ route('faq')}}">FAQ</a></li>
+                                                <li><a href="{{ route('location')}}">Google Map Locations</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-icon"><a href="shop.html">Property</a>
+                                        <li class="menu-icon"><a href="{{ route('shop')}}">Property</a>
                                             <ul>
-                                                <li><a href="shop.html">Property Grid</a></li>
-                                                <li><a href="shop-list.html">Property List</a></li>
-                                                <li><a href="shop-grid.html">Property No Sidebar</a></li>
-                                                <li><a href="shop-left-sidebar.html">Property Left sidebar</a></li>
-                                                <li><a href="shop-right-sidebar.html">Property right sidebar</a></li>
-                                                <li><a href="product-details.html">Property details </a></li>
-                                                <li><a href="#">Other Pages <span class="float-end">>></span></a>
+                                                <li><a href="{{ route('shop')}}">Property Grid</a></li>
+                                                <li><a href="{{ route('shop-list')}}">Property List</a></li>
+                                                <li><a href="{{ route('product-detail')}}">Property details </a></li>
                                                     <ul>
-                                                        <li><a href="cart.html">Cart</a></li>
-                                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                                        <li><a href="checkout.html">Checkout</a></li>
-                                                        <li><a href="order-tracking.html">Order Tracking</a></li>
-                                                        <li><a href="account.html">My Account</a></li>
-                                                        <li><a href="login.html">Sign in</a></li>
-                                                        <li><a href="register.html">Register</a></li>
+                                                        <li><a href="{{ route('cart')}}">Cart</a></li>
+                                                        <li><a href="{{ route('wishlist')}}">Wishlist</a></li>
+                                                        <li><a href="{{ route('checkout')}}">Checkout</a></li>
+                                                        <li><a href="{{ route('order')}}">Order Tracking</a></li>
+                                                        <li><a href="{{ route('account')}}">My Account</a></li>
+                                                        <li><a href="{{ route('users.login')}}">Sign in</a></li>
+                                                        <li><a href="{{ route('users.register')}}">Register</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="menu-icon"><a href="blog.html">News</a>
                                             <ul>
-                                                <li><a href="blog.html">News</a></li>
-                                                <li><a href="blog-grid.html">News Grid</a></li>
-                                                <li><a href="blog-left-sidebar.html">News Left sidebar</a></li>
-                                                <li><a href="blog-right-sidebar.html">News Right sidebar</a></li>
+                                                <li><a href="blog-grid.html">News</a></li>
                                                 <li><a href="blog-details.html">News details</a></li>
                                             </ul>
                                         </li>
@@ -206,21 +198,19 @@
                                             <ul class="mega-menu">
                                                 <li><a href="#">Inner Pages</a>
                                                     <ul>
-                                                        <li><a href="portfolio.html">Portfolio</a></li>
-                                                        <li><a href="portfolio-2.html">Portfolio - 02</a></li>
-                                                        <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                                        <li><a href="team.html">Team</a></li>
-                                                        <li><a href="team-details.html">Team Details</a></li>
-                                                        <li><a href="faq.html">FAQ</a></li>
+                                                        <li><a href="{{ route('portfolio')}}">Portfolio</a></li>
+                                                        <li><a href="{{ route('portfolio-Detail')}}">Portfolio Details</a></li>
+                                                        <li><a href="{{ route('team')}}">Team</a></li>
+                                                        <li><a href="{{ route('team-details')}}">Team Details</a></li>
+                                                        <li><a href="{{ route('faq')}}">FAQ</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#">Inner Pages</a>
                                                     <ul>
-                                                        <li><a href="history.html">History</a></li>
-                                                        <li><a href="add-listing.html">Add Listing</a></li>
-                                                        <li><a href="locations.html">Google Map Locations</a></li>
-                                                        <li><a href="404.html">404</a></li>
-                                                        <li><a href="contact.html">Contact</a></li>
+                                                        <li><a href="{{ route('history')}}">History</a></li>
+                                                        <li><a href="{{ route('add-listing')}}">Add Listing</a></li>
+                                                        <li><a href="{{ route('location')}}">Google Map Locations</a></li>
+                                                        <li><a href="{{ route('contact')}}">Contact</a></li>
                                                         <li><a href="coming-soon.html">Coming Soon</a></li>
                                                     </ul>
                                                 </li>
