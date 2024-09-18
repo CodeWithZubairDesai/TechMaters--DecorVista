@@ -1,9 +1,7 @@
 @extends('frontend_header_footer.layout')
 
 @section('title')
-
 Register
-
 @endsection
 @section('main')
  
@@ -44,18 +42,21 @@ Register
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="account-login-inner">
-                        <form action="#" class="ltn__form-box contact-form-box">
-                            <input type="text" name="firstname" placeholder="First Name">
-                            <input type="text" name="lastname" placeholder="Last Name">
-                            <input type="text" name="email" placeholder="Email*">
-                            <input type="password" name="password" placeholder="Password*">
-                            <input type="password" name="confirmpassword" placeholder="Confirm Password*">
+                        <form id="registerForm" method="POST" class="ltn__form-box contact-form-box">
+                            @csrf
+                            <input type="hidden" name="role" value="1" required>
+                            <input type="text" name="firstname" placeholder="First Name" required>
+
+                            <input type="text" name="lastname" placeholder="Last Name" required>
+                            <input type="text" name="email" placeholder="Email*" required>
+                            <input type="password" name="password" placeholder="Password*" required>
+                            <input type="password" name="confirmpassword" placeholder="Confirm Password*" required>
                             <label class="checkbox-inline">
-                                <input type="checkbox" value="">
+                                <input type="checkbox" value="" required>
                                 I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.
                             </label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" value="">
+                                <input type="checkbox" value="" required>
                                 By clicking "create account", I consent to the privacy policy.
                             </label>
                             <div class="btn-wrapper">
@@ -96,3 +97,22 @@ Register
     </div>
     <!-- CALL TO ACTION END -->
     @endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    // Handle form submission
+    $('#registerForm').on('submit', function(e) {
+        e.preventDefault();
+        // Set the value of the hidden textarea to the Quill editor content
+        handleFormUploadForm(
+            'POST',
+            '#registerForm',
+            '#submit',
+            '{{ route('auth.register') }}',
+            '{{ route('blogs.index') }}'
+        );
+    });
+});
+</script>
+@endpush

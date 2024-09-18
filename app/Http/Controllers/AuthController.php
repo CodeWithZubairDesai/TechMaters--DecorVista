@@ -14,47 +14,45 @@ use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
-    //
-
-    public function showRegistrationForm()
-    {
-        return view('auth.register');
-    }
-
+    
     public function register(Request $request)
     {
+        Log::info("Hello I am here");
+    
+        // Validate the request
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => ['required', 'min:8'],
             'role' => 'required|integer|in:1,2,3',
         ]);
-
+    
+        // If validation fails, return error response
         if ($validator->fails()) {
-            return redirect()->back()
-                             ->withErrors($validator)
-                             ->withInput();
+            Log::info($validator->errors()->first());
+            return response()->json([
+                'status' => 'warning',
+                'message' => $validator->errors()->first(),
+            ], 404);
         }
-
+    
+        // Create the user with the full name
         User::create([
-            'name' => $request->name,
+            'name' => $request->firstname . ' ' . $request->lastname, // Ensure a space between first and last name
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
         ]);
-
-        return redirect()->route('login')->with('status', 'Registration successful! Please log in.');
-}
-
-    public function showLoginForm()
-    {
-        return view('auth.login');
+    
+        // Return success response
+        return response()->json([
+            'status' => 'success',
+            'message' => "User Registered Successfully",
+        ], 200);
     }
-    public function showOtpForm()
-    {
-        return view('auth.verifyOtp');
-    }
-
+    
+    
 
     public function login(Request $request)
     {
@@ -69,7 +67,7 @@ class AuthController extends Controller
             $user = Auth::user();
     
             // Check if the user has a role that requires OTP verification
-            if ($user->role == "user" || $user->role == 2) {
+            if ($user->role == "user" || $user->role == "designer") {
                 // Generate a 6-digit OTP
                 $code = rand(100000, 999999);
     
@@ -93,30 +91,23 @@ class AuthController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
-    
-    
-
 
     public function verifyOtp(Request $request)
     {
-        // Validate the input
         $request->validate([
             'otp' => 'required|numeric',
         ]);
 
         $user = Auth::user();
 
-        // Check if the OTP matches
         if ($user->verification_code == $request->otp) {
-            // OTP verified successfully, clear the verification code
-            $user->verification_code = null;
-            $user->save();
-
-            // Redirect to the welcome page or intended page
-            return redirect()->route('welcome');
+            if($user->role == "user"){
+                return redirect()->route('welcome');
+            }else{
+                return redirect()->route('designer.dashboard');
+            }
         }
 
-        // If OTP does not match, redirect back with an error message
         return redirect()->route('verify.otp.form')->with('error', 'Invalid OTP. Please try again.');
     }
 

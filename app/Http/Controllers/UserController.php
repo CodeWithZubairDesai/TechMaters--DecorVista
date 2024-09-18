@@ -50,9 +50,6 @@ class UserController extends Controller
         return view("user.locations");
     }
 
-    public function login(){
-        return view("user.login");
-    }
 
     public function order(){
         return view("user.order-tracking");
@@ -70,9 +67,7 @@ class UserController extends Controller
         return view("user.product-details");
     }
 
-    public function register(){
-        return view("user.register");
-    }
+
 
     public function serviceDetails(){
         return view("user.service-details");

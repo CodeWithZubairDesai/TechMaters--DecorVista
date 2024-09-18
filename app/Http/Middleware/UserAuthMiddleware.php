@@ -6,6 +6,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
 
 class UserAuthMiddleware
 {
@@ -16,10 +18,16 @@ class UserAuthMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role === 1) {
+        if (!auth()->check()) {
+            return redirect()->route('login')->withErrors(['error' => 'Please login first']);
+        }
+
+        if (Auth::check() && Auth::user()->role === "user") {
             return $next($request);
         }
 
-        return redirect('/'); // or another appropriate response
+        
+
+        return redirect('/login'); // or another appropriate response
     }
 }
