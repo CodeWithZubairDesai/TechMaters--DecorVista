@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -15,6 +16,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+<<<<<<< Updated upstream
 Route::get('/', function () {
     return view('welcome');
 });
@@ -53,3 +55,34 @@ Route::middleware(['designer.auth'])->group(function () {
     Route::get('/designer/clients', [InteriorDesignerController::class, 'clients'])->name('designer.clients');
     // Add more designer routes here
 });
+=======
+
+Route::controller(UserController::class)->group(function(){
+
+    Route::get('/' , 'index');
+    Route::get('/about' , 'about')->name('about');
+    Route::get('/account' , 'account')->name('account');
+    Route::get('/blog-detail' , 'blogDetail')->name('blog-detail');
+    Route::get('/blog-grid' , 'blogGrid')->name('blog-grid');
+    Route::get('/cart' , 'cart')->name('cart');
+    Route::get('/checkout' , 'checkout')->name('checkout');
+    Route::get('/contact' , 'contact')->name('contact');
+    Route::get('/faq' , 'faq')->name('faq');
+    Route::get('/history' , 'history')->name('history');
+    Route::get('/location' , 'location')->name('location');
+    Route::get('/login' , 'login')->name('login');
+    Route::get('/order' , 'order')->name('order');
+    Route::get('/portfolio' , 'portfolio')->name('portfolio');
+    Route::get('/portfolio-Detail' , 'portfolioDetails')->name('portfolio-Detail');
+    Route::get('/product-detail' , 'productDetail')->name('product-detail');
+    Route::get('/register' , 'register')->name('register');
+    Route::get('/service-details' , 'serviceDetails')->name('service-details');
+    Route::get('/service' , 'service')->name('service');
+    Route::get('/shop' , 'shop')->name('shop');
+    Route::get('/shop-list' , 'shopList')->name('shop-list');
+    Route::get('/team' , 'team')->name('team');
+    Route::get('/team-details' , 'teamDetails')->name('team-details');
+    Route::get('/wishlist' , 'wishlist')->name('wishlist');
+    
+});
+>>>>>>> Stashed changes
