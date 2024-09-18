@@ -15,4 +15,7 @@ class UserController extends Controller
     public function registerform(){
         return view("user.register");
     }
+    public function verifyOtpform(){
+        return view("user.verifyOtp");
+    }
 }

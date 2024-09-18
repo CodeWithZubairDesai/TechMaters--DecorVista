@@ -73,7 +73,7 @@ Route::prefix('frontend')->group(function(){
     Route::controller(UserController::class)->prefix('users')->group(function () {
         Route::get('/register', 'registerform')->name('users.register');
         Route::get('/login', 'loginform')->name('users.login');
-        Route::get('/verify_otp', 'verifyOtp')->name('users.verifyOtp');
+        Route::get('/verify_otp', 'verifyOtpform')->name('users.verifyOtp');
         Route::get('/logouts', 'logout')->name('users.logout');
     });
 

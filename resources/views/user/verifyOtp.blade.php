@@ -19,7 +19,7 @@ Login
                         <div class="ltn__breadcrumb-list">
                             <ul>
                                 <li><a href="index.html"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
-                                <li>Login</li>
+                                <li>Verify OTP</li>
                             </ul>
                         </div>
                     </div>
@@ -35,36 +35,21 @@ Login
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area text-center">
-                        <h1 class="section-title">Sign In <br>To  Your Account</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
-                             Sit aliquid,  Non distinctio vel iste.</p>
+                        <h1 class="section-title">Verify Your Email</h1>
+                        <p>verification code has been send to your email</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="account-login-inner">
-                        <form id="loginForm" method="POST" class="ltn__form-box contact-form-box">
+                        <form id="verifyOtpForm" method="POST" class="ltn__form-box contact-form-box">
                         @csrf
-                            <input type="text" name="email" placeholder="Email*" required>
-                            <input type="password" name="password" placeholder="Password*" required>
+                            <input type="text" name="otp" placeholder="Enter your Verification Code*" required>
                             <div class="btn-wrapper mt-0">
-                                <button class="theme-btn-1 btn btn-block" type="submit">SIGN IN</button>
-                            </div>
-                            <div class="go-to-btn mt-20">
-                                <a  href="#" title="Forgot Password?" data-bs-toggle="modal" data-bs-target="#ltn_forget_password_modal"><small>FORGOTTEN YOUR PASSWORD?</small></a>
+                                <button class="theme-btn-1 btn btn-block" type="submit">VERIFY</button>
                             </div>
                         </form>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="account-create text-center pt-50">
-                        <h4>DON'T HAVE AN ACCOUNT?</h4>
-                        <p>Add items to your wishlistget personalised recommendations <br>
-                            check out more quickly track your orders register</p>
-                        <div class="btn-wrapper">
-                            <a href="register.html" class="theme-btn-1 btn black-btn">CREATE ACCOUNT</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -96,16 +81,14 @@ Login
     @push('scripts')
 <script>
 $(document).ready(function() {
-    // Handle form submission
-    $('#loginForm').on('submit', function(e) {
+    $('#verifyOtpForm').on('submit', function(e) {
         e.preventDefault();
-        // Set the value of the hidden textarea to the Quill editor content
         handleFormUploadForm(
             'POST',
-            '#loginForm',
+            '#verifyOtpForm',
             '#submit',
-            '{{ route('auth.login') }}',
-            '{{ route('users.verifyOtp') }}'
+            '{{ route('auth.verifyotp') }}',
+            '{{ route('blogs.index') }}'
         );
     });
 });

@@ -110,7 +110,7 @@ $(document).ready(function() {
             '#registerForm',
             '#submit',
             '{{ route('auth.register') }}',
-            '{{ route('blogs.index') }}'
+            '{{ route('users.login') }}'
         );
     });
 });
