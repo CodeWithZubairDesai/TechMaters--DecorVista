@@ -1,9 +1,9 @@
-@extends('layouts.main-file')
+@extends('admin.layouts.main-file')
 
 @section('main-section')
 <div class="col-xl-12 col-lg-12 d-flex justify-content-between align-items-center">
     <h4 class="fw-bold topbar-button pe-none text-uppercase mb-2 mx-4">Blog Detail</h4>
-    <a href="{{ route('blogs.index') }}" class="btn btn-sm btn-primary mx-4 mb-2">Blog List</a>
+    <a href="{{ route('admin.blogs.index') }}" class="btn btn-sm btn-primary mx-4 mb-2">Blog List</a>
 </div>
 <div class="container-xxl">
     <div class="row">
@@ -14,15 +14,11 @@
                     <!-- Title and Metadata Container -->
                     <div class="d-flex flex-column flex-grow-1">
                         <h1 class="card-title" style="font-size: 2rem;">{{ $blog->title }}</h1>
-                        <!-- Adjusted Badge -->
-                        <span class="badge bg-primary my-2 d-inline-block" style="padding: 0.35em 0.65em; font-size: 0.875em;">
-                            {{ $blog->category->name }}
-                        </span>
                         <p class="text-muted mb-2">Published on {{ \Carbon\Carbon::parse($blog->date)->format('F j, Y') }} by {{ $blog->created_by }}</p>
                     </div>
                     <!-- Display the first image larger on the right side -->
-                    @if ($blog->image)
-                        <img src="{{ env('ASSET2_URL') . $blog->image }}" class="img-thumbnail" style="width: 200px; height: auto; margin-left: 20px;">
+                    @if ($blog->images[0]->image_path)
+                        <img src="{{ env('ASSET2_URL') . $blog->images[0]->image_path }}" class="img-thumbnail" style="width: 200px; height: auto; margin-left: 20px;">
                     @endif
                 </div>
                 <div class="card-body">

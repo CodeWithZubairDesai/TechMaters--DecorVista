@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\GalleryCategoryController as AdminGalleryCategoryController;
+use App\Http\Controllers\Admin\ProductCategoryController as AdminProductCategoryController;
 
 
 
@@ -62,29 +63,43 @@ Route::prefix('admin')->group(function(){
 Route::middleware(['admin.auth'])->group(function () {
     Route::controller(AdminProductController::class)->group(function () {
         Route::prefix('products')->group(function () {
-            Route::get('/', 'index')->name('products.index');
-            Route::get('/{id}/detail', 'show')->name('products.detail');
-            Route::get('/create', 'create')->name('products.create');
-            Route::post('/store', 'store')->name('products.store');
-            Route::put('/{id}/detail', 'show')->name('products.show');
-            Route::post('/status', 'status')->name('products.status');
-            Route::get('/{id}/edit', 'edit')->name('products.edit');
-            Route::post('/update', 'update')->name('products.update');
-            Route::post('/destroy/{id}', 'destroy')->name('products.destroy');
+            Route::get('/', 'index')->name('admin.products.index');
+            Route::get('/{id}/detail', 'show')->name('admin.products.detail');
+            Route::get('/create', 'create')->name('admin.products.create');
+            Route::post('/store', 'store')->name('admin.products.store');
+            Route::put('/{id}/detail', 'show')->name('admin.products.show');
+            Route::post('/status', 'status')->name('admin.products.status');
+            Route::get('/{id}/edit', 'edit')->name('admin.products.edit');
+            Route::post('/update', 'update')->name('admin.products.update');
+            Route::post('/destroy/{id}', 'destroy')->name('admin.products.destroy');
         });
     });
     
     
     Route::controller(AdminGalleryCategoryController::class)->group(function () {
-        Route::prefix('categories')->group(function () {
-            Route::get('/', 'index')->name('categories.index');
-            Route::get('/create', 'create')->name('categories.create');
-            Route::post('/store', 'store')->name('categories.store');
-            Route::post('/status', 'status')->name('categories.status');
-            Route::get('/{id}/edit', 'edit')->name('categories.edit');
-            Route::put('/update', 'update')->name('categories.update');
+        Route::prefix('gallery-categories')->group(function () {
+            Route::get('/', 'index')->name('admin.gallery.categories.index');
+            Route::get('/create', 'create')->name('admin.gallery.categories.create');
+            Route::post('/store', 'store')->name('admin.gallery.categories.store');
+            Route::post('/status', 'status')->name('admin.gallery.categories.status');
+            Route::get('/{id}/edit', 'edit')->name('admin.gallery.categories.edit');
+            Route::post('/update', 'update')->name('admin.gallery.categories.update');
             
-            Route::post('/destroy/{id}', 'destroy')->name('categories.destroy');
+            Route::post('/destroy/{id}', 'destroy')->name('admin.gallery.categories.destroy');
+        });
+    });
+
+
+    Route::controller(AdminProductCategoryController::class)->group(function () {
+        Route::prefix('product-categories')->group(function () {
+            Route::get('/', 'index')->name('admin.product.categories.index');
+            Route::get('/create', 'create')->name('admin.product.categories.create');
+            Route::post('/store', 'store')->name('admin.product.categories.store');
+            Route::post('/status', 'status')->name('admin.product.categories.status');
+            Route::get('/{id}/edit', 'edit')->name('admin.product.categories.edit');
+            Route::post('/update', 'update')->name('admin.product.categories.update');
+            
+            Route::post('/destroy/{id}', 'destroy')->name('admin.product.categories.destroy');
         });
     });
 

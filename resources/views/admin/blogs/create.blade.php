@@ -1,9 +1,9 @@
-@extends('layouts.main-file')
+@extends('admin.layouts.main-file')
 
 @section('main-section')
 <div class="col-xl-12 col-lg-12 d-flex justify-content-between align-items-center">
     <h4 class="fw-bold topbar-button pe-none text-uppercase mb-2 mx-4">Create Blog</h4>
-    <a href="{{ route('blogs.index') }}" class="btn btn-sm btn-primary mx-4 mb-2">Blog List</a>
+    <a href="{{ route('admin.blogs.index') }}" class="btn btn-sm btn-primary mx-4 mb-2">Blog List</a>
 </div>
 <div class="container-xxl">
     <div class="row">
@@ -39,15 +39,6 @@
                                     <label for="blog-title" class="form-label">Blog Title</label>
                                     <input type="text" id="blog-title" name="title" class="form-control" placeholder="Blog Title">
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="blog-categories" class="form-label">Blog Categories</label>
-                                <select class="form-control" id="blog-categories" name="category_id" data-choices data-choices-groups data-placeholder="Select Categories">
-                                    <option value="">Choose a category</option>
-                                    @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
                             </div>
                         </div>
 
@@ -157,8 +148,8 @@ $(document).ready(function() {
             'POST',
             '#blogCreateForm',
             '#submit',
-            '{{ route('blogs.store') }}',
-            '{{ route('blogs.index') }}'
+            '{{ route('admin.blogs.store') }}',
+            '{{ route('admin.blogs.index') }}'
         );
     });
 });

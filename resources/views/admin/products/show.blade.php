@@ -1,4 +1,4 @@
-@extends('layouts.main-file')
+@extends('admin.layouts.main-file')
 
 @section('main-section')
 <div class="col-xl-12 col-lg-12 d-flex justify-content-between align-items-center">
@@ -16,7 +16,8 @@
                     <div class="image-slider-container position-relative">
                         <!-- Main Image Display -->
                         <div id="mainImage" class="main-image bg-light rounded">
-                            <img src="{{ str_replace('storage/', 'storage/app/public/', asset($product->images[0]->image_path)) }}" alt="" class="img-fluid" id="currentImage">
+                            <img src="{{ str_replace('storage/', 'storage/app/public/', asset($product->images[0]->image_path)) }}"
+                                alt="" class="img-fluid" id="currentImage">
                         </div>
 
                         <!-- Left and Right Navigation Buttons -->
@@ -32,8 +33,10 @@
                         <!-- Thumbnail Images -->
                         <div class="d-flex justify-content-center mt-3">
                             @foreach($product->images as $index => $image)
-                                <div class="thumb" style="opacity: {{ $index === 0 ? '1' : '0.5' }};" data-index="{{ $index }}">
-                                    <img src="{{env('ASSET2_URL')}}{{$image->image_path}}" class="img-thumbnail" style="width: 60px; cursor: pointer;">
+                                <div class="thumb" style="opacity: {{ $index === 0 ? '1' : '0.5' }};"
+                                    data-index="{{ $index }}">
+                                    <img src="{{env('ASSET2_URL')}}{{$image->image_path}}" class="img-thumbnail"
+                                        style="width: 60px; cursor: pointer;">
                                 </div>
                             @endforeach
                         </div>
@@ -58,11 +61,14 @@
                                 </li>
                             @endfor
                         </ul>
-                        <p class="mb-0 fw-medium fs-18 text-dark">4.5 <span class="text-muted fs-13">(55 Review)</span></p>
+                        <p class="mb-0 fw-medium fs-18 text-dark">4.5 <span class="text-muted fs-13">(55 Review)</span>
+                        </p>
                     </div>
                     @if($product->price)
                         <h2 class="fw-medium my-3">
-                            ${{ $product->price }} <span class="fs-16 text-decoration-line-through">{{ $product->original_price }}</span><small class="text-danger ms-2">({{ $product->discount_percentage }}% Off)</small>
+                            ${{ $product->price }} <span
+                                class="fs-16 text-decoration-line-through">{{ $product->original_price }}</span><small
+                                class="text-danger ms-2">({{ $product->discount_percentage }}% Off)</small>
                         </h2>
                     @else
                         <h4 class="text-dark fw-medium">Grammage Options:</h4>
@@ -78,7 +84,8 @@
                         <li><i class='bx bx-check text-success'></i> In Stock</li>
                         <li><i class='bx bx-check text-success'></i> Free delivery available</li>
                         @if($product->discount_code)
-                            <li><i class='bx bx-check text-success'></i> Sales 10% Off Use Code: <span class="text-dark fw-medium">{{ $product->discount_code }}</span></li>
+                            <li><i class='bx bx-check text-success'></i> Sales 10% Off Use Code: <span
+                                    class="text-dark fw-medium">{{ $product->discount_code }}</span></li>
                         @endif
                     </ul>
                     <h4 class="text-dark fw-medium">Description :</h4>
@@ -100,7 +107,8 @@
                         @foreach($product->reviews as $review)
                             <div class="col-lg-4">
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="{{env('ASSET2_URL')}}{{ $review->user->profile_picture }}" alt="" class="avatar-md rounded-circle">
+                                    <img src="{{env('ASSET2_URL')}}{{ $review->user->profile_picture }}" alt=""
+                                        class="avatar-md rounded-circle">
                                     <div>
                                         <h5 class="mb-0">{{ $review->user->name }}</h5>
                                     </div>
@@ -136,48 +144,47 @@
 
 <!-- JavaScript for Image Slider -->
 @push('scripts')
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let currentIndex = 0;
-        const images = @json($product->images);
-        const mainImage = document.getElementById("currentImage");
-        const thumbs = document.querySelectorAll('.thumb');
-        const nextButton = document.getElementById("nextImage");
-        const prevButton = document.getElementById("prevImage");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentIndex = 0;
+            const images = @json($product->images);
+            const mainImage = document.getElementById("currentImage");
+            const thumbs = document.querySelectorAll('.thumb');
+            const nextButton = document.getElementById("nextImage");
+            const prevButton = document.getElementById("prevImage");
 
-        // Function to update the main image and thumbnails
-        function updateImage(index) {
-            mainImage.src = "{{ env('ASSET2_URL') }}" + images[index].image_path;
-            thumbs.forEach((thumb, i) => {
-                thumb.style.opacity = i === index ? "1" : "0.5";
-            });
-        }
+            // Function to update the main image and thumbnails
+            function updateImage(index) {
+                mainImage.src = "{{ env('ASSET2_URL') }}" + images[index].image_path;
+                thumbs.forEach((thumb, i) => {
+                    thumb.style.opacity = i === index ? "1" : "0.5";
+                });
+            }
 
-        // Auto-slide every few seconds
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateImage(currentIndex);
-        }, 3000);
+            // Auto-slide every few seconds
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage(currentIndex);
+            }, 3000);
 
-        // Navigation buttons
-        nextButton.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateImage(currentIndex);
-        });
-
-        prevButton.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateImage(currentIndex);
-        });
-
-        // Click on thumbnail to select image
-        thumbs.forEach((thumb, index) => {
-            thumb.addEventListener("click", () => {
-                currentIndex = index;
+            // Navigation buttons
+            nextButton.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % images.length;
                 updateImage(currentIndex);
             });
-        });
-    });
-</script>
-@endpush
 
+            prevButton.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage(currentIndex);
+            });
+
+            // Click on thumbnail to select image
+            thumbs.forEach((thumb, index) => {
+                thumb.addEventListener("click", () => {
+                    currentIndex = index;
+                    updateImage(currentIndex);
+                });
+            });
+        });
+    </script>
+@endpush

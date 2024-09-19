@@ -1,4 +1,4 @@
-@extends('layouts.main-file')
+@extends('admin.layouts.main-file')
 
 @section('main-section')
 <div class="col-xl-12 col-lg-12 d-flex justify-content-between align-items-center">
@@ -22,7 +22,8 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="brand-name" class="form-label">Brand Name</label>
-                                    <input type="text" id="brand-name" name="name" class="form-control" placeholder="Brand Name" required>
+                                    <input type="text" id="brand-name" name="name" class="form-control"
+                                        placeholder="Brand Name" required>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +64,8 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="icon-image" class="form-label">Icon Image</label>
-                                    <input type="file" id="icon-image" name="icon_image" accept="image/*" class="form-control" required>
+                                    <input type="file" id="icon-image" name="icon_image" accept="image/*"
+                                        class="form-control" required>
                                     <div id="icon-preview" class="d-flex flex-wrap mt-2"></div>
                                 </div>
                             </div>
@@ -72,7 +74,8 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="cover-image" class="form-label">Cover Image</label>
-                                    <input type="file" id="cover-image" name="cover_image" accept="image/*" class="form-control" required>
+                                    <input type="file" id="cover-image" name="cover_image" accept="image/*"
+                                        class="form-control" required>
                                     <div id="cover-preview" class="d-flex flex-wrap mt-2"></div>
                                 </div>
                             </div>
@@ -81,7 +84,8 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="banner-image" class="form-label">Banner Image</label>
-                                    <input type="file" id="banner-image" name="banner_image" accept="image/*" class="form-control" required>
+                                    <input type="file" id="banner-image" name="banner_image" accept="image/*"
+                                        class="form-control" required>
                                     <div id="banner-preview" class="d-flex flex-wrap mt-2"></div>
                                 </div>
                             </div>
@@ -109,34 +113,33 @@
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
     <script>
-    $(document).ready(function() {
+        $(document).ready(function () {
 
-        var quill = new Quill('#snow-editor', {
-        theme: 'snow',
-        modules: {
-            'toolbar': [['bold', 'italic', 'underline'], ['link', 'image']]
-        }
-    });
-        // Call the reusable function for each image input
-        handleImagePreview('#icon-image', '#icon-preview');
-        handleImagePreview('#cover-image', '#cover-preview');
-        handleImagePreview('#banner-image', '#banner-preview');
+            var quill = new Quill('#snow-editor', {
+                theme: 'snow',
+                modules: {
+                    'toolbar': [['bold', 'italic', 'underline'], ['link', 'image']]
+                }
+            });
+            // Call the reusable function for each image input
+            handleImagePreview('#icon-image', '#icon-preview');
+            handleImagePreview('#cover-image', '#cover-preview');
+            handleImagePreview('#banner-image', '#banner-preview');
 
-        // You can add additional form-specific JS here if needed
-        $('#brandCreateForm').on('submit', function(e) {
-            e.preventDefault();
-            $('#brand-description').val(quill.root.innerHTML); // Set Quill content to hidden textarea
+            // You can add additional form-specific JS here if needed
+            $('#brandCreateForm').on('submit', function (e) {
+                e.preventDefault();
+                $('#brand-description').val(quill.root.innerHTML); // Set Quill content to hidden textarea
 
-            handleFormUploadForm(
-                'POST',
-                '#brandCreateForm',
-                '#submit',
-                '{{ route('brands.store') }}',
-                '{{ route('brands.index') }}'
-            );
+                handleFormUploadForm(
+                    'POST',
+                    '#brandCreateForm',
+                    '#submit',
+                    '{{ route('brands.store') }}',
+                    '{{ route('brands.index') }}'
+                );
+            });
+
         });
-        
-    });
     </script>
 @endpush
-

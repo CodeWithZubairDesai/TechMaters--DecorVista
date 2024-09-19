@@ -3,29 +3,28 @@
 @section('main-section')
 <!-- Start Container Fluid -->
 <div class="container-xxl">
+
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center gap-1">
-                    <h4 class="card-title flex-grow-1">All Products List</h4>
+                    <h4 class="card-title flex-grow-1">All Product Categories List</h4>
 
-                    <a href="{{ route('products.create') }}" class="btn btn-sm btn-primary">
-                        Add Product
+                    <a href="{{ route('admin.product.categories.create') }}" class="btn btn-sm btn-primary">
+                        Add Product Category
                     </a>
                 </div>
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="productsTable" class="table table-striped">
+                        <table id="productCategoriesTable" class="table table-striped">
                             <thead class="bg-light-subtle">
                                 <tr>
                                     <th>#</th>
-                                    <th>Image</th>
-                                    <th>Product Name</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
+                                    <th>Category Name</th>
+                                    <th>Parent Category</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Action</th> <!-- Added Action column -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,41 +50,21 @@
 @push('scripts')
     <script type="text/javascript">
         $(document).ready(function () {
-            var table = $('#productsTable').DataTable({
+            var table = $('#productCategoriesTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route("products.index") }}',
+                ajax: '{{ route("admin.product.categories.index") }}',
                 responsive: true,
                 pageLength: 10,
                 paging: false,
                 columns: [
                     { data: 'id', name: 'id' },
-                    {
-                        data: 'product_image',
-                        name: 'product_image',
-                        render: function (data) {
-                            // Check if 'data' is defined and not empty
-                            const imageUrl = data ? '{{ env("ASSET2_URL") }}' + data : '{{ env("ASSET2_URL") }}/placeholder.png';
 
-                            return '<div class="d-flex align-items-center gap-2">' +
-                                '  <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">' +
-                                '    <img src="' + imageUrl + '" alt="" class="avatar-md">' +
-                                '  </div>' +
-                                '</div>';
-                        }
-                    },
                     { data: 'name', name: 'name' },
-                    { data: 'category_name', name: 'category_name' },
-                    {
-                        data: 'price', name: 'price', render: function (data) {
-                            // Return the price with <br> tags interpreted correctly
-                            return data ? data.replace(/\n/g, '<br>') : 'N/A';
-                        }, orderable: false, searchable: false
-                    },
+                    { data: 'parentCategory', name: 'parentCategory' },
                     { data: 'status', name: 'status' },
-                    { data: 'action', name: 'action', orderable: false, searchable: false, class: 'text-center' }
+                    { data: 'action', name: 'action', orderable: false, searchable: false, class: 'text-center' } // For Edit button
                 ],
-
                 "drawCallback": function () {
                     $('#paginationControls').empty();
                     var api = this.api();
@@ -115,20 +94,26 @@
                 }
             });
 
+
             // Function to handle the status toggle change
             window.updateStatusToggle = function (element) {
                 var id = $(element).val();
                 var status = $(element).is(':checked') ? 1 : 0;
 
                 updateStatus(
-                    '{{ route("products.status") }}',
+                    '{{ route("admin.product.categories.status") }}',
                     id,
                     status
                 );
             };
         });
+
+
+
     </script>
 @endpush
+
+
 
 @push('styles')
     <style>

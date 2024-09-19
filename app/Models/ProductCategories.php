@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Auth;
 
 
-class GalleryCategories extends Model
+class ProductCategories extends Model
 {
     use HasFactory;
-    protected $table = 'gallery_categories';
+    protected $table = 'product_categories';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -28,17 +28,17 @@ class GalleryCategories extends Model
     // }
     public function categories()
     {
-        return $this->hasMany(GalleryCategories::class, 'parent_id');
+        return $this->hasMany(ProductCategories::class, 'parent_id');
     }
 
     public function childCategories()
     {
-        return $this->hasMany(GalleryCategories::class, 'parent_id')->with('categories');
+        return $this->hasMany(ProductCategories::class, 'parent_id')->with('categories');
     }
 
     public function parentCategory()
     {
-        return $this->belongsTo(GalleryCategories::class, 'parent_id');
+        return $this->belongsTo(ProductCategories::class, 'parent_id');
     }
 
     function scopeStatus($query,$status)

@@ -4,6 +4,6 @@
 
 @include('admin.layouts.vertical')
 
-@yield('admin.main-section')
+@yield('main-section')
 
 @include('admin.layouts.foot')

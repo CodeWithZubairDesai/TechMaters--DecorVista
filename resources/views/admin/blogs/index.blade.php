@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <div class="rounded bg-secondary-subtle d-flex align-items-center justify-content-center mx-auto">
-                                <img src="{{ env("ASSET2_URL") }}{{$cpRow->image}}" alt="" class="avatar-xl">
+                                <img src="{{ env("ASSET2_URL") }}{{$cpRow->images[0]->image_path}}" alt="" class="avatar-xl">
                             </div>
                             <h4 class="mt-3 mb-0">{{$cpRow->title}}</h4>
                         </div>
@@ -68,7 +68,7 @@
         var table = $('#blogsTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route("blogs.index") }}',
+            ajax: '{{ route("admin.blogs.index") }}',
             responsive: true,
             pageLength: 10,
             paging: false,

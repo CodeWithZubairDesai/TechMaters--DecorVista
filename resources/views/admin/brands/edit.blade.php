@@ -1,4 +1,4 @@
-@extends('layouts.main-file')
+@extends('admin.layouts.main-file')
 
 @section('main-section')
 <div class="col-xl-12 col-lg-12 d-flex justify-content-between align-items-center">
@@ -22,7 +22,8 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="brand-name" class="form-label">Brand Name</label>
-                                    <input type="text" id="brand-name" name="name" class="form-control" value="{{ $brand->name }}" required>
+                                    <input type="text" id="brand-name" name="name" class="form-control"
+                                        value="{{ $brand->name }}" required>
                                 </div>
                             </div>
                         </div>
@@ -54,10 +55,12 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="icon-image" class="form-label">Icon Image</label>
-                                    <input type="file" id="icon-image" name="icon_image" accept="image/*" class="form-control">
+                                    <input type="file" id="icon-image" name="icon_image" accept="image/*"
+                                        class="form-control">
                                     <div id="icon-preview" class="d-flex flex-wrap mt-2">
                                         @if ($brand->icon_image)
-                                            <img src="{{ env('ASSET2_URL') . $brand->icon_image }}" class="img-thumbnail" style="width: 150px;">
+                                            <img src="{{ env('ASSET2_URL') . $brand->icon_image }}" class="img-thumbnail"
+                                                style="width: 150px;">
                                         @endif
                                     </div>
                                 </div>
@@ -67,10 +70,12 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="cover-image" class="form-label">Cover Image</label>
-                                    <input type="file" id="cover-image" name="cover_image" accept="image/*" class="form-control">
+                                    <input type="file" id="cover-image" name="cover_image" accept="image/*"
+                                        class="form-control">
                                     <div id="cover-preview" class="d-flex flex-wrap mt-2">
                                         @if ($brand->cover_image)
-                                            <img src="{{ env('ASSET2_URL') . $brand->cover_image }}" class="img-thumbnail" style="width: 250px;">
+                                            <img src="{{ env('ASSET2_URL') . $brand->cover_image }}" class="img-thumbnail"
+                                                style="width: 250px;">
                                         @endif
                                     </div>
                                 </div>
@@ -80,10 +85,12 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="banner-image" class="form-label">Banner Image</label>
-                                    <input type="file" id="banner-image" name="banner_image" accept="image/*" class="form-control">
+                                    <input type="file" id="banner-image" name="banner_image" accept="image/*"
+                                        class="form-control">
                                     <div id="banner-preview" class="d-flex flex-wrap mt-2">
                                         @if ($brand->banner_image)
-                                            <img src="{{ env('ASSET2_URL') . $brand->banner_image }}" class="img-thumbnail" style="width: 250px;">
+                                            <img src="{{ env('ASSET2_URL') . $brand->banner_image }}" class="img-thumbnail"
+                                                style="width: 250px;">
                                         @endif
                                     </div>
                                 </div>
@@ -112,34 +119,34 @@
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
     <script>
-    $(document).ready(function() {
+        $(document).ready(function () {
 
-        var quill = new Quill('#snow-editor', {
-        theme: 'snow',
-        modules: {
-            'toolbar': [['bold', 'italic', 'underline'], ['link', 'image']]
-        }
-    });
+            var quill = new Quill('#snow-editor', {
+                theme: 'snow',
+                modules: {
+                    'toolbar': [['bold', 'italic', 'underline'], ['link', 'image']]
+                }
+            });
 
-        // Handle image preview for the updated images
-        handleImagePreview('#icon-image', '#icon-preview');
-        handleImagePreview('#cover-image', '#cover-preview');
-        handleImagePreview('#banner-image', '#banner-preview');
+            // Handle image preview for the updated images
+            handleImagePreview('#icon-image', '#icon-preview');
+            handleImagePreview('#cover-image', '#cover-preview');
+            handleImagePreview('#banner-image', '#banner-preview');
 
-        // Form submit handler
-        $('#brandEditForm').on('submit', function(e) {
-            e.preventDefault();
-            $('#brand-description').val(quill.root.innerHTML); // Set Quill content to hidden textarea
+            // Form submit handler
+            $('#brandEditForm').on('submit', function (e) {
+                e.preventDefault();
+                $('#brand-description').val(quill.root.innerHTML); // Set Quill content to hidden textarea
 
-            handleFormUploadForm(
-                'POST',
-                '#brandEditForm',
-                '#submit',
-                '{{ route('brands.update', $brand->id) }}',
-                '{{ route('brands.index') }}'
-            );
+                handleFormUploadForm(
+                    'POST',
+                    '#brandEditForm',
+                    '#submit',
+                    '{{ route('brands.update', $brand->id) }}',
+                    '{{ route('brands.index') }}'
+                );
+            });
+
         });
-        
-    });
     </script>
 @endpush
