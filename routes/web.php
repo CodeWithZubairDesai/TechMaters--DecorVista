@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\BlogController as UserBlogController;
 use App\Http\Controllers\User\UserController ;
 use App\Http\Controllers\User\ContactUsController as UserContactUsController;
+use App\Http\Controllers\User\ProductController as UserProductController;
 
 
 
@@ -215,5 +216,12 @@ Route::prefix('frontend')->group(function(){
     Route::controller(UserContactUsController::class)->prefix('contact')->group(function () {
         Route::get('/', 'create')->name('users.contact.index');
         Route::post('/store', 'store')->name('users.contact.store');
+    });
+
+
+    
+    Route::controller(UserProductController::class)->prefix('products')->group(function () {
+        Route::get('/', 'index')->name('users.products.index');
+        Route::post('/detail/{id}/', 'show')->name('users.products.store');
     });
 });

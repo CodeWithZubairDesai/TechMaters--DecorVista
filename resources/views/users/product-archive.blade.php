@@ -2,7 +2,7 @@
 
 @section('title')
 
-Product-Archieve
+Product
 
 @endsection
 @section('main')
