@@ -67,6 +67,7 @@ class AuthController extends Controller
              $validator = Validator::make($request->all(), [
                 'email' => 'required|email',
                 'password' => 'required',
+                'role' => 'required|integer|in:1,2,3',
             ]);
 
             if ($validator->fails()) {
@@ -98,11 +99,15 @@ class AuthController extends Controller
                     ]);
                     ;
                 }
-                return response()->json([
-                    'status' => 'success',
-                    'message' =>'Admin Logged in Successfully',
-                    'data' => null,
-                ]);
+
+                if($user->role == "admin" && $request->role == 3){
+                    return response()->json([
+                        'status' => 'success',
+                        'message' =>'Admin Logged in Successfully',
+                        'data' => null,
+                    ]);
+                }
+                
             }
 
             return response()->json([

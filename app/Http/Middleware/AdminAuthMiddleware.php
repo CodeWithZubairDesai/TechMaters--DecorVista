@@ -21,6 +21,6 @@ class AdminAuthMiddleware
             return $next($request);
         }
 
-        return redirect('/login'); // or another appropriate response
+        return redirect('/admin/login'); // or another appropriate response
     }
 }

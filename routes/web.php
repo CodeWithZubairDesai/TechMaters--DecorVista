@@ -3,8 +3,23 @@
 use App\Http\Controllers\UserController as FUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\User\BlogController;
+
+// User Controller
+use App\Http\Controllers\User\BlogController as UserBlogController;
 use App\Http\Controllers\User\UserController ;
+
+
+
+//Admin Controller
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
+use App\Http\Controllers\Admin\GalleryCategoryController as AdminGalleryCategoryController;
+
+
+
+
 
 /*
 |----------------------------------------------------------------------
@@ -26,18 +41,111 @@ Route::controller(AuthController::class)->group(function(){
 
 
 // Admin Routes
+Route::prefix('admin')->group(function(){
+    Route::controller(AdminDashboardController::class)->group(function(){
+        Route::get('/dashboard',  'index')->name('admin.dashboard');
+        Route::post('register', 'register');
+        Route::get('login', 'login_two')->name('loginForm');
+        Route::post('/login-verification', 'login')->name('login.verification');
+        Route::post('/verifiedcredintails', 'verifiedcredintails')->name('verifiedcredintails');
+        Route::post('/verifyOTP/expire', 'expireotp')->name('expireotp');
+        Route::post('/verifyOTP/resend', 'resendOtp')->name('resendotp')->middleware('throttle:5,1');
+        Route::get('forgetPasswordForm','forgetPasswordForm')->name('forgetPasswordForm');
+        Route::get('verifyOtpform','verifyOtpform')->name('verifyOtpform');
+        Route::post('forget_password', 'forgetPassword')->name('forget_password');
+        Route::get('/logouts', 'logout')->name('logout');
+        Route::get('/resetPasswordForm/{token}','resetPasswordForm')->name('resetPasswordForm');
+        Route::post('reset_password', 'resetPassword')->name('reset_password');
+    });
+
+
 Route::middleware(['admin.auth'])->group(function () {
-    Route::get('/admin/dashboard', [AuthController::class, 'showDashboard'])->name('admin.dashboard');
-    // Add more admin routes here
+    Route::controller(AdminProductController::class)->group(function () {
+        Route::prefix('products')->group(function () {
+            Route::get('/', 'index')->name('products.index');
+            Route::get('/{id}/detail', 'show')->name('products.detail');
+            Route::get('/create', 'create')->name('products.create');
+            Route::post('/store', 'store')->name('products.store');
+            Route::put('/{id}/detail', 'show')->name('products.show');
+            Route::post('/status', 'status')->name('products.status');
+            Route::get('/{id}/edit', 'edit')->name('products.edit');
+            Route::post('/update', 'update')->name('products.update');
+            Route::post('/destroy/{id}', 'destroy')->name('products.destroy');
+        });
+    });
+    
+    
+    Route::controller(AdminGalleryCategoryController::class)->group(function () {
+        Route::prefix('categories')->group(function () {
+            Route::get('/', 'index')->name('categories.index');
+            Route::get('/create', 'create')->name('categories.create');
+            Route::post('/store', 'store')->name('categories.store');
+            Route::post('/status', 'status')->name('categories.status');
+            Route::get('/{id}/edit', 'edit')->name('categories.edit');
+            Route::put('/update', 'update')->name('categories.update');
+            
+            Route::post('/destroy/{id}', 'destroy')->name('categories.destroy');
+        });
+    });
+
+
+
+    Route::controller(AdminGalleryController::class)->group(function () {
+        Route::prefix('gallery')->group(function () {
+            Route::get('/', 'index')->name('gallery.index');
+            Route::get('/create', 'create')->name('gallery.create');
+            Route::post('/store', 'store')->name('gallery.store');
+            Route::post('/status', 'status')->name('gallery.status');
+            Route::get('/{id}/edit', 'edit')->name('gallery.edit');
+            Route::put('/update', 'update')->name('gallery.update');
+            
+            Route::post('/destroy/{id}', 'destroy')->name('gallery.destroy');
+        });
+    });
+
+
+    Route::controller(AdminBlogController::class)->group(function () {
+        Route::prefix('blogs')->group(function () {
+            Route::get('/', 'index')->name('admin.blogs.index');
+            Route::get('/{id}/detail', 'show')->name('admin.blogs.detail');
+            Route::get('/create', 'create')->name('admin.blogs.create');
+            Route::post('/store', 'store')->name('admin.blogs.store');
+            Route::put('/{id}/detail', 'show')->name('admin.blogs.show');
+            Route::post('/status', 'status')->name('admin.blogs.status');
+            Route::get('/{id}/edit', 'edit')->name('admin.blogs.edit');
+            Route::post('/update', 'update')->name('admin.blogs.update');
+            Route::post('/destroy/{id}', 'destroy')->name('admin.blogs.destroy');
+        });
+    });
+
+
+});
 });
 
-// User Routes
+
+
+
+
+
 
 // Interior Designer Routes
 Route::middleware(['designer.auth'])->group(function () {
     Route::get('/designer/dashboard', [AuthController::class, 'interiorDashboard'])->name('designer.dashboard');
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+// User Routes
 Route::prefix('frontend')->group(function(){
     Route::middleware(['user.auth'])->group(function () {
         Route::get('/', [AuthController::class, 'showWelcome'])->name('welcome');
@@ -77,7 +185,7 @@ Route::prefix('frontend')->group(function(){
         Route::get('/logouts', 'logout')->name('users.logout');
     });
 
-    Route::controller(BlogController::class)->prefix('blogs')->group(function () {
+    Route::controller(UserBlogController::class)->prefix('blogs')->group(function () {
         Route::get('/', 'index')->name('blogs.index');
         Route::get('/{id}/detail', 'show')->name('blogs.show');
 
