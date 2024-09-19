@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
+class PortfolioImage extends Model
+{
+    use HasFactory;
+    public $timestamps = true; // To use Laravel's timestamp columns
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'portfolio_id',
+        'image_path',
+        'status',
+    ];
+
+    /**
+     * Define the relationship with the Portfolio model.
+     */
+    public function portfolio()
+    {
+        return $this->belongsTo(Portfolio::class, 'portfolio_id');
+    }
+
+    /**
+     * Scope a query to only include images of a given status.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param mixed $status
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeStatus($query, $status)
+    {
+        if ($status !== '') {
+            return $query->where('status', $status);
+        }
+    }
+
+    /**
+     * Boot method for setting created_by and created_date on creation.
+     */
+    protected static function booted()
+    {
+        static::creating(function ($model) {
+            $model->created_by = Auth::user()->name;
+            $model->created_date = now();
+            $model->status = 1; 
+        });
+    }
+}

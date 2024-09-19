@@ -10,7 +10,8 @@ use App\Http\Controllers\User\UserController ;
 use App\Http\Controllers\User\ContactUsController as UserContactUsController;
 use App\Http\Controllers\User\ProductController as UserProductController;
 
-
+// Interior Designer Controller
+use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioController;
 
 //Admin Controller
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -147,14 +148,6 @@ Route::middleware(['admin.auth'])->group(function () {
 
 
 
-// Interior Designer Routes
-Route::prefix('designer')->group(function(){
-Route::middleware(['designer.auth'])->group(function () {
-
-});
-});
-
-
 
 
 
@@ -225,3 +218,66 @@ Route::prefix('frontend')->group(function(){
         Route::post('/detail/{id}/', 'show')->name('users.products.show');
     });
 });
+
+// Interior Designer Routes
+// Route::prefix('designer')->group(function(){
+// Route::middleware(['designer.auth'])->group(function () {
+
+// });
+// });
+
+
+Route::prefix('designer')->group(function(){
+
+    // Route::middleware(['auth', 'role:designer'])->group(function () {
+        Route::get('portfolio/create', [DesignerPortfolioController::class, 'create']);
+        Route::post('portfolio', [DesignerPortfolioController::class, 'store'])->name('portfolio');
+        Route::get('portfolio/edit', [DesignerPortfolioController::class, 'edit']);
+        Route::post('portfolio/update', [DesignerPortfolioController::class, 'update']);
+
+        // Route::post('consultation/{id}', [DesignerConsultationController::class, 'store']);
+
+    // });
+
+    Route::get('portfolio/{id}', [DesignerPortfolioController::class, 'show']);
+
+});
+
+
+
+
+
+
+// Interior designer routes
+
+
+
+Route::get('/interiordashboardhome', function () {
+    return view('InteriorDesignerDashboard.InteriorDesignerDashboard');
+});
+
+
+Route::get('/interiordesignerappointmentsrequests', function () {
+    return view('InteriorDesignerDashboard.InteriorDesignerAppointmentsRequests');
+});
+
+Route::get('/interiordesignerappointmentsreviews', function () {
+    return view('InteriorDesignerDashboard.InteriorDesignerCompletedAppointmentsReviews');
+});
+
+Route::get('/interiordesignercreateportfolio', function () {
+    return view('InteriorDesignerDashboard.InteriorDesignerCreatePortfolio');
+});
+
+Route::get('/interiordesigneraddinspirationgallery', function () {
+    return view('InteriorDesignerDashboard.InteriorDesignerAddInspirationGallery');
+});
+
+Route::get('/login', function () {
+    return view('InteriorDesignerDashboard.Auth.Login');
+});
+
+Route::get('/register', function () {
+    return view('InteriorDesignerDashboard.Auth.Register');
+});
+
