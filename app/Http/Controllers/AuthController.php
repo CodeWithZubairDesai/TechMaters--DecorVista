@@ -25,8 +25,7 @@ class AuthController extends Controller
         try {
             // Validate the request
             $validator = Validator::make($request->all(), [
-                'firstname' => 'required|string|max:255',
-                'lastname' => 'required|string|max:255',
+                'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => ['required', 'min:8'],
                 'role' => 'required|integer|in:1,2,3',
@@ -43,7 +42,7 @@ class AuthController extends Controller
         
             // Create the user with the full name
             User::create([
-                'name' => $request->firstname . ' ' . $request->lastname, // Ensure a space between first and last name
+                'name' => $request->name, // Ensure a space between first and last name
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'role' => $request->role,

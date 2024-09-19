@@ -222,6 +222,6 @@ Route::prefix('frontend')->group(function(){
     
     Route::controller(UserProductController::class)->prefix('products')->group(function () {
         Route::get('/', 'index')->name('users.products.index');
-        Route::post('/detail/{id}/', 'show')->name('users.products.store');
+        Route::post('/detail/{id}/', 'show')->name('users.products.show');
     });
 });

@@ -417,7 +417,8 @@ Register
 						</div>
 						<!-- col-5 -->
 						<div class="col-lg-6">
-							<form method="POST"  id="Registerform" class="contact-form row gy-3 gx-20">
+							<form method="POST" id="Registerform" class="contact-form row gy-3 gx-20">
+							<input type="hidden" value="1" name="role">
 								<div class="col-lg-6">
 									<input type="text" class="form-control" id="Name" name="name" placeholder="Name" required>
 								</div>		
@@ -472,13 +473,11 @@ Register
 @push('scripts')
 <script>
 $(document).ready(function() {
-    // Handle form submission
-    $('#RegisterForm').on('submit', function(e) {
+    $('#Registerform').on('submit', function(e) {
         e.preventDefault();
-        // Set the value of the hidden textarea to the Quill editor content
         handleFormUploadForm(
             'POST',
-            '#RegisterForm',
+            '#Registerform',
             '#submit',
             '{{ route('auth.register') }}',
             '{{ route('users.login') }}'
