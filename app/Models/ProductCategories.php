@@ -22,10 +22,10 @@ class ProductCategories extends Model
         'name',
     ];
 
-    // public function products()
-    // {
-    //     return $this->hasMany(Product::class, 'category_id');
-    // }
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
     public function categories()
     {
         return $this->hasMany(ProductCategories::class, 'parent_id');

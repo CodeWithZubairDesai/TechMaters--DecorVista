@@ -9,7 +9,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center gap-1">
                     <h4 class="card-title flex-grow-1">All Products List</h4>
 
-                    <a href="{{ route('products.create') }}" class="btn btn-sm btn-primary">
+                    <a href="{{ route('admin.products.create') }}" class="btn btn-sm btn-primary">
                         Add Product
                     </a>
                 </div>
@@ -24,6 +24,7 @@
                                     <th>Product Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
+                                    <th>Tags</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -54,7 +55,7 @@
             var table = $('#productsTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route("products.index") }}',
+                ajax: '{{ route("admin.products.index") }}',
                 responsive: true,
                 pageLength: 10,
                 paging: false,
@@ -76,12 +77,8 @@
                     },
                     { data: 'name', name: 'name' },
                     { data: 'category_name', name: 'category_name' },
-                    {
-                        data: 'price', name: 'price', render: function (data) {
-                            // Return the price with <br> tags interpreted correctly
-                            return data ? data.replace(/\n/g, '<br>') : 'N/A';
-                        }, orderable: false, searchable: false
-                    },
+                    {data: 'price', name: 'price'},
+                    {data: 'tags', name: 'tags'},
                     { data: 'status', name: 'status' },
                     { data: 'action', name: 'action', orderable: false, searchable: false, class: 'text-center' }
                 ],
@@ -121,7 +118,7 @@
                 var status = $(element).is(':checked') ? 1 : 0;
 
                 updateStatus(
-                    '{{ route("products.status") }}',
+                    '{{ route("admin.products.status") }}',
                     id,
                     status
                 );

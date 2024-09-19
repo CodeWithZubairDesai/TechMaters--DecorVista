@@ -3,7 +3,7 @@
 @section('main-section')
 <div class="col-xl-12 col-lg-12 d-flex justify-content-between align-items-center">
     <h4 class="fw-bold topbar-button pe-none text-uppercase mb-2 mx-4">Edit Product</h4>
-    <a href="{{ route('products.index') }}" class="btn btn-sm btn-primary mx-4 mb-2">Product List</a>
+    <a href="{{ route('admin.products.index') }}" class="btn btn-sm btn-primary mx-4 mb-2">Product List</a>
 </div>
 <div class="container-xxl">
     <div class="row">
@@ -68,18 +68,22 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-lg-6">
                                 <div class="mb-3">
-                                    <label for="product-brand" class="form-label">Brand</label>
-                                    <select class="form-control" id="product-brand" name="brand_id" data-choices
-                                        data-placeholder="Select Brand">
-                                        <option value="">Choose a Brand</option>
-                                        @foreach($brands as $brand)
-                                            <option value="{{ $brand->id }}" {{ in_array($brand->id, $associatedBrands) ? 'selected' : '' }}>
-                                                {{ $brand->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <label for="product-Price" class="form-label">Price</label>
+                                    <input type="number" id="product-Price" name="price"  value="{{ $product->price }}" class="form-control"
+                                    placeholder="Item Price">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="product-tags" class="form-label">Tags</label>
+                                    <input type="string" id="product-tags" name="tags" value="{{ $product->tags }}"  class="form-control"
+                                    placeholder="Item Tags">
+
                                 </div>
                             </div>
                         </div>
@@ -96,86 +100,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Pricing Type Toggle Section -->
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h4 class="card-title">Pricing Details</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label for="pricing-type" class="form-label">Pricing Type</label>
-                            <div>
-                                <div class="form-check">
-                                    <input type="radio" id="fixed-price" name="pricing_type" value="fixed"
-                                        class="form-check-input" {{ !$product->has_variants ? 'checked' : '' }}>
-                                    <label for="fixed-price" class="form-check-label">Fixed Price</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="radio" id="variant-price" name="pricing_type" value="variant"
-                                        class="form-check-input" {{ $product->has_variants ? 'checked' : '' }}>
-                                    <label for="variant-price" class="form-check-label">Variant Price</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Fixed Price Input -->
-                        <div class="row" id="fixed-price-fields"
-                            style="{{ $product->has_variants ? 'display: none;' : '' }}">
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="product-price" class="form-label">Price</label>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text fs-20"><i class='bx bx-dollar'></i></span>
-                                        <input type="number" id="product-price" name="fixed_price" class="form-control"
-                                            value="{{ $product->fixed_price }}" placeholder="000">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Variant Price Inputs -->
-                        <div id="variant-price-fields"
-                            style="{{ $product->has_variants ? 'display: block;' : 'display: none;' }}">
-                            <div class="mb-3">
-                                <label for="kilogram-price" class="form-label">Price per Kilogram</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text fs-20"><i class='bx bx-dollar'></i></span>
-                                    <input type="number" id="kilogram-price" name="kilogram_price" class="form-control"
-                                        value="{{ old('kilogram_price', 0) }}" placeholder="Enter price for 1kg">
-                                    <button type="button" id="generate-prices" class="btn btn-primary">Generate</button>
-                                </div>
-                            </div>
-                            <div id="generated-variants">
-                                @foreach($product->variants as $variant)
-                                    <div class="row mb-3">
-                                        <div class="col-lg-5">
-                                            <label class="form-label">Weight (in grams)</label>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text fs-20"><i class='bx bxs-weight'></i></span>
-                                                <input type="number" name="variant_weight[]" class="form-control"
-                                                    value="{{ $variant->weight }}" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <label class="form-label">Price</label>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text fs-20"><i class='bx bx-dollar'></i></span>
-                                                <input type="number" name="variant_price[]" class="form-control"
-                                                    value="{{ $variant->price }}" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hidden Field for has_variants -->
-                <input type="hidden" id="has-variants" name="has_variants"
-                    value="{{ $product->has_variants ? 'true' : 'false' }}">
-
                 <!-- Submit Button -->
                 <div class="p-3 bg-light mb-3 rounded">
                     <div class="row justify-content-end g-2">
@@ -196,76 +120,16 @@
 @push('scripts')
     <script>
         $(document).ready(function () {
-            // Handle Pricing Type Change
-            $('input[name="pricing_type"]').change(function () {
-                let pricingType = $(this).val();
-                if (pricingType === 'fixed') {
-                    $('#fixed-price-fields').show();
-                    $('#variant-price-fields').hide();
-                    $('#has-variants').val('false');
-                } else {
-                    $('#fixed-price-fields').hide();
-                    $('#variant-price-fields').show();
-                    $('#has-variants').val('true');
-                }
-            });
-
-            // Initialize image preview
+          
             handleImagePreview('#product-images', '#image-preview-container');
-
-            // Handle image removal
-            $('#image-preview-container').on('click', '.remove-image', function () {
-                const imageId = $(this).data('image-id');
-                if (confirm('Are you sure you want to remove this image?')) {
-                    $('#removed-images').val(function (index, currentVal) {
-                        return currentVal ? currentVal + ',' + imageId : imageId;
-                    });
-                    $(this).closest('div.position-relative').remove();
-                }
-            });
-
-            // Generate Variant Prices based on kilogram price
-            $('#generate-prices').click(function () {
-                const kilogramPrice = parseFloat($('#kilogram-price').val());
-                if (isNaN(kilogramPrice) || kilogramPrice <= 0) {
-                    alert('Please enter a valid price for 1 kilogram.');
-                    return;
-                }
-
-                const weights = [125, 250, 500, 1000];
-                $('#generated-variants').empty();
-                weights.forEach(weight => {
-                    const price = (kilogramPrice * weight / 1000).toFixed(2);
-                    $('#generated-variants').append(`
-                    <div class="row mb-3">
-                        <div class="col-lg-5">
-                            <label class="form-label">Weight (in grams)</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text fs-20"><i class='bx bxs-weight'></i></span>
-                                <input type="number" name="variant_weight[]" class="form-control" value="${weight}" readonly>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <label class="form-label">Price</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text fs-20"><i class='bx bx-dollar'></i></span>
-                                <input type="number" name="variant_price[]" class="form-control" value="${price}" readonly>
-                            </div>
-                        </div>
-                    </div>
-                `);
-                });
-            });
-
-            // Handle form submission
             $('#productEditForm').on('submit', function (e) {
                 e.preventDefault();
                 handleFormUploadForm(
                     'POST',
                     '#productEditForm',
                     '#submit',
-                    '{{ route('products.update', $product->id) }}',
-                    '{{ route('products.index') }}'
+                    '{{ route('admin.products.update', $product->id) }}',
+                    '{{ route('admin.products.index') }}'
                 );
             });
         });

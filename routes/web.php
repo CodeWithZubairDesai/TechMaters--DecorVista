@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 // User Controller
 use App\Http\Controllers\User\BlogController as UserBlogController;
 use App\Http\Controllers\User\UserController ;
+use App\Http\Controllers\User\ContactUsController as UserContactUsController;
 
 
 
@@ -61,19 +62,7 @@ Route::prefix('admin')->group(function(){
 
 
 Route::middleware(['admin.auth'])->group(function () {
-    Route::controller(AdminProductController::class)->group(function () {
-        Route::prefix('products')->group(function () {
-            Route::get('/', 'index')->name('admin.products.index');
-            Route::get('/{id}/detail', 'show')->name('admin.products.detail');
-            Route::get('/create', 'create')->name('admin.products.create');
-            Route::post('/store', 'store')->name('admin.products.store');
-            Route::put('/{id}/detail', 'show')->name('admin.products.show');
-            Route::post('/status', 'status')->name('admin.products.status');
-            Route::get('/{id}/edit', 'edit')->name('admin.products.edit');
-            Route::post('/update', 'update')->name('admin.products.update');
-            Route::post('/destroy/{id}', 'destroy')->name('admin.products.destroy');
-        });
-    });
+
     
     
     Route::controller(AdminGalleryCategoryController::class)->group(function () {
@@ -134,6 +123,20 @@ Route::middleware(['admin.auth'])->group(function () {
     });
 
 
+    Route::controller(AdminProductController::class)->group(function () {
+        Route::prefix('products')->group(function () {
+            Route::get('/', 'index')->name('admin.products.index');
+            Route::get('/{id}/detail', 'show')->name('admin.products.detail');
+            Route::get('/create', 'create')->name('admin.products.create');
+            Route::post('/store', 'store')->name('admin.products.store');
+            Route::put('/{id}/detail', 'show')->name('admin.products.show');
+            Route::post('/status', 'status')->name('admin.products.status');
+            Route::get('/{id}/edit', 'edit')->name('admin.products.edit');
+            Route::post('/update', 'update')->name('admin.products.update');
+            Route::post('/destroy/{id}', 'destroy')->name('admin.products.destroy');
+        });
+    });
+
 });
 });
 
@@ -144,8 +147,10 @@ Route::middleware(['admin.auth'])->group(function () {
 
 
 // Interior Designer Routes
+Route::prefix('designer')->group(function(){
 Route::middleware(['designer.auth'])->group(function () {
-    Route::get('/designer/dashboard', [AuthController::class, 'interiorDashboard'])->name('designer.dashboard');
+
+});
 });
 
 
@@ -204,5 +209,11 @@ Route::prefix('frontend')->group(function(){
         Route::get('/', 'index')->name('blogs.index');
         Route::get('/{id}/detail', 'show')->name('blogs.show');
 
+    });
+
+
+    Route::controller(UserContactUsController::class)->prefix('contact')->group(function () {
+        Route::get('/', 'create')->name('users.contact.index');
+        Route::post('/store', 'store')->name('users.contact.store');
     });
 });

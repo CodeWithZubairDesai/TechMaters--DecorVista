@@ -3,7 +3,7 @@
 @section('main-section')
 <div class="col-xl-12 col-lg-12 d-flex justify-content-between align-items-center">
     <h4 class="fw-bold topbar-button pe-none text-uppercase mb-2 mx-4">Product Detail</h4>
-    <a href="{{ route('products.index') }}" class="btn btn-sm btn-primary mx-4 mb-2">Product List</a>
+    <a href="{{ route('admin.products.index') }}" class="btn btn-sm btn-primary mx-4 mb-2">Product List</a>
 </div>
 <!-- Start Container Fluid -->
 <div class="container-xxl">
@@ -66,27 +66,13 @@
                     </div>
                     @if($product->price)
                         <h2 class="fw-medium my-3">
-                            ${{ $product->price }} <span
-                                class="fs-16 text-decoration-line-through">{{ $product->original_price }}</span><small
-                                class="text-danger ms-2">({{ $product->discount_percentage }}% Off)</small>
+                            ${{ $product->price }}
                         </h2>
                     @else
-                        <h4 class="text-dark fw-medium">Grammage Options:</h4>
-                        <ul class="d-flex flex-column gap-2 list-unstyled fs-15 my-3">
-                            @foreach($product->variants as $option)
-                                <li>
-                                    {{ $option->weight }} - ${{ $option->price }}
-                                </li>
-                            @endforeach
-                        </ul>
                     @endif
                     <ul class="d-flex flex-column gap-2 list-unstyled fs-15 my-3">
                         <li><i class='bx bx-check text-success'></i> In Stock</li>
                         <li><i class='bx bx-check text-success'></i> Free delivery available</li>
-                        @if($product->discount_code)
-                            <li><i class='bx bx-check text-success'></i> Sales 10% Off Use Code: <span
-                                    class="text-dark fw-medium">{{ $product->discount_code }}</span></li>
-                        @endif
                     </ul>
                     <h4 class="text-dark fw-medium">Description :</h4>
                     <p class="text-muted">{{ $product->description }}</p>
@@ -103,6 +89,7 @@
                     <h4 class="card-title">Top Reviews From Around the World</h4>
                 </div>
                 <div class="card-body">
+                @if($product->reviews)
                     <div class="row">
                         @foreach($product->reviews as $review)
                             <div class="col-lg-4">
@@ -133,6 +120,8 @@
                             </div>
                         @endforeach
                     </div>
+                @endif
+                    
                 </div>
             </div>
         </div>

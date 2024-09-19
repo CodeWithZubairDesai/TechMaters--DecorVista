@@ -20,6 +20,6 @@ class InteriorDesignerAuthMiddleware
             return $next($request);
         }
 
-        return redirect('/login'); 
+        return redirect('/designer/login'); 
     }
 }
