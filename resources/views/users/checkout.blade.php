@@ -1,274 +1,205 @@
-@extends('frontend_header_footer.layout')
+@extends('users.layout')
 
 @section('title')
 
-Checkout
+CheckOut
 
 @endsection
 @section('main')
- 
-    <div class="ltn__utilize-overlay"></div>
 
-    <!-- BREADCRUMB AREA START -->
-    <div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  data-bs-bg="img/bg/14.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ltn__breadcrumb-inner">
-                        <h1 class="page-title">Checkout</h1>
-                        <div class="ltn__breadcrumb-list">
-                            <ul>
-                                <li><a href="index.html"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
-                                <li>Checkout</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- BREADCRUMB AREA END -->
 
-    <!-- WISHLIST AREA START -->
-    <div class="ltn__checkout-area mb-105">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ltn__checkout-inner">
-                        <div class="ltn__checkout-single-content ltn__returning-customer-wrap">
-                            <h5>Returning customer? <a class="ltn__secondary-color" href="#ltn__returning-customer-login" data-bs-toggle="collapse">Click here to login</a></h5>
-                            <div id="ltn__returning-customer-login" class="collapse ltn__checkout-single-content-info">
-                                <div class="ltn_coupon-code-form ltn__form-box">
-                                    <p>Please login your accont.</p>
-                                    <form action="#" >
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="input-item input-item-name ltn__custom-icon">
-                                                    <input type="text" name="ltn__name" placeholder="Enter your name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="input-item input-item-email ltn__custom-icon">
-                                                    <input type="email" name="ltn__email" placeholder="Enter email address">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button class="btn theme-btn-1 btn-effect-1 text-uppercase">Login</button>
-                                        <label class="input-info-save mb-0"><input type="checkbox" name="agree"> Remember me</label>
-                                        <p class="mt-30"><a href="register.html">Lost your password?</a></p>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ltn__checkout-single-content ltn__coupon-code-wrap">
-                            <h5>Have a coupon? <a class="ltn__secondary-color" href="#ltn__coupon-code" data-bs-toggle="collapse">Click here to enter your code</a></h5>
-                            <div id="ltn__coupon-code" class="collapse ltn__checkout-single-content-info">
-                                <div class="ltn__coupon-code-form">
-                                    <p>If you have a coupon code, please apply it below.</p>
-                                    <form action="#" >
-                                        <input type="text" name="coupon-code" placeholder="Coupon code">
-                                        <button class="btn theme-btn-2 btn-effect-2 text-uppercase">Apply Coupon</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ltn__checkout-single-content mt-50">
-                            <h4 class="title-2">Billing Details</h4>
-                            <div class="ltn__checkout-single-content-info">
-                                <form action="#" >
-                                    <h6>Personal Information</h6>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-item input-item-name ltn__custom-icon">
-                                                <input type="text" name="ltn__name" placeholder="First name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-item input-item-name ltn__custom-icon">
-                                                <input type="text" name="ltn__lastname" placeholder="Last name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-item input-item-email ltn__custom-icon">
-                                                <input type="email" name="ltn__email" placeholder="email address">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-item input-item-phone ltn__custom-icon">
-                                                <input type="text" name="ltn__phone" placeholder="phone number">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-item input-item-website ltn__custom-icon">
-                                                <input type="text" name="ltn__company" placeholder="Company name (optional)">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-item input-item-website ltn__custom-icon">
-                                                <input type="text" name="ltn__phone" placeholder="Company address (optional)">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6">
-                                            <h6>Country</h6>
-                                            <div class="input-item">
-                                                <select class="nice-select">
-                                                    <option>Select Country</option>
-                                                    <option>Australia</option>
-                                                    <option>Canada</option>
-                                                    <option>China</option>
-                                                    <option>Morocco</option>
-                                                    <option>Saudi Arabia</option>
-                                                    <option>United Kingdom (UK)</option>
-                                                    <option>United States (US)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12">
-                                            <h6>Address</h6>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="input-item">
-                                                        <input type="text" placeholder="House number and street name">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input-item">
-                                                        <input type="text" placeholder="Apartment, suite, unit etc. (optional)">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <h6>Town / City</h6>
-                                            <div class="input-item">
-                                                <input type="text" placeholder="City">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <h6>State </h6>
-                                            <div class="input-item">
-                                                <input type="text" placeholder="State">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <h6>Zip</h6>
-                                            <div class="input-item">
-                                                <input type="text" placeholder="Zip">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><label class="input-info-save mb-0"><input type="checkbox" name="agree"> Create an account?</label></p>
-                                    <h6>Order Notes (optional)</h6>
-                                    <div class="input-item input-item-textarea ltn__custom-icon">
-                                        <textarea name="ltn__message" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                                    </div>
+			<!--Banner Section ======================-->
+			<section class="section-banner position-relative pt-60">
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">	
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Shop</span>
+						</div>				
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">Checkout</h2>								
+							</div>
+						</div>
+					</div>
+					<!-- section-title-wrapper -->	
+				</div>
+				<!-- section-full-width -->	
+			</section>
+			<!--Banner Section ======================-->
 
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="ltn__checkout-payment-method mt-50">
-                        <h4 class="title-2">Payment Method</h4>
-                        <div id="checkout_accordion_1">
-                            <!-- card -->
-                            <div class="card">
-                                <h5 class="collapsed ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-2-1" aria-expanded="false">
-                                    Check payments
-                                </h5>
-                                <div id="faq-item-2-1" class="collapse" data-bs-parent="#checkout_accordion_1">
-                                    <div class="card-body">
-                                        <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- card -->
-                            <div class="card">
-                                <h5 class="ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-2-2" aria-expanded="true"> 
-                                    Cash on delivery 
-                                </h5>
-                                <div id="faq-item-2-2" class="collapse show" data-bs-parent="#checkout_accordion_1">
-                                    <div class="card-body">
-                                        <p>Pay with cash upon delivery.</p>
-                                    </div>
-                                </div>
-                            </div>                          
-                            <!-- card -->
-                            <div class="card">
-                                <h5 class="collapsed ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-2-3" aria-expanded="false" >
-                                    PayPal <img src="img/icons/payment-3.png" alt="#">
-                                </h5>
-                                <div id="faq-item-2-3" class="collapse" data-bs-parent="#checkout_accordion_1">
-                                    <div class="card-body">
-                                        <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ltn__payment-note mt-30 mb-30">
-                            <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-                        </div>
-                        <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Place order</button>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping-cart-total mt-50">
-                        <h4 class="title-2">Cart Totals</h4>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>3 Rooms Manhattan <strong>× 2</strong></td>
-                                    <td>$298.00</td>
-                                </tr>
-                                <tr>
-                                    <td>OE Replica Wheels <strong>× 2</strong></td>
-                                    <td>$170.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Wheel Bearing Retainer <strong>× 2</strong></td>
-                                    <td>$150.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Shipping and Handing</td>
-                                    <td>$15.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Vat</td>
-                                    <td>$00.00</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Order Total</strong></td>
-                                    <td><strong>$633.00</strong></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- WISHLIST AREA START -->
 
-    <!-- CALL TO ACTION START (call-to-action-6) -->
-    <div class="ltn__call-to-action-area call-to-action-6 before-bg-bottom" data-bs-bg="img/1.jpg--">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
-                        <div class="coll-to-info text-color-white">
-                            <h1>Looking for a dream home?</h1>
-                            <p>We can help you realize your dream of a new home</p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a class="btn btn-effect-3 btn-white" href="contact.html">Explore Properties <i class="icon-next"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- CALL TO ACTION END -->
-    @endsection
+			<!--checkout Section ======================-->
+			<section class="section-checkout pb-3 pb-xl-4 position-relative">
+				<div class="container">
+					<div class="checkout-wrapper">
+						<div class="row gy-40 gy-lg-0 gx-40 justify-content-between">
+							<div class="col-lg-7 col-xxl-8">
+								<div class="d-flex flex-column gap-30">
+									<h4 class="mb-0">Checkout</h4>
+									<div class="d-flex flex-column gap-10 mb-3">
+										<p class="mb-0 d-flex flex-wrap gap-1">Returning customer? <a href="#" data-bs-toggle="modal" data-bs-target="#logInModal">Click Here To login</a></p>
+										<p class="mb-0 d-flex flex-wrap gap-1">Have a coupon? <span class="show-coupon" >Click here to enter your code</span></p>
+										<div class="checkout-form">
+											<form class="row g-30 gy-md-0 needs-validation">
+												<div class="col-md-6">
+													<input type="text" class="form-control" id="inputCoupon" placeholder="Add a Coupon Code" required>
+												</div>
+												<div class="col-md-5">
+													<button class="btn btn-primary btn-md" type="submit">Apply Now</button>
+												</div>	
+											</form>
+										</div>
+										<!-- checkout-form -->										
+									</div>
+									<form id="checkOutForm" class="contact-form row g-30">
+										<div class="col-md-6">
+											<input type="text" class="form-control" id="InputName" name="InputName" placeholder="First Name *" required="">
+										</div>			
+										<div class="col-md-6">
+											<input type="text" class="form-control" id="InputLastName" name="InputLastName" placeholder="Last Name *" required="">
+										</div>	
+										<div class="col-md-6">
+											<input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email Address *" required="">
+										</div>		
+										<div class="col-md-6">
+											<input type="number" class="form-control" id="InputNumber" name="InputNumber" placeholder="Phone *" required="">
+										</div>
+										<div class="col-12">
+											<input type="text" class="form-control" id="InputCompany" name="InputCompany" placeholder="Company Name">
+										</div>	
+										<div class="col-12">
+											<input type="text" class="form-control" id="InputHouse" name="InputHouse" placeholder="House Number & Street">
+										</div>
+										<div class="col-12">
+											<input type="text" class="form-control" id="InputApartment" name="InputApartment" placeholder="Apartment, suit, unit, etc (optional)">
+										</div>
+										<div class="col-md-6">
+											<input type="text" class="form-control" id="InputTown" name="InputTown" placeholder="Town/City *" required="">
+										</div>
+										<div class="col-md-6">
+											<input type="text" class="form-control" id="InputPostCode" name="InputPostCode" placeholder="Postcode *" required="">
+										</div>		
+										<div class="col-12">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="" id="remember_me">
+												<label class="form-check-label fw-medium" for="remember_me">
+													Create an account?
+												</label>
+											</div>
+										</div>							
+										
+										<div class="col-12">
+											<textarea class="form-control" id="InputMessage" name="InputMessage" placeholder="Order Notes (Optional)" rows="4"></textarea>
+										</div>	
+																					  
+									</form>
+									<!-- checkOutForm -->
+								</div>
+								
+							</div>
+							<!-- col-8 -->
+							<div class="col-lg-5 col-xxl-4">
+								<div class="sticky-elements order-details p-3">
+									<h4 class="mb-20">Your Order</h4>
+									<form id="orderForm" class="d-flex flex-column gap-20">
+										<ul class="list-unstyled fw-bold headings-color mb-0 d-flex justify-content-between pb-10 border-bottom border-1">
+											<li>Products</li>
+											<li>Subtotal</li>
+										</ul>
+										<ul class="list-unstyled fw-bold headings-color mb-0 d-flex justify-content-between py-10 border-bottom border-1">
+											<li>Memento 2.0</li>
+											<li>$10.00</li>
+										</ul>
+										<ul class="list-unstyled mb-0 d-flex flex-wrap flex-sm-nowrap gap-3 gap-md-4">
+											<li>Shipping</li>
+											<li>
+												<ul class="list-unstyled mb-0 d-flex flex-column gap-10">
+													<li>
+														<div class="form-check">
+															<input class="form-check-input" type="radio" name="check-input-shipping" id="check-input1" checked>
+															<label class="form-check-label" for="check-input1">
+																Free Shipping
+															</label>
+														</div>
+													</li>
+													<li>
+														<div class="form-check">
+															<input class="form-check-input" type="radio" name="check-input-shipping" id="check-input2">
+															<label class="form-check-label" for="check-input2">
+																Local Pickup: <span class="fw-semibold">10.00&</span>
+															</label>
+														</div>
+													</li>
+													<li>
+														<div class="form-check">
+															<input class="form-check-input" type="radio" name="check-input-shipping" id="check-input3">
+															<label class="form-check-label" for="check-input3">
+																Flat Rate: <span class="fw-semibold">20.00&</span>
+															</label>
+														</div>
+													</li>
+													<li>Shipping Options will be updated during checkout</li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="list-unstyled fw-bold headings-color mb-0 d-flex justify-content-between py-10 border-top border-bottom border-1">
+											<li>Total</li>
+											<li>$0.00</li>
+										</ul>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="check-input-payments" id="check-input4" checked>
+											<label class="form-check-label" for="check-input4">
+												Check Payments
+											</label>
+										</div>
+										<p>Please send a check to Store Name, Store Street, Store State, Store postcode.</p>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="check-input-payments" id="check-input5">
+											<label class="form-check-label" for="check-input5">
+												<span class="d-inline-flex gap-3">
+													<span>Paypal</span>
+													<span class="mt-n1"><img src="assets/images/payment-card.png" alt="payment-card"></span>
+												</span>											
+											</label>
+										</div>
+										<div>
+											<button type="submit" class="btn btn-primary w-100">Place Order</button>
+										</div>
+									</form>
+								</div>
+								
+							</div>
+							<!-- col-4 -->
+						</div>
+						<!-- row -->
+					</div>
+					
+				</div>
+				<!-- container -->
+			</section>
+			<!--checkout Section ======================-->
+
+
+			<!--Feedback Section ======================-->
+			<section class="section-feedback feedback-1 text-secondary">
+				<div class="container">
+					<div class="feedback-wrapper position-relative">
+						<div class="feedback-content d-flex flex-column gap-4 flex-lg-row align-items-lg-end justify-content-lg-around">
+							<h2 class="fw-extra-bold feedback-title">Drop Us a Line</h2>
+							<div class="architronix-button">
+								<a href="contact-2.html" class="btn btn-secondary gap-10"> 
+									Lets Talk
+									<svg class="arrow" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
+									</svg>
+								</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--Feedback Section ======================-->
+
+			@endsection

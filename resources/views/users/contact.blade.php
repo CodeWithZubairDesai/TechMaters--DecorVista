@@ -264,8 +264,8 @@ $(document).ready(function() {
             'POST',
             '#contactUsCreatForm',
             '#submit',
-            '{{ route('users.contact.store') }}',
-            '{{ route('users.contact.index') }}',
+            "{{ route('users.contact.store') }}",
+            "{{ route('users.contact.index') }}",
         );
     });
 });
