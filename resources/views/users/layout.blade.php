@@ -7,7 +7,7 @@
         <meta name="theme-color"  content="#253b2f">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Architronix description contents">
-		<title>Architronix</title>
+		<title>Tech Masters | @yield('title')</title>
 		<link rel="shortcut icon" type="images/png" href="{{ asset('user_assets/assets/images/fav-icon/favicon.ico')}}">
 
 		<!-- Google fonts -->
@@ -15,6 +15,10 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.js"></script>
 
 		<!-- Bootstrap Cdn -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,6 +53,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    @stack('styles')     
 		
 	</head>
 
@@ -330,22 +336,12 @@
 								</li>							
 								
 
-								<li class="nav-item dropdown ">
-									<a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
-										Blog
-										<span class="dropdown-icon">
-											<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M11 8L6 2L1 8"/>
-											</svg> 
-										</span> 
-									</a>
-									<ul class="dropdown-menu ">
-										<li><a class="dropdown-item" href="blog-archive.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Archive</span></a></li>										
-										<li><a class="dropdown-item" href="blog-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Single</span></a></li>										
-										<li><a class="dropdown-item" href="blog-left-sidebar.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Left Sidebar</span></a></li>										
-										<li><a class="dropdown-item" href="blog-right-sidebar.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Right Sidebar</span></a></li>						
-									</ul>
-								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{route('users.blogs.index')}}">
+										Blog										   
+									</a>									
+								</li>	
+								
 
 								<li class="nav-item">
 									<a class="nav-link active" aria-current="page" href="contact-2.html">

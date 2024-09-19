@@ -2,7 +2,6 @@
 
 @section('title')
 Contact
-
 @endsection
 @section('main')
 
@@ -154,7 +153,7 @@ Contact
 									<input type="email" class="form-control" id="InputEmail" name="email" placeholder="Email*" required>
 								</div>		
 								<div class="col-12">
-									<textarea class="form-control" id="InputMessage" name="description" rows="5" placeholder="Type your message"></textarea>
+									<textarea class="form-control" id="InputMessage" name="message" rows="5" placeholder="Type your message"></textarea>
 								</div>		
 								<div class="col-12">
 									<div class="text-lg-end">
@@ -266,6 +265,7 @@ $(document).ready(function() {
             '#contactUsCreatForm',
             '#submit',
             '{{ route('users.contact.store') }}',
+            '{{ route('users.contact.index') }}',
         );
     });
 });

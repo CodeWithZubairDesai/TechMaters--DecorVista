@@ -206,8 +206,8 @@ Route::prefix('frontend')->group(function(){
     });
 
     Route::controller(UserBlogController::class)->prefix('blogs')->group(function () {
-        Route::get('/', 'index')->name('blogs.index');
-        Route::get('/{id}/detail', 'show')->name('blogs.show');
+        Route::get('/', 'index')->name('users.blogs.index');
+        Route::get('/{id}/detail', 'show')->name('users.blogs.show');
 
     });
 

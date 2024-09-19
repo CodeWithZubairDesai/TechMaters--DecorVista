@@ -5,9 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
-use App\Models\BlogImages;
+use App\Models\BlogImages;  
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 use Validator;
 use Auth;
 
@@ -20,7 +21,8 @@ class BlogController extends Controller
         $blogs = Blog::with(['images'])
                                     ->where('status', $status)
                                     ->get();
-        return view('user.blog-grid',compact('blogs'));
+        log::info($blogs);
+        return view('users.blog',compact('blogs'));
     }
 
     public function show($id)
@@ -34,7 +36,7 @@ class BlogController extends Controller
                 'data' => null,
             ], 404);
         }
-        return view('blog-details', compact('blog'));
+        return view('users.blog-details', compact('blog'));
     }
 }
 
