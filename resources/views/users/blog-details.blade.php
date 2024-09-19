@@ -35,6 +35,7 @@ Blog Details
 					<div class="row gy-5 justify-content-between">
 						<div class="col-lg-7">
 							<div class="blog-inner">
+                                {!! $blog->body !!}
 
 								<div class="wp-block-tag-cloud d-flex pt-30 pt-lg-70 flex-wrap mb-30">
 									<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Art and Decor</a>
@@ -83,24 +84,6 @@ Blog Details
 											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
 											</svg>	
-											<a href="#" class="text-decoration-none link-hover-animation-1">Room Makeovers<span class="fw-bold"> (7)</span></a> 
-										</li>
-										<li class="d-flex align-items-center gap-4">
-											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-											</svg>	
-											<a href="#" class="text-decoration-none link-hover-animation-1">Color and Decor<span class="fw-bold"> (8)</span></a> 
-										</li>
-										<li class="d-flex align-items-center gap-4">
-											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-											</svg>	
-											<a href="#" class="text-decoration-none link-hover-animation-1">Home Improvement<span class="fw-bold"> (20)</span></a> 
-										</li>
-										<li class="d-flex align-items-center gap-4">
-											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-											</svg>	
 											<a href="#" class="text-decoration-none link-hover-animation-1">Sustainable Design<span class="fw-bold"> (4)</span></a> 
 										</li>
 										<li class="d-flex align-items-center gap-4">
@@ -115,18 +98,6 @@ Blog Details
 											</svg>	
 											<a href="#" class="text-decoration-none link-hover-animation-1">Space Planning<span class="fw-bold"> (15)</span></a> 
 										</li>
-										<li class="d-flex align-items-center gap-4">
-											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-											</svg>	
-											<a href="#" class="text-decoration-none link-hover-animation-1">Client Success Stories<span class="fw-bold"> (25)</span></a> 
-										</li>
-										<li class="d-flex align-items-center gap-4">
-											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-											</svg>	
-											<a href="#" class="text-decoration-none link-hover-animation-1">Design Trends<span class="fw-bold"> (3)</span></a> 
-										</li>
 									</ul>
 								</div>
 								<!-- widget -->
@@ -138,54 +109,8 @@ Blog Details
 										<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Furniture Design</a>
 										<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">DIY Projects</a>
 										<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Space Planning</a>
-										<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Styling Tips</a>
-										<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Art and Decor</a>
-										<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Modern Living</a>
-										<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Renovations</a>
-										<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Vintage Style</a>
 									</div>
 								</div>
-								<!-- widget -->
-
-								<div class="widget">
-									<h5 class="display-5 fw-semibold mb-5 lh-1">Recent Posts</h5>
-									<div class="row g-30">
-										<div class="col-6 col-lg-12">
-											<div class="d-flex flex-column flex-lg-row gap-3 gap-lg-4 align-items-lg-center">
-												<div class="post-image">
-													<img src="{{ asset('user_assets/assets/images/recent-post-image-1.png')}}" alt="img">
-												</div>
-												<div class="post-heading">
-													<h5 class="fw-semibold"><a href="#" class="text-decoration-none link-hover-animation-1">The Modern Home Office: Designing...</a></h5>
-													<span>23 November '23</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-6 col-lg-12">
-											<div class="d-flex flex-column flex-lg-row gap-3 gap-lg-4 align-items-lg-center">
-												<div class="post-image">
-													<img src="{{ asset('user_assets/assets/images/recent-post-image-2.png')}}" alt="img">
-												</div>
-												<div class="post-heading">
-													<h5 class="fw-semibold"><a href="#" class="text-decoration-none link-hover-animation-1">Lighting the Way: Illuminating ...</a></h5>
-													<span>23 November '23</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-6 col-lg-12">
-											<div class="d-flex flex-column flex-lg-row gap-3 gap-lg-4 align-items-lg-center">
-												<div class="post-image">
-													<img src="{{ asset('user_assets/assets/images/recent-post-image-3.png')}}" alt="img">
-												</div>
-												<div class="post-heading">
-													<h5 class="fw-semibold"><a href="#" class="text-decoration-none link-hover-animation-1">The Modern Home Office: Designing...</a></h5>
-													<span>23 November '23</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- widget -->
 							</div>
 						</div>
 						<!-- col-4 -->
@@ -193,45 +118,6 @@ Blog Details
 				</div>
 			</section>
 			<!--Blog-single Section ======================-->
-
-
-
-			<!--Next-Prev Post Section ======================-->
-			<section class="section-next-prev-post position-relative py-5 z-1">
-				<div class="container">
-					<div class="post-wrapper">
-						<div class="row justify-content-lg-between align-items-lg-center gy-4 gy-lg-0">
-							<div class="col-lg-6 col-xl-7 col-xxl-8">
-								<div class="d-flex align-items-center gap-20 post-left-content">
-									<a href="blog-left-sidebar.html" class="text-decoration-none">
-										<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-										</svg>
-									</a>							
-									<h5 class="mb-0 fw-semibold post-title">
-										<a href="blog-left-sidebar.html" class="text-decoration-none link-hover-animation-1">Sustainable Living: Eco-Friendly Design Choices for Your Home</a>
-									</h5>													
-								</div>
-							</div>
-
-							<div class="col-lg-6 col-xl-5 col-xxl-4">
-								<div class="d-flex align-items-center gap-20  text-end justify-content-end">		
-									<h5 class="mb-0 fw-semibold post-title">
-										<a href="blog-right-sidebar.html" class="text-decoration-none link-hover-animation-1">Art in Design: Incorporating Master pieces into Your Space</a>
-									</h5>	
-									<a href="blog-right-sidebar.html" class="text-decoration-none">
-										<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-										</svg>	
-									</a>																		
-								</div>
-							</div>			
-						</div>
-					</div>					
-				</div>				
-			</section>
-			<!--Next-Prev Post Section ======================-->
-
 
 			<!--Comment Section ======================-->
 			<section class="section-comment position-relative pb-4 pb-lg-40">
@@ -303,65 +189,40 @@ Blog Details
 
 
 			
-			<!--Blog-swiper ======================-->
-			<div class="container">				
-				<h4 class="mb-4 mb-lg-30 position-relative">Related Post</h4>
-				<div class="swiper blog-swiper">
-					<div class="swiper-wrapper"> 
-						<div class="swiper-slide">
-							<div class="blog-wrapper">
-								<div class="blog-image">
-									<img src="{{ asset('user_assets/assets/images/blog-image-1.jpg')}}" class="img-fluid" alt="img">
-								</div>
-								<div class="blog-details">
-									<p>14 December '23 / Interior</p>
-									<h5 class="blog-title fs-5 fw-semibold"><a href="blog-single.html" class="link-hover-animation-1 stretched-link text-decoration-none">The Art of Harmonious Color Schemes in Interior Design</a></h5>
-								</div>
-							</div>									
-						</div>
-						<!-- swiper-slide-->
-						<div class="swiper-slide">
-							<div class="blog-wrapper">
-								<div class="blog-image">
-									<img src="{{ asset('user_assets/assets/images/blog-image-2.jpg')}}" class="img-fluid" alt="img">
-								</div>
-								<div class="blog-details">
-									<p>23 November '23 / Interior</p>
-									<h5 class="blog-title fs-5 fw-semibold"><a href="blog-single.html" class="link-hover-animation-1 stretched-link text-decoration-none">Creating Timeless Elegance: Classic vs. Contemporary Styles</a></h5>
-								</div>
-							</div>									
-						</div>
-						<!-- swiper-slide-->
-						<div class="swiper-slide">
-							<div class="blog-wrapper">
-								<div class="blog-image">
-									<img src="{{ asset('user_assets/assets/images/blog-image-3.jpg')}}" class="img-fluid" alt="img">
-								</div>
-								<div class="blog-details">
-									<p>15 November '23 / Interior</p>
-									<h5 class="blog-title fs-5 fw-semibold"><a href="blog-single.html" class="link-hover-animation-1 stretched-link text-decoration-none">Maximizing Small Spaces: Tips for Cozy Apartment Living</a></h5>
-								</div>
-							</div>									
-						</div>
-						<!-- swiper-slide-->	
-						<div class="swiper-slide">
-							<div class="blog-wrapper">
-								<div class="blog-image">
-									<img src="{{ asset('user_assets/assets/images/blog-image-2.jpg')}}" class="img-fluid" alt="img">
-								</div>
-								<div class="blog-details">
-									<p>23 November '23 / Interior</p>
-									<h5 class="blog-title fs-5 fw-semibold"><a href="blog-single.html" class="link-hover-animation-1 stretched-link text-decoration-none">Creating Timeless Elegance: Classic vs. Contemporary Styles</a></h5>
-								</div>
-							</div>									
-						</div>
-						<!-- swiper-slide-->		
-					</div>
-					<!-- swiper-wrapper -->
-				</div>
-				<!-- swiper -->	
-			</div>
-			<!--Blog-swiper ======================-->
+<!-- Blog Swiper ====================== -->
+<div class="container">				
+    <h4 class="mb-4 mb-lg-30 position-relative">Related Posts</h4>
+    <div class="swiper blog-swiper">
+        <div class="swiper-wrapper"> 
+            @foreach($RelatedBlog as $blog)
+                <div class="swiper-slide">
+                    <div class="blog-wrapper">
+                        <div class="blog-image">
+                            @if($blog->images->isNotEmpty())
+                                <img src="{{ env('ASSET2_URL').$blog->images->first()->image_path }}" class="img-fluid blog-fixed-size" alt="Blog Image">
+                            @else
+                                <img src="{{ asset('user_assets/assets/images/default-blog-image.jpg') }}" class="img-fluid blog-fixed-size" alt="No Image Available">
+                            @endif
+                        </div>
+                        <div class="blog-details">
+                            <p>{{ \Carbon\Carbon::parse($blog->date)->format('d F Y') }} / {{ $blog->created_by }}</p>
+                            <h5 class="blog-title fs-5 fw-semibold">
+                                <a href="{{ route('users.blogs.show', $blog->id) }}" class="link-hover-animation-1 stretched-link text-decoration-none">
+                                    {{ $blog->title }}
+                                </a>
+                            </h5>
+                        </div>
+                    </div>									
+                </div>
+                <!-- swiper-slide -->
+            @endforeach
+        </div>
+        <!-- swiper-wrapper -->
+    </div>
+    <!-- swiper -->	
+</div>
+<!-- Blog Swiper ====================== -->
+
 			
 
 			<!--Feedback Section ======================-->
@@ -385,3 +246,14 @@ Blog Details
 			</section>
 			<!--Feedback Section ======================-->
 @endsection
+
+
+@push('styles')
+<style>
+.blog-fixed-size {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+</style>
+@endpush

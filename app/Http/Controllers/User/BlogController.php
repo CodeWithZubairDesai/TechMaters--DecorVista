@@ -16,18 +16,22 @@ use Auth;
 class BlogController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $status = 1;
+        // Fetch blogs with pagination
         $blogs = Blog::with(['images'])
-                                    ->where('status', $status)
-                                    ->get();
-        log::info($blogs);
-        return view('users.blog',compact('blogs'));
+                    ->where('status', $status)
+                    ->paginate(6); // Adjust the number per page as needed
+
+        return view('users.blog', compact('blogs'));
     }
+
 
     public function show($id)
     {
         $blog = Blog::with('images')->find($id);
+        $RelatedBlog = Blog::with(['images'])->take(3)->get();
     
         if (!$blog) {
             return response()->json([
@@ -36,7 +40,7 @@ class BlogController extends Controller
                 'data' => null,
             ], 404);
         }
-        return view('users.blog-details', compact('blog'));
+        return view('users.blog-details', compact('blog', 'RelatedBlog'));
     }
 }
 

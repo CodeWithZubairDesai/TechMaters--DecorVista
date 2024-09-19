@@ -23,10 +23,11 @@ VerifyOTP
 						</div>
 						<!-- col-5 -->
 						<div class="col-lg-6">
-							<form action="/verifyotp" id="OTPform" class="contact-form row gy-3 gx-20">
+							<form  id="verifyOtpForm" class="contact-form row gy-3 gx-20">
 								<div class="col-12">
 									<input type="text" class="form-control" id="OTP" name="otp" placeholder="OTP" required>
 								</div>		
+								<input type="hidden" name="role" value="1">
 															
 								<div class="col-12">
 									<div class="text-lg-end">
@@ -48,3 +49,19 @@ VerifyOTP
 
 
 @endsection
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#verifyOtpForm').on('submit', function(e) {
+        e.preventDefault();
+        handleFormUploadForm(
+            'POST',
+            '#verifyOtpForm',
+            '#submit',
+            '{{ route('auth.verifyotp') }}',
+            '{{ route('users.blogs.index') }}'
+        );
+    });
+});
+</script>
+@endpush

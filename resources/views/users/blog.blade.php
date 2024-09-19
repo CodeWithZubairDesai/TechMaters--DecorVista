@@ -28,8 +28,7 @@ Blog
 				<!-- section-full-width -->	
 			</section>
 			<!--Banner Section ======================-->
-
-<!-- Blog Section ====================== -->
+            <!-- Blog Section ====================== -->
 <section class="section-blog position-relative">
     <div class="container">
         <div class="position-relative section-padding-xxl">
@@ -59,8 +58,16 @@ Blog
         </div>
     </div>  
     <!-- container -->
+    
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center align-items-end position-relative">
+            {{ $blogs->links('pagination::bootstrap-4') }}
+        </ul>
+    </nav>	
 </section>
 <!-- Blog Section ====================== -->
+
 
 
 

@@ -9,13 +9,13 @@ class UserController extends Controller
 {
     //
     public function loginform(){
-        return view("user.login");
+        return view("users.login");
     }
 
     public function registerform(){
-        return view("user.register");
+        return view("users.register");
     }
     public function verifyOtpform(){
-        return view("user.verifyOtp");
+        return view("users.verifyOtp");
     }
 }

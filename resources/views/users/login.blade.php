@@ -52,7 +52,7 @@ Login
 						</div>
 						<!-- col-5 -->
 						<div class="col-lg-6">
-							<form method="POST" action="/login" id="Loginform" class="contact-form row gy-3 gx-20">
+							<form method="POST" id="loginForm" class="contact-form row gy-3 gx-20">
 								<div class="col-12">
 									<input type="email" class="form-control" id="Email" name="email" placeholder="Email" required>
 								</div>		
@@ -89,3 +89,22 @@ Login
 
 
 @endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    // Handle form submission
+    $('#loginForm').on('submit', function(e) {
+        e.preventDefault();
+        // Set the value of the hidden textarea to the Quill editor content
+        handleFormUploadForm(
+            'POST',
+            '#loginForm',
+            '#submit',
+            '{{ route('auth.login') }}',
+            '{{ route('users.verifyOtp') }}'
+        );
+    });
+});
+</script>
+@endpush

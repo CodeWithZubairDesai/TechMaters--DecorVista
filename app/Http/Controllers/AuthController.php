@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
-    
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
     public function register(Request $request)
     {
         try {
@@ -128,6 +133,8 @@ class AuthController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'otp' => 'required|numeric',
+                'role' => 'required|integer|in:1,2,3',
+
             ]);
         
             // If validation fails, return error response
@@ -141,13 +148,14 @@ class AuthController extends Controller
             $user = Auth::user();
 
             if ($user->verification_code == $request->otp) {
-                if($user->role == "user"){
+                if($user->role == "user" && $request->role == 1){
                     return response()->json([
                         'status' => 'success',
                         'message' =>'User Logged in Successfully',
                         'data' => null,
                     ]);
-                }else{
+                }
+                if($user->role == "designer" && $request->role == 2){
                     return response()->json([
                         'status' => 'success',
                         'message' =>'Designer Logged in Successfully',
