@@ -42,7 +42,7 @@ Product-Single
                     <h5 class="display-5 lh-1">{{ $product->name }}</h5>
                     <div class="d-flex align-items-center justify-content-between">
                         <span class="fs-5 fw-bold">${{ number_format($product->price, 2) }}</span>
-                        <div class="star-rating-wrap d-flex gap-2 align-items-start">										
+                        <div class="star_rating-wrap d-flex gap-2 align-items-start">										
                             <div>
                                 <span class="star-rating">										
                                     <span class="star-fill" style="width: {{ $product->rating * 20 }}%;"></span>
@@ -124,30 +124,52 @@ Product-Single
             <!--description-3-tab  -->
             <div class="tab-pane fade" id="description-3" role="tabpanel" aria-labelledby="description-3-tab" tabindex="0">
                 <div class="description-details">
-                    <form id="contactForm" class="contact-form row gy-3 gx-20">
-                        <div class="col-12">
-                            <input type="text" class="form-control" id="InputName" name="InputName" placeholder="Your Name*" required="">
-                        </div>		
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" id="InputNumber" name="InputNumber" placeholder="Phone Number">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email*" required="">
-                        </div>		
-                        <div class="col-12">
-                            <textarea class="form-control" id="InputMessage" name="InputMessage" rows="5" placeholder="Type your message"></textarea>
-                        </div>		
-                        <div class="col-12">
-                            <div class="text-lg-end">
-                                <button type="submit" class="btn btn-outline-primary  gap-10">Send message 							
-                                    <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
-                                    </svg>							
-                                </button>
-                            </div>									
-                        </div>	
-                        <div class="response py-3"></div>											  
-                    </form>
+								<form id="reviewCreateForm" method="POST" class="contact-form row gy-3 gx-20">
+    @csrf
+    <!-- Hidden field to store product_id -->
+    <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+		<!-- Star Rating Input -->
+    <div class="col-12">
+        <label for="star-rating" class="form-label">Rating:</label>
+        <div class="something">
+            <input type="radio" id="star5" name="star_rating" value="5">
+            <label for="star5" title="5 stars">&#9733;</label>
+            <input type="radio" id="star4" name="star_rating" value="4">
+            <label for="star4" title="4 stars">&#9733;</label>
+            <input type="radio" id="star3" name="star_rating" value="3">
+            <label for="star3" title="3 stars">&#9733;</label>
+            <input type="radio" id="star2" name="star_rating" value="2">
+            <label for="star2" title="2 stars">&#9733;</label>
+            <input type="radio" id="star1" name="star_rating" value="1">
+            <label for="star1" title="1 star">&#9733;</label>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <input type="text" class="form-control" id="InputName" name="name" placeholder="Your Name*" required>
+    </div>
+    <div class="col-md-6">
+        <input type="text" class="form-control" id="InputNumber" name="mobile_number" placeholder="Phone Number" required>
+    </div>
+    <div class="col-md-6">
+        <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Email*" required>
+    </div>
+    <div class="col-12">
+        <textarea class="form-control" id="InputMessage" name="message" rows="5" placeholder="Type your message" required></textarea>
+    </div>
+    <div class="col-12">
+        <div class="text-lg-end">
+            <button type="submit" class="btn btn-outline-primary gap-10">Send message
+                <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="response py-3"></div>
+</form>
+
                 </div>						
             </div>
             <!--description-3-tab  -->
@@ -339,6 +361,23 @@ Product-Single
 
 			@endsection
 
+@push('scripts')
+<script>
+$(document).ready(function() {
+
+    $('#reviewCreateForm').on('submit', function(e) {
+        e.preventDefault();
+        handleFormUploadForm(
+            'POST',
+            '#reviewCreateForm',
+            '#submit',
+            "{{ route('users.review.store')}}",
+            "{{ route('users.products.index')}}"
+        );
+    });
+});
+</script>
+@endpush
 			@push('styles')
 <style>
     .product-image {
@@ -351,5 +390,30 @@ Product-Single
         max-height: 67px;
         object-fit: cover;
     }
+
+		.something {
+    direction: rtl; /* Right to left to make the highest value star on the left */
+    display: inline-flex;
+}
+
+.something input {
+    display: none; /* Hide radio buttons */
+}
+
+.something label {
+    font-size: 2rem; /* Increase star size */
+    color: lightgray; /* Unselected star color */
+    cursor: pointer;
+}
+
+.something input:checked ~ label {
+    color: rgb(50 57 62); /* Selected star color */
+}
+
+.something label:hover,
+.something label:hover ~ label {
+    color: rgb(50 57 62); /* Hover state color for stars */
+}
+
 </style>
 @endpush

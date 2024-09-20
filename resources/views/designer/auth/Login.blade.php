@@ -1,4 +1,4 @@
-@extends('InteriorDesignerDashboard.layouts.authlayout')
+@extends('designer.layouts.authlayout')
 
 @section('main-section')
 
@@ -10,14 +10,15 @@
 							<h3 class="title">Sign In</h3>
 							<p>Sign in to your account to start using DecorVista</p>
 						</div>
-						<form action="">
+						<form id="designerloginForm"  method="POST">
+							@csrf
 							<div class="mb-4">
 								<label class="mb-1 text-dark">Email</label>
-								<input type="email" class="form-control form-control" value="hello@example.com">
+								<input type="email" class="form-control form-control" name="email" required>
 							</div>
 							<div class="mb-4 position-relative">
 								<label class="mb-1 text-dark">Password</label>
-								<input type="password" id="dlab-password" class="form-control form-control" value="Password">
+								<input type="password" id="dlab-password" class="form-control form-control" name="password" required>
 								<span class="show-pass eye">
 								
 									<i class="fa fa-eye-slash"></i>
@@ -35,3 +36,23 @@
 					</div>
 				</div>
 @endsection
+
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    // Handle form submission
+    $('#designerloginForm').on('submit', function(e) {
+        e.preventDefault();
+        // Set the value of the hidden textarea to the Quill editor content
+        handleFormUploadForm(
+            'POST',
+            '#designerloginForm',
+            '#submit',
+            '{{ route('auth.login') }}',
+            '{{ route('designer.verify-otp') }}'
+        );
+    });
+});
+</script>
+@endpush

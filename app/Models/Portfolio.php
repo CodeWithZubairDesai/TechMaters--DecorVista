@@ -12,7 +12,6 @@ class Portfolio extends Model
     
     public $timestamps = false; 
     /**
-     * The attributes that are mass assignable.
      *
      * @var array
      */
@@ -28,6 +27,11 @@ class Portfolio extends Model
     public function designer()
     {
         return $this->belongsTo(User::class, 'designer_id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(PortfolioImage::class, 'portfolio_id');
     }
 
     /**

@@ -156,8 +156,9 @@
 									</a>									
 								</li>	
 								<li class="nav-item">
-									<a class="nav-link " href="/projects">
-										Projects										   
+								
+									<a class="nav-link  {{ Route::currentRouteName() == 'users.portfolios.index' ? 'active' : '' }}" href="{{ route('users.portfolios.index') }}">
+										Portfolio										   
 									</a>									
 								</li>	
 								<li class="nav-item">
@@ -207,7 +208,8 @@
 								</li>							
 
 								<li class="nav-item">
-									<a class="nav-link" href="{{route('users.products.index')}}">
+								
+									<a class="nav-link  {{ Route::currentRouteName() == 'users.products.index' ? 'active' : '' }}" href="{{ route('users.products.index') }}">
 										Shop										   
 									</a>									
 								</li>	
@@ -244,7 +246,7 @@
 											</a>
 										</div>									
 									</li>
-								<!-- <li class="nav-item dropdown ">
+								<li class="nav-item dropdown ">
 									<a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
 									<i class="fa-regular fa-user"></i>
 										<span class="dropdown-icon">
@@ -255,19 +257,25 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-lg">
 										<div class="row">
-											<div class="col-lg-12">
-												<div class="d-flex flex-column">
-													@if(Auth::user() == true)
-													<a class="dropdown-item" href="{{route('users.logout')}}" aria-label="single-pages"><span class="link-hover-animation-1">Logout</span></a>	
-													@else									
-													<a class="dropdown-item" href="{{route('users.login')}}" aria-label="single-pages"><span class="link-hover-animation-1">Login</span></a>										
-													<a class="dropdown-item" href="{{route('users.register')}}" aria-label="single-pages"><span class="link-hover-animation-1">Register</span></a>		
-													@endif								
-												</div>
+										<div class="col-lg-12">
+											<div class="d-flex flex-column">
+													@if(Auth::check())  <!-- Use Auth::check() instead of comparing with 'true' -->
+															<button class="dropdown-item" onclick="UserLogout('{{ route('auth.logout') }}')" aria-label="single-pages">
+																	<span class="link-hover-animation-1">Logout</span>
+															</button>    
+													@else                                    
+															<a class="dropdown-item" href="{{ route('users.login') }}" aria-label="single-pages">
+																	<span class="link-hover-animation-1">Login</span>
+															</a>                                        
+															<a class="dropdown-item" href="{{ route('users.register') }}" aria-label="single-pages">
+																	<span class="link-hover-animation-1">Register</span>
+															</a>        
+													@endif                                
 											</div>
+										</div>
 										</div>						
-									</div>
-								</li>	 -->
+									</div>						
+								</li>	 
 								<li class="nav-item d-none d-xl-block">
 									<a class="nav-link nav-link-icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" aria-expanded="false" aria-label="Toggle navigation">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

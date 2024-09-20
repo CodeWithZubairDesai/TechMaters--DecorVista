@@ -74,3 +74,64 @@ function handleFormUploadForm(formMethod, formId, btnId, targetUrl, redirectUrl,
     },
   });
 }
+
+
+
+function UserLogout(targetUrl, timer = 3000) {
+
+  // Make the AJAX request
+  $.ajax({
+    url: targetUrl,
+    type: "GET",
+    processData: false, 
+    contentType: false, 
+    headers: {
+      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), // Include CSRF token
+    },
+    success: function(data) {
+      if (data.status === "success") {
+        // Show success message
+        Toastify({
+          text: data.message,
+          duration: timer,
+          gravity: "top",
+          position: 'right',
+          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        }).showToast();
+
+        // Redirect after showing success message
+        setTimeout(() => {
+          window.location.reload();
+        }, timer);
+      } else {
+        // Show warning or error message
+        const toastColor = data.status === "warning" ? "linear-gradient(to right, #ff5f6d, #ffc371)" : "linear-gradient(to right, #ff5f6d, #ffc371)";
+        Toastify({
+          text: data.message,
+          duration: timer,
+          gravity: "top",
+          position: 'right',
+          backgroundColor: toastColor,
+        }).showToast();
+
+        // Re-enable the submit button
+        $(btnId).prop("disabled", false);
+        $(btnId).html("Submit");
+      }
+    },
+    error: function(jqXHR) {
+      // Show error message
+      Toastify({
+        text: "An error occurred. Please try again later.",
+        duration: timer,
+        gravity: "top",
+        position: 'right',
+        backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+      }).showToast();
+
+      // Re-enable the submit button
+      $(btnId).prop("disabled", false);
+      $(btnId).html("Submit");
+    },
+  });
+}

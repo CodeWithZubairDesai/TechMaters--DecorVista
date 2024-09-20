@@ -7,6 +7,118 @@ Home
 @section('main')
 
 			<!--Hero Section ======================-->
+			<section class="section-hero hero-1 max-width">
+				<div id="heroSlider" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="6000">  <!--    -->
+					
+					<div class="carousel-indicators">
+						<div class="d-flex align-items-center gap-3 gap-lg-1 lh-1 active" data-bs-target="#heroSlider" data-bs-slide-to="0" aria-current="true">
+							<span class="indecators-item display-4 fw-extra-bold mb-0">01</span>
+							<span class="indecators-description fw-bold mb-0">Elegant Design Showcase</span>
+						</div>
+						<div class="d-flex align-items-center gap-3 gap-lg-1 lh-1" data-bs-target="#heroSlider" data-bs-slide-to="1">
+							<span class="indecators-item display-4 fw-extra-bold mb-0">02</span>
+							<span class="indecators-description fw-bold mb-0">Sustainable Design Focus</span>
+						</div>
+						<div class="d-flex align-items-center gap-3 gap-lg-1 lh-1" data-bs-target="#heroSlider" data-bs-slide-to="2">
+							<span class="indecators-item display-4 fw-extra-bold mb-0">03</span>
+							<span class="indecators-description fw-bold mb-0">Meet Our <br> Design Team</span>
+						</div>					
+					</div>
+					<!-- carousel-indicators -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">					
+							<picture>		
+								<source media="(max-width:500px)" srcset="{{ asset('user_assets/assets/images/hero-4-sm.jpg')}}">
+								<source media="(max-width:768px)" srcset="{{ asset('user_assets/assets/images/hero-4.jpg')}}" >				
+								<img src="{{ asset('user_assets/assets/images/hero-2.jpg')}}" alt="hero-image">			
+
+							</picture>
+							<div>
+								<div class="carousel-captions">
+									<div class="container">		
+										<div class="content-text text-start">
+											<h1 class="stroke-heading display-2 fw-extra-bold d-flex flex-column">
+												<span class="hero-heading animate-fill primary">Elegance</span>																								
+												<svg stroke-width="2" class="text-line display-2 fw-extra-bold z-1"><text x="0%" dominant-baseline="middle" y="70%">Redefined</text></svg>
+											</h1>
+											<div class="architronix-button">
+												<a href="project-archive.html" class="btn btn-outline-primary gap-10">Explore our Portfolio 
+													<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/></svg>																														
+												</a>
+											</div>
+										</div>										
+									</div>
+								</div> 
+							</div>						
+														
+						</div>
+					<div class="carousel-item">
+						<picture>
+							<source media="(max-width:500px)" srcset="{{ asset('user_assets/assets/images/hero-1-sm.jpg')}}">
+							<source media="(max-width:768px)" srcset="{{ asset('user_assets/assets/images/hero-1-md.jpg')}}" >				
+							<img src="{{ asset('user_assets/assets/images/hero-1.jpg')}}" alt="hero-image">						
+						
+						</picture> 
+						<div class="carousel-captions">
+							<div class="container">		
+								<div class="content-text text-start">
+									<h1 class="stroke-heading display-2 fw-extra-bold d-flex flex-column">
+										<span class="hero-heading animate-fill primary">Greener</span>										
+										<svg stroke-width="2" class="text-line display-2 fw-extra-bold z-1"><text x="0%" dominant-baseline="middle" y="70%">Tomorrow</text></svg>
+									</h1>
+									<div class="architronix-button">
+										<a href="project-archive.html" class="btn btn-outline-primary  gap-10">Explore our Portfolio 							
+											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+											</svg>							
+										</a>
+									</div>
+								</div>										
+							</div>
+						</div> 						
+					</div>
+					<div class="carousel-item">
+						<picture>						
+							<source media="(max-width:500px)" srcset="{{ asset('user_assets/assets/images/hero-3-sm.jpg')}}">
+							<source media="(max-width:768px)" srcset="{{ asset('user_assets/assets/images/hero-3-md.jpg')}}" >				
+							<img src="{{ asset('user_assets/assets/images/hero-3.jpg')}}" alt="hero-image">
+						</picture> 
+						<div class="carousel-captions">
+							<div class="container">		
+								<div class="content-text text-start">
+									<h1 class="stroke-heading display-2 fw-extra-bold d-flex flex-column">
+										<span class="hero-heading animate-fill primary">Space</span>										
+										<svg stroke-width="2" class="text-line display-2 fw-extra-bold z-1"><text x="0%" dominant-baseline="middle" y="70%">Evolution</text></svg>
+									</h1>
+									<div class="architronix-button">
+										<a href="project-archive.html" class="btn btn-outline-primary  gap-10">Explore our Portfolio 							
+											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+											</svg>							
+										</a>
+									</div>
+								</div>										
+							</div>
+						</div> 
+					</div>
+					</div>
+					<div class="carousel-control-buttons d-flex flex-column gap-0 position-absolute bottom-0 end-0">
+						<a class="next-btn" href="#" data-bs-target="#heroSlider" data-bs-slide="next">						
+							<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+							</svg>							
+						</a>						
+						<a class="prev-btn" href="#" data-bs-target="#heroSlider" data-bs-slide="prev"> 														
+							<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+							</svg>		
+						</a>							
+					</div>
+				</div>
+			</section>
+			<!--Hero Section ======================-->
+			<!--Hero Section ======================-->
 			<section class="section-hero hero-2 position-relative overflow-hidden max-width">
 				<div class="bg-primary text-secondary">
 					<div class="row g-0">

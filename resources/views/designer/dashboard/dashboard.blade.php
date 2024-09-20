@@ -143,7 +143,6 @@ Dashboard
 				</div>
 			</div>
 		</div>
-		@foreach($portfolio as $p)
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xl-12">
@@ -155,7 +154,6 @@ Dashboard
 							<div class="row align-items-center">
 								<div class="col-xl-4 mb-3">
 									<p class="mb-2">Title</p>
-									<h2 class="mb-0">{{$p->title}}</h2>
 								</div>
 								<div class="col-xl-8 d-flex flex-wrap justify-content-between align-items-center">
 									<div class="d-flex me-3 mb-3 ms-2 align-items-start">
@@ -246,7 +244,6 @@ Dashboard
 			</div>
 		</div>
 	</div>
-@endforeach
 
 </div>
 </div>

@@ -13,7 +13,11 @@ class GeneralController extends Controller
     }
 
 
-    public function login_two(){
-        return view('admin.auth.login');
+    public function login(){
+        return view('designer.auth.login');
+    }
+
+    public function verifyOTP(){
+        return view('designer.auth.verifyOtp');
     }
 }

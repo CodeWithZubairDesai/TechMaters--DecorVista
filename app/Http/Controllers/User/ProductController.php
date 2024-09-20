@@ -35,7 +35,7 @@ class ProductController extends Controller
                 'data' => null,                ], 404);
         }
 
-        return view('users.product-single',compact('product'));
+        return view('users.product-details',compact('product'));
         
     }
 

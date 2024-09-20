@@ -9,6 +9,8 @@ use App\Http\Controllers\User\BlogController as UserBlogController;
 use App\Http\Controllers\User\UserController ;
 use App\Http\Controllers\User\ContactUsController as UserContactUsController;
 use App\Http\Controllers\User\ProductController as UserProductController;
+use App\Http\Controllers\User\ReviewController as UserReviewController;
+use App\Http\Controllers\User\PortfolioController as UserPortfolioController;
 
 // Interior Designer Controller
 use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioController;
@@ -43,6 +45,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('/register', 'register')->name('auth.register');
     Route::post('login', 'login')->name('auth.login');
     Route::post('/verify-otp','verifyOtp')->name('auth.verifyotp');
+    Route::get('/logout','logout')->name('auth.logout');
 });
 
 
@@ -144,27 +147,14 @@ Route::middleware(['admin.auth'])->group(function () {
 });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // User Routes
 Route::prefix('frontend')->group(function(){
     Route::middleware(['user.auth'])->group(function () {
         Route::get('/', [AuthController::class, 'showWelcome'])->name('welcome');
+        Route::controller(UserReviewController::class)->prefix('review')->group(function () {
+            Route::get('/', 'create')->name('users.review.index');
+            Route::post('/store', 'store')->name('users.review.store');
+        });
     });
 
     Route::controller(FUserController::class)->group(function(){
@@ -207,6 +197,11 @@ Route::prefix('frontend')->group(function(){
         Route::get('/{id}/detail', 'show')->name('users.blogs.show');
 
     });
+    Route::controller(UserPortfolioController::class)->prefix('portfolios')->group(function () {
+        Route::get('/', 'index')->name('users.portfolios.index');
+        Route::get('/{id}/detail', 'show')->name('users.portfolios.show');
+
+    });
 
 
     Route::controller(UserContactUsController::class)->prefix('contact')->group(function () {
@@ -220,6 +215,11 @@ Route::prefix('frontend')->group(function(){
         Route::get('/', 'index')->name('users.products.index');
         Route::get('/detail/{id}/', 'show')->name('users.products.show');
     });
+
+
+
+
+
 });
 
 
@@ -242,9 +242,9 @@ Route::prefix('designer')->group(function(){
         });
         Route::controller(DesignerGenerealController::class)->group(function () {        
                 Route::get('/dashboard', 'index')->name('designer.dashboard.index');
-                Route::get('/create', 'create')->name('designer.dashboard.create');
-                Route::post('/store', 'store')->name('designer.dashboard.store');
-                Route::post('/status', 'status')->name('designer.dashboard.status');
+                Route::get('/register', 'register')->name('designer.register');
+                Route::get('/login', 'login')->name('designer.login');
+                Route::get('/verify-otp', 'verifyOTP')->name('designer.verify-otp');
                 Route::get('/{id}/edit', 'edit')->name('designer.dashboard.edit');
                 Route::post('/update', 'update')->name('designer.dashboard.update');
                 Route::post('/destroy/{id}', 'destroy')->name('designer.dashboard.destroy');
