@@ -9,186 +9,156 @@ Product-Single
 
 
 
-			<!--Shop-Tabs Section ======================-->
-			<section class="section-shop section-shop-tabs pt-130 pt-lg-200 position-relative">
-				<div class="container">	
-					<div class="row justify-content-between gy-4">
-						<div class="col-lg-6">
-							<!-- Tabs-Contents -->            
-							<div class="tab-content" id="shops-tabContent">
-								<!--shop-1-tab  -->
-								<div class="tab-pane fade show active" id="shop-1" role="tabpanel" aria-labelledby="shop-1-tab" tabindex="0">
-									<img src="assets/images/shop-tab-image-lg-1.jpg" class="img-fluid" alt="img">
-								</div>
-								<!--shop-1-tab  -->
+<!--Shop-Tabs Section ======================-->
+<section class="section-shop section-shop-tabs pt-130 pt-lg-200 position-relative">
+    <div class="container">	
+        <div class="row justify-content-between gy-4">
+            <div class="col-lg-6">
+                <!-- Tabs-Contents -->            
+                <div class="tab-content" id="shops-tabContent">
+                    @foreach($product->images as $index => $image)
+                        <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" id="shop-{{ $index + 1 }}" role="tabpanel" aria-labelledby="shop-{{ $index + 1 }}-tab" tabindex="0">
+                            <img src="{{ env('ASSET2_URL'). $image->image_path}}" class="img-fluid product-image" alt="{{ $product->name }}">
+                        </div>
+                    @endforeach
+                </div>
+                <!-- Tabs-Contents --> 
 
-								<!--shop-2-tab  -->
-								<div class="tab-pane fade" id="shop-2" role="tabpanel" aria-labelledby="shop-2-tab" tabindex="0">
-									<img src="assets/images/shop-tab-image-lg-2.jpg" class="img-fluid" alt="img">						
-								</div>
-								<!--shop-2-tab  -->
-							</div>
-							<!-- Tabs-Contents --> 
+                <!-- Tabs -->
+                <ul class="shop-tabs nav nav-pills d-flex gap-20 mt-20" id="shops-tab" role="tablist">
+                    @foreach($product->images as $index => $image)
+                        <li class="nav-item" role="presentation">
+                            <button class="shop-button {{ $index === 0 ? 'active' : '' }}" id="shop-{{ $index + 1 }}-tab" data-bs-toggle="pill" data-bs-target="#shop-{{ $index + 1 }}" type="button" role="tab" aria-controls="shop-{{ $index + 1 }}" aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
+                                <img src="{{ env('ASSET2_URL'). $image->image_path}}" alt="{{ $product->name }}" class="product-thumbnail">
+                            </button>
+                        </li>
+                    @endforeach
+                </ul>
+                <!-- Tabs -->
+            </div>
+            <!-- col-6 -->
+            <div class="col-lg-5">
+                <div class="shop-product-descriptions sticky-elements">
+                    <h5 class="display-5 lh-1">{{ $product->name }}</h5>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="fs-5 fw-bold">${{ number_format($product->price, 2) }}</span>
+                        <div class="star-rating-wrap d-flex gap-2 align-items-start">										
+                            <div>
+                                <span class="star-rating">										
+                                    <span class="star-fill" style="width: {{ $product->rating * 20 }}%;"></span>
+                                </span>
+                            </div>
+                            <span class="small fw-semibold">({{ $product->reviews_count }} reviews)</span>
+                        </div>								
+                    </div>
+                    <p class="mb-0 mt-3 mt-lg-20">{{ $product->description }}</p>
+                    <div class="d-flex flex-wrap gap-3 py-4 py-lg-40">							
+                        <div class="cart-btn d-flex align-items-center gap-3">									
+                            <span class="cart-icon dash-icon">
+                                <svg width="11" height="4" viewBox="0 0 11 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 3.38V0.619995H10.2V3.38H0Z" fill="black"/>
+                                </svg> 
+                            </span>
+                            <span class="input-values"><input type="text" name="input-value" value="1" class="input-number"></span>
+                            <span class="cart-icon plus-icon">
+                                <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.85522 12V7.344H0.199219V4.632H4.85522V0H7.56722V4.632H12.1992V7.344H7.56722V12H4.85522Z"/>
+                                </svg> 
+                            </span>
+                        </div>						
+                        <div class="text-lg-end">
+                            <a href="#" class="btn btn-md btn-primary">Add to cart</a>
+                        </div>	
+                    </div>
+                    <ul class="shop-product-list d-flex flex-column gap-10 list-unstyled mb-0">
+                        <li class="d-flex align-items-center gap-10">
+                            <span class="list-description">SKU</span> <span>{{ $product->inventory->sku }}</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-10">
+                            <span class="list-description">CATEGORY :</span><a href ="# "class="shop-items-link link-hover-animation-1">{{ $product->productcategory->name }}</a>
+                        </li>
+                        <li class="d-flex align-items-center gap-10">
+                            <span class="list-description">TAGS :</span>
+                                <a href="#" class="shop-items-link link-hover-animation-1">{{$product->tags}}</a>
+                        </li>
+                    </ul>
+                </div>							
+            </div>
+        </div>
+        <!-- row -->					
+    </div>
+    <!-- container -->
+</section>
+<!--Shop-Tabs Section ======================-->
 
-							<!-- Tabs -->
-							<ul class="shop-tabs nav nav-pills d-flex gap-20 mt-20" id="shops-tab" role="tablist">
-								<li class="nav-item" role="presentation">
-									<button class="shop-button active" id="shop-1-tab" data-bs-toggle="pill" data-bs-target="#shop-1" type="button" role="tab" aria-controls="shop-1" aria-selected="true">
-										<img src="assets/images/shop-tab-image-1.png" alt="img">
-									</button>
-								</li>
-								<li class="nav-item" role="presentation">
-									<button class="shop-button" id="shop-2-tab" data-bs-toggle="pill" data-bs-target="#shop-2" type="button" role="tab" aria-controls="shop-2" aria-selected="false">
-										<img src="assets/images/shop-tab-image-2.png" alt="img">							
-									</button>
-								</li>   					             
-							</ul>
-							<!-- Tabs -->
-						</div>
-						<!-- col-6 -->
-						<div class="col-lg-5">
-							<div class="shop-product-descriptions sticky-elements">
-								<h5 class="display-5 lh-1">Pendant Lamp</h5>
-								<div class="d-flex align-items-center justify-content-between">
-									<span class="fs-5 fw-bold">$134.99</span>
-									<div class="star-rating-wrap d-flex gap-2 align-items-start">										
-										<div>
-											<span class="star-rating" >										
-												<span class="star-fill" style="width: 90%;"></span>
-											</span>
-										</div>
-										<span class="small fw-semibold">(13 reviews)</span>
-									</div>								
-								</div>
-								<p class="mb-0 mt-3 mt-lg-20">The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with a seweamlessly embedded LED module.</p>
-								<div class="d-flex flex-wrap gap-3 py-4 py-lg-40">							
-									<div class="cart-btn d-flex align-items-center gap-3">									
-										<span class="cart-icon dash-icon">
-											<svg width="11" height="4" viewBox="0 0 11 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 3.38V0.619995H10.2V3.38H0Z" fill="black"/>
-											</svg> 
-										</span>
-										<span class="input-values"><input type="text" name="input-value" value="1" class="input-number"></span>
-										<span class="cart-icon plus-icon">
-											<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M4.85522 12V7.344H0.199219V4.632H4.85522V0H7.56722V4.632H12.1992V7.344H7.56722V12H4.85522Z"/>
-											</svg> 
-										</span>
-									</div>						
-									<div class="text-lg-end">
-										<a href="#" class="btn btn-md btn-primary " data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" aria-expanded="false" aria-label="Toggle navigation">Add to cart</a>
-									</div>	
-								</div>
-								<ul class="shop-product-list d-flex flex-column gap-10 list-unstyled mb-0">
-									<li class="d-flex align-items-center gap-10">
-										<span class="list-description">SKU</span> <span>005</span>
-									</li>
-									<li class="d-flex align-items-center gap-10">
-										<span class="list-description">CATEGORY :</span><a href="#" class="shop-items-link link-hover-animation-1">ACCESSORIES</a>
-									</li>
-									<li class="d-flex align-items-center gap-10">
-										<span class="list-description">TAGS :</span><a href="#" class="shop-items-link link-hover-animation-1">LAMP</a>, <a href="#" class="shop-items-link link-hover-animation-1">LIGHTING</a>
-									</li>
-								</ul>
+<!--Shop-Description Section ======================-->
+<div class="section-shop section-shop-description pt-60 pt-lg-100 position-relative">
+    <div class="container">
+        <!-- Tabs -->
+        <ul class="shop-description-tabs nav nav-pills d-flex" id="shop-description-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <span class="shop-description-button active" id="description-1-tab" data-bs-toggle="pill" data-bs-target="#description-1" role="tab" aria-controls="description-1" aria-selected="true">
+                    <span class="fs-4 fw-bold mb-0">Description</span>
+                </span>
+            </li>  	
+            <li class="nav-item" role="presentation">
+                <span class="shop-description-button" id="description-3-tab" data-bs-toggle="pill" data-bs-target="#description-3" role="tab" aria-controls="description-3" aria-selected="false">
+                    <span class="fs-4 fw-bold mb-0">Reviews</span>							
+                </span>
+            </li> 				             
+        </ul>
+        <!-- Tabs -->
 
-							</div>							
-						</div>
-					</div>
-					<!-- row -->
-					
-				</div>
-				<!-- container -->
-			</section>
-			<!--Shop-Tabs Section ======================-->
+        <!-- Tabs-Contents -->            
+        <div class="tab-content" id="shop-description-tabContent">
+            <!--description-1-tab  -->
+            <div class="tab-pane fade show active" id="description-1" role="tabpanel" aria-labelledby="description-1-tab" tabindex="0">
+                <div class="description-details">
+                    <p class="mb-30">
+                        {{ $product->description }}
+                    </p>
+                </div>							
+            </div>
+            <!--description-1-tab  -->
+
+            <!--description-3-tab  -->
+            <div class="tab-pane fade" id="description-3" role="tabpanel" aria-labelledby="description-3-tab" tabindex="0">
+                <div class="description-details">
+                    <form id="contactForm" class="contact-form row gy-3 gx-20">
+                        <div class="col-12">
+                            <input type="text" class="form-control" id="InputName" name="InputName" placeholder="Your Name*" required="">
+                        </div>		
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="InputNumber" name="InputNumber" placeholder="Phone Number">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email*" required="">
+                        </div>		
+                        <div class="col-12">
+                            <textarea class="form-control" id="InputMessage" name="InputMessage" rows="5" placeholder="Type your message"></textarea>
+                        </div>		
+                        <div class="col-12">
+                            <div class="text-lg-end">
+                                <button type="submit" class="btn btn-outline-primary  gap-10">Send message 							
+                                    <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
+                                    </svg>							
+                                </button>
+                            </div>									
+                        </div>	
+                        <div class="response py-3"></div>											  
+                    </form>
+                </div>						
+            </div>
+            <!--description-3-tab  -->
+        </div>
+        <!-- Tabs-Contents --> 					
+    </div>
+</div>
+<!--Shop-Description Section ======================-->
 
 
 
-			<!--Shop-Description Section ======================-->
-			<div class="section-shop section-shop-description pt-60 pt-lg-100 position-relative">
-				<div class="container">
-					<!-- Tabs -->
-					<ul class="shop-description-tabs nav nav-pills d-flex" id="shop-description-tab" role="tablist">
-						<li class="nav-item" role="presentation">
-							<span class="shop-description-button active" id="description-1-tab" data-bs-toggle="pill" data-bs-target="#description-1" role="tab" aria-controls="description-1" aria-selected="true">
-								<span class="fs-4 fw-bold mb-0">Description</span>
-							</span>
-						</li>
-						<li class="nav-item" role="presentation">
-							<span class="shop-description-button" id="description-2-tab" data-bs-toggle="pill" data-bs-target="#description-2" role="tab" aria-controls="description-2" aria-selected="false">
-								<span class="fs-4 fw-bold mb-0">Product Details</span>
-							</span>
-						</li>   	
-						<li class="nav-item" role="presentation">
-							<span class="shop-description-button" id="description-3-tab" data-bs-toggle="pill" data-bs-target="#description-3" role="tab" aria-controls="description-3" aria-selected="false">
-								<span class="fs-4 fw-bold mb-0">Reviews</span>							
-							</span>
-						</li> 				             
-					</ul>
-					<!-- Tabs -->
-
-					<!-- Tabs-Contents -->            
-					<div class="tab-content" id="shop-description-tabContent">
-						<!--description-1-tab  -->
-						<div class="tab-pane fade show active" id="description-1" role="tabpanel" aria-labelledby="description-1-tab" tabindex="0">
-							<div class="description-details">
-								<p class="mb-30">
-									The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with a seweamlessly embedded LED module. The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with a seweamlessly embedded LED module.
-								</p>
-								<p class="mb-0">
-									The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with. 
-								</p>
-							</div>							
-						</div>
-						<!--description-1-tab  -->
-
-						<!--description-2-tab  -->
-						<div class="tab-pane fade" id="description-2" role="tabpanel" aria-labelledby="description-2-tab" tabindex="0">
-							<div class="description-details">
-								<p class="mb-30">
-									The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with a seweamlessly embedded LED module. The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with a seweamlessly embedded LED module.
-								</p>
-								<p class="mb-0">
-									The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with. 
-								</p>
-							</div>						
-						</div>
-						<!--description-2-tab  -->
-
-						<!--description-3-tab  -->
-						<div class="tab-pane fade" id="description-3" role="tabpanel" aria-labelledby="description-3-tab" tabindex="0">
-							<div class="description-details">
-								<form id="contactForm" class="contact-form row gy-3 gx-20">
-									<div class="col-12">
-										<input type="text" class="form-control" id="InputName" name="InputName" placeholder="Your Name*" required="">
-									</div>		
-									<div class="col-md-6">
-										<input type="text" class="form-control" id="InputNumber" name="InputNumber" placeholder="Phone Number">
-									</div>
-									<div class="col-md-6">
-										<input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email*" required="">
-									</div>		
-									<div class="col-12">
-										<textarea class="form-control" id="InputMessage" name="InputMessage" rows="5" placeholder="Type your message"></textarea>
-									</div>		
-									<div class="col-12">
-										<div class="text-lg-end">
-											<button type="submit" class="btn btn-outline-primary  gap-10">Send message 							
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
-												</svg>							
-											</button>
-										</div>									
-									</div>	
-									<div class="response py-3"></div>											  
-								</form>
-							</div>						
-						</div>
-						<!--description-3-tab  -->
-					</div>
-					<!-- Tabs-Contents --> 					
-				</div>
-			</div>
-			<!--Shop-Description Section ======================-->
 
 			
 
@@ -365,28 +335,21 @@ Product-Single
 			
 			<!--Shop-Swiper Section ======================-->
 			
-
-
-			<!--Feedback Section ======================-->
-			<section class="section-feedback feedback-1 text-secondary">
-				<div class="container">
-					<div class="feedback-wrapper position-relative">
-						<div class="feedback-content d-flex flex-column gap-4 flex-lg-row align-items-lg-end justify-content-lg-around">
-							<h2 class="fw-extra-bold feedback-title">Drop Us a Line</h2>
-							<div class="architronix-button">
-								<a href="contact-2.html" class="btn btn-secondary gap-10"> 
-									Lets Talk
-									<svg class="arrow" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
-									</svg>
-								</a>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--Feedback Section ======================-->
 			
 
 			@endsection
+
+			@push('styles')
+<style>
+    .product-image {
+        max-width: 100%;
+        max-height: 400px; 
+        object-fit: contain; 
+    }
+    .product-thumbnail {
+        max-width: 100px; 
+        max-height: 67px;
+        object-fit: cover;
+    }
+</style>
+@endpush

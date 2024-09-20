@@ -34,6 +34,8 @@ class ProductReviews extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    
+
 
     function scopeStatus($query,$status)
     {

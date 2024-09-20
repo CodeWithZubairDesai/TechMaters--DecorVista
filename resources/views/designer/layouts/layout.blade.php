@@ -11,6 +11,24 @@
 
 	<!-- Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.js"></script>
+
+		<!-- Bootstrap Cdn -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
+
+		<!-- Additional CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="user_dashboard/images/favicon.png')}}">
@@ -24,6 +42,20 @@
 	<link rel="stylesheet" href="{{ asset('user_dashboard/vendor/nouislider/nouislider.min.css')}}">
 	<!-- Style css -->
      <link href="{{ asset('user_dashboard/css/style.css')}}" rel="stylesheet">
+
+	    <!-- Scripts -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- Ensure this is the only jQuery inclusion -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+		     <!-- Additional Scripts -->
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    @stack('styles')    
 	
 </head>
 <body>
@@ -515,18 +547,18 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
 							<div class="dashboard_bar">
-                                Dashboard 
+                                @yield('title') 
                             </div>
                         </div>
                         <ul class="navbar-nav header-right">
-							<!-- <li class="nav-item">
+							<li class="nav-item">
 								<div class="input-group search-area">
 									<input type="text" class="form-control" placeholder="Search here...">
 									<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
 								</div>
-							</li> -->
+							</li>
 							<li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link bell dz-theme-mode p-0" href="javascript:void(0);">
+                                <a class="nav-link bell dz-theme-mode p-0 active" href="#">
 									<i id="icon-light" class="fas fa-sun"></i>
                                     <i id="icon-dark" class="fas fa-moon"></i>
 									
@@ -723,175 +755,22 @@
 							</a>
 						</div>
 					</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+          <li><a class="" href="{{route('designer.dashboard.index')}}" >
 							<i class="flaticon-025-dashboard"></i>
-							<span class="nav-text">User Dashboard</span>
+							<span class="nav-text">Dashboard</span>
 						</a>
-                        <ul aria-expanded="false">
-							<li><a href="/interiordashboardhome">Dashboard</a></li>
-							<li><a href="/interiordesignerappointmentsrequests">Appointments</a></li>
-							<li><a href="/interiordesignercreateportfolio">Create Portfolio</a></li>
-							<li><a href="/interiordesigneraddinspirationgallery">Create Inspiration Gallery</a></li>
-							<!-- <li><a href="index-3.html">Dashboard 3<span class="badge badge-xs badge-danger ms-3">New</span></a></li>
-							<li><a href="index-4.html">Dashboard 4<span class="badge badge-xs badge-danger ms-3">New</span></a></li>
-							<li><a href="index-5.html">Dashboard 5<span class="badge badge-xs badge-danger ms-3">New</span></a></li>
-							<li><a href="index-6.html">Dashboard 6<span class="badge badge-xs badge-danger ms-3">New</span></a></li>
-							<li><a href="index-7.html">Dashboard 7<span class="badge badge-xs badge-danger ms-3">New</span></a></li>
-							<li><a href="index-8.html">Dashboard 8<span class="badge badge-xs badge-danger ms-3">New</span></a></li>
-							<li><a href="my-wallet.html">My Wallet</a></li>
-							<li><a href="page-invoices.html">Invoices</a></li>
-							<li><a href="cards-center.html">Cards Center</a></li>
-							<li><a href="page-transaction.html">Transaction</a></li>
-							<li><a href="transaction-details.html">Transaction Details</a></li>	 -->
-						</ul>
+					</li>
+					<li><a class="" href="{{route('designer.portfolio.create')}}" >
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Portfolio</span>
+						</a>
+					</li>
+					<li><a class="" href="{{route('designer.appointments.index')}}" >
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Appointments</span>
+						</a>
+					</li>
 
-                    </li>
-					<!-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="fa-solid fa-gear fw-bold"></i>
-							<span class="nav-text">CMS</span>
-							<span class="badge badge-xs badge-danger ms-3">New</span>
-						</a>
-                        <ul aria-expanded="false">
-							<li><a href="content.html">Content</a></li>
-							<li><a href="menu.html">Menu</a></li>	
-							<li><a href="email-template.html">Email Template</a></li>		
-							<li><a href="blog.html">Blog</a></li>	
-						</ul>
-
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-050-info"></i>
-							<span class="nav-text">Apps</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="app-profile.html">Profile</a></li>
-							<li><a href="post-details.html">Post Details</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="email-compose.html">Compose</a></li>
-                                    <li><a href="email-inbox.html">Inbox</a></li>
-                                    <li><a href="email-read.html">Read</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./app-calender.html">Calendar</a></li>
-							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="ecom-product-grid.html">Product Grid</a></li>
-									<li><a href="ecom-product-list.html">Product List</a></li>
-									<li><a href="ecom-product-detail.html">Product Details</a></li>
-									<li><a href="ecom-product-order.html">Order</a></li>
-									<li><a href="ecom-checkout.html">Checkout</a></li>
-									<li><a href="ecom-invoice.html">Invoice</a></li>
-									<li><a href="ecom-customers.html">Customers</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-041-graph"></i>
-							<span class="nav-text">Charts</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="chart-flot.html">Flot</a></li>
-                            <li><a href="chart-morris.html">Morris</a></li>
-                            <li><a href="chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="chart-chartist.html">Chartist</a></li>
-                            <li><a href="chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="chart-peity.html">Peity</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-086-star"></i>
-							<span class="nav-text">Bootstrap</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="ui-accordion.html">Accordion</a></li>
-                            <li><a href="ui-alert.html">Alert</a></li>
-                            <li><a href="ui-badge.html">Badge</a></li>
-                            <li><a href="ui-button.html">Button</a></li>
-                            <li><a href="ui-modal.html">Modal</a></li>
-                            <li><a href="ui-button-group.html">Button Group</a></li>
-                            <li><a href="ui-list-group.html">List Group</a></li>
-                            <li><a href="ui-card.html">Cards</a></li>
-                            <li><a href="ui-carousel.html">Carousel</a></li>
-                            <li><a href="ui-dropdown.html">Dropdown</a></li>
-                            <li><a href="ui-popover.html">Popover</a></li>
-                            <li><a href="ui-progressbar.html">Progressbar</a></li>
-                            <li><a href="ui-tab.html">Tab</a></li>
-                            <li><a href="ui-typography.html">Typography</a></li>
-                            <li><a href="ui-pagination.html">Pagination</a></li>
-                            <li><a href="ui-grid.html">Grid</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-045-heart"></i>
-							<span class="nav-text">Plugins</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="uc-select2.html">Select 2</a></li>
-                            <li><a href="uc-nestable.html">Nestedable</a></li>
-                            <li><a href="uc-noui-slider.html">Noui Slider</a></li>
-                            <li><a href="uc-sweetalert.html">Sweet Alert</a></li>
-                            <li><a href="uc-toastr.html">Toastr</a></li>
-                            <li><a href="map-jqvmap.html">Jqv Map</a></li>
-							<li><a href="uc-lightgallery.html">Light Gallery</a></li>
-                        </ul>
-                    </li>
-					<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-045-heart"></i>
-							<span class="nav-text">Widget</span>
-						</a>
-                        <ul aria-expanded="false" class="mm-collapse" style="">
-							<li><a href="widget-card.html">Widget Card</a></li>
-							<li><a href="widget-chart.html">widget Chart</a></li>
-							<li><a href="widget-list.html">Widget List</a></li>
-							
-						</ul>
-                    </li>
-                   
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-072-printer"></i>
-							<span class="nav-text">Forms</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="form-element.html">Form Elements</a></li>
-                            <li><a href="form-wizard.html">Wizard</a></li>
-                            <li><a href="form-ckeditor.html">CkEditor</a></li>
-                            <li><a href="form-pickers.html">Pickers</a></li>
-                            <li><a href="form-validation.html">Form Validate</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-043-menu"></i>
-							<span class="nav-text">Table</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.html">Datatable</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-022-copy"></i>
-							<span class="nav-text">Pages</span>
-						</a> -->
-                        <ul aria-expanded="false">
-                            <!-- <li><a href="page-login.html">Login<span class="badge badge-xs badge-success ms-3">Update</span></a></li>
-                            <li><a href="page-register.html">Register<span class="badge badge-xs badge-success ms-3">Update</span></a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error<span class="badge badge-xs badge-success ms-3">Upadte</span></a>
-                                <ul aria-expanded="false">
-                                    <li><a href="page-error-400.html">Error 400</a></li>
-                                    <li><a href="page-error-403.html">Error 403</a></li>
-                                    <li><a href="page-error-404.html">Error 404</a></li>
-                                    <li><a href="page-error-500.html">Error 500</a></li>
-                                    <li><a href="page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li> -->
-                            <!-- <li><a href="page-lock-screen.html">Lock Screen<span class="badge badge-xs badge-success ms-3">Update</span></a></li> -->
-                            <li><a href="/">Back To Website</a></li>
-                        </ul>
-                    </li>
-                </ul>
 				<div class="copyright">
 					<p><strong>User Dashboard</strong> © 2024 All Rights Reserved</p>
 					<p class="fs-12">Made with <span class="heart"></span> by TechMasters</p>
@@ -925,6 +804,10 @@
     <!--**********************************
         Scripts
     ***********************************-->
+
+
+		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+		
     <!-- Required vendors -->
     <script src="{{ asset('user_dashboard/vendor/global/global.min.js')}}"></script>
 	<script src="{{ asset('user_dashboard/vendor/chart-js/chart.bundle.min.js')}}"></script>
@@ -942,6 +825,18 @@
 	<script src="{{ asset('user_dashboard/js/dlabnav-init.js')}}"></script>
 	<script src="{{ asset('user_dashboard/js/demo.js')}}"></script>
    <script src="{{ asset('user_dashboard/js/styleSwitcher.js')}}"></script>
+
+	         <!-- Custom Scripts -->
+					 <script src="{{ URL::asset('admin_assets/assets/js/hummingbird-treeview.js')}}"></script>
+  <script src="{{ URL::asset('admin_assets/assets/js/custom/ajaxPost.js')}}"></script>
+  <script src="{{ URL::asset('admin_assets/assets/js/custom/status-update.js')}}"></script>
+  <script src="{{ URL::asset('admin_assets/assets/js/custom/form-upload.js')}}"></script>
+  <script src="{{ URL::asset('admin_assets/assets/js/custom/image-preview.js')}}"></script>
+  <script src="{{ URL::asset('admin_assets/assets/js/custom/pagination.js')}}"></script>
+  <script src="{{ URL::asset('admin_assets/assets/js/custom/filemanager.js')}}"></script>
+
+@stack('scripts')
+
 	
 </body>
 </html>

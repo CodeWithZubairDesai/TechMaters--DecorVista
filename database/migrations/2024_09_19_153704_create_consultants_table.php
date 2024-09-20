@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('consultants', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('designer_id');
+            $table->unsignedBigInteger('portfolio_id');
             $table->date('available_at'); 
             $table->string('message');
-            $table->integer('status')->default(1)->comment('1 = Unapproved, 2 = Approved, 3 = Inprogress , 4 = Completed , 5 = Cancelled' );
+            $table->integer('status')->default(1)->comment('1 = Active, 2 = Inactive');
             $table->string('created_by');
             $table->date('created_date');
             
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('designer_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('portfolio_id')->references('id')->on('portfolios')->onDelete('cascade');
         });
     }
 

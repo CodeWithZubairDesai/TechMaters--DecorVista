@@ -10,8 +10,7 @@ class Portfolio extends Model
 {
     use HasFactory;
     
-    public $timestamps = false; // Disable automatic timestamp management
-
+    public $timestamps = false; 
     /**
      * The attributes that are mass assignable.
      *
@@ -21,9 +20,6 @@ class Portfolio extends Model
         'designer_id',
         'title',
         'description',
-        'status',
-        'created_by',
-        'created_date',
     ];
 
     /**
@@ -41,7 +37,8 @@ class Portfolio extends Model
     {
         static::creating(function ($model) {
             $model->created_by = Auth::user()->name;
-            $model->created_date = now(); // Current date and time
+            $model->created_date = now(); 
+            $model->status = 2;
         });
     }
 }

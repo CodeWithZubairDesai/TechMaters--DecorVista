@@ -36,6 +36,18 @@ class Product extends Model
         return $this->hasMany(ProductImages::class, 'product_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(ProductReviews::class , 'product_id');
+    }
+
+    
+    public function inventory()
+    {
+        return $this->belongsTo(Inventory::class,
+     'id', 'product_id',);
+    }
+
 
     function scopeStatus($query,$status)
     {

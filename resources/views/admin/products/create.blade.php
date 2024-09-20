@@ -57,14 +57,22 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="product-Price" class="form-label">Price</label>
                                     <input type="number" id="product-Price" name="price" class="form-control"
                                     placeholder="Item Price">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+
+                            <div class="col-lg-4">
+                                <div class="mb-3">
+                                    <label for="product-Price" class="form-label">SKU(Stock Kepping Unit)</label>
+                                    <input type="number" id="product-sku" name="sku" class="form-control"
+                                    placeholder="Item Quantity">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="product-tags" class="form-label">Tags</label>
                                     <input type="strng" id="product-tags" name="tags" class="form-control"

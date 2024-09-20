@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brands;
+use App\Models\Inventory;
 use Illuminate\Http\Request;
 use App\Models\ProductCategories;
 use App\Models\Product;
@@ -26,7 +27,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $products = Product::with('images', 'productcategory')->get();
+            $products = Product::with('images', 'productcategory' , 'inventory')->get();
             Log::info("product Dta = ".$products);
 
             return Datatables::of($products)
@@ -34,6 +35,13 @@ class ProductController extends Controller
                 ->addColumn('category_name', function ($row) {
                     return $row->productcategory ? $row->productcategory->name : '-';
                 })
+                ->addColumn('sku', function ($row) {
+                    if ($row->inventory && $row->inventory->isNotEmpty()) {
+                        return $row->inventory->pluck('sku')->implode(', ');
+                    } else {
+                        return '-';
+                    }
+                })                
                 ->addColumn('product_image', function ($row) {
                     if ($row->images->first()) {
                         return $row->images->first()->image_path;
@@ -109,6 +117,7 @@ class ProductController extends Controller
             'description' => 'required|string',
             'tags' => 'required|string',
             'price' => 'required|numeric',
+            'sku' => 'required|numeric',
             'file.*' => 'required|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
 
@@ -142,6 +151,11 @@ class ProductController extends Controller
                 ]);
             }
         }
+
+        $inventory = new Inventory();
+        $inventory->product_id = $product->id;
+        $inventory->sku = $request->sku;
+        $inventory->save();
         // Step 6: Return success response
         return response()->json([
             'status' => 'success',

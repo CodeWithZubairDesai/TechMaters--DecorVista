@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class PortfolioImage extends Model
 {
     use HasFactory;
-    public $timestamps = true; // To use Laravel's timestamp columns
-
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,7 +18,6 @@ class PortfolioImage extends Model
     protected $fillable = [
         'portfolio_id',
         'image_path',
-        'status',
     ];
 
     /**
@@ -30,13 +28,7 @@ class PortfolioImage extends Model
         return $this->belongsTo(Portfolio::class, 'portfolio_id');
     }
 
-    /**
-     * Scope a query to only include images of a given status.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param mixed $status
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
+
     public function scopeStatus($query, $status)
     {
         if ($status !== '') {

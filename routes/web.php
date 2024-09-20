@@ -12,6 +12,8 @@ use App\Http\Controllers\User\ProductController as UserProductController;
 
 // Interior Designer Controller
 use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioController;
+use App\Http\Controllers\Designer\GeneralController as DesignerGenerealController;
+use App\Http\Controllers\Designer\AppointmentController as DesignerAppointmentController;
 
 //Admin Controller
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -215,33 +217,53 @@ Route::prefix('frontend')->group(function(){
     
     Route::controller(UserProductController::class)->prefix('products')->group(function () {
         Route::get('/', 'index')->name('users.products.index');
-        Route::post('/detail/{id}/', 'show')->name('users.products.show');
+        Route::get('/detail/{id}/', 'show')->name('users.products.show');
     });
 });
 
-// Interior Designer Routes
-// Route::prefix('designer')->group(function(){
-// Route::middleware(['designer.auth'])->group(function () {
 
-// });
-// });
-
-
+//Designer Routes
 Route::prefix('designer')->group(function(){
+    Route::middleware(['auth', 'role:designer'])->group(function () {
+    });
 
-    // Route::middleware(['auth', 'role:designer'])->group(function () {
-        Route::get('portfolio/create', [DesignerPortfolioController::class, 'create']);
-        Route::post('portfolio', [DesignerPortfolioController::class, 'store'])->name('portfolio');
-        Route::get('portfolio/edit', [DesignerPortfolioController::class, 'edit']);
-        Route::post('portfolio/update', [DesignerPortfolioController::class, 'update']);
 
-        // Route::post('consultation/{id}', [DesignerConsultationController::class, 'store']);
-
-    // });
+        Route::controller(DesignerPortfolioController::class)->group(function () {
+            Route::prefix('portfolio')->group(function () {
+                Route::get('/', 'index')->name('designer.portfolio.index');
+                Route::get('/create', 'create')->name('designer.portfolio.create');
+                Route::post('/store', 'store')->name('designer.portfolio.store');
+                Route::post('/status', 'status')->name('designer.portfolio.status');
+                Route::get('/{id}/edit', 'edit')->name('designer.portfolio.edit');
+                Route::post('/update', 'update')->name('designer.portfolio.update');
+                Route::post('/destroy/{id}', 'destroy')->name('designer.portfolio.destroy');
+            });
+        });
+        Route::controller(DesignerGenerealController::class)->group(function () {        
+                Route::get('/dashboard', 'index')->name('designer.dashboard.index');
+                Route::get('/create', 'create')->name('designer.dashboard.create');
+                Route::post('/store', 'store')->name('designer.dashboard.store');
+                Route::post('/status', 'status')->name('designer.dashboard.status');
+                Route::get('/{id}/edit', 'edit')->name('designer.dashboard.edit');
+                Route::post('/update', 'update')->name('designer.dashboard.update');
+                Route::post('/destroy/{id}', 'destroy')->name('designer.dashboard.destroy');
+        });
+        Route::controller(DesignerAppointmentController::class)->group(function () {
+            Route::prefix('appointmets')->group(function () {            
+            Route::get('/', 'index')->name('designer.appointments.index');
+            Route::get('/create', 'create')->name('designer.appointmets.create');
+            Route::post('/store', 'store')->name('designer.appointmets.store');
+            Route::post('/status', 'status')->name('designer.appointments.status');
+            Route::get('/{id}/edit', 'edit')->name('designer.appointmets.edit');
+            Route::post('/update', 'update')->name('designer.appointmets.update');
+            Route::post('/destroy/{id}', 'destroy')->name('designer.appointmets.destroy');
+        });
+        });
+    });
 
     Route::get('portfolio/{id}', [DesignerPortfolioController::class, 'show']);
 
-});
+    
 
 
 
@@ -252,9 +274,7 @@ Route::prefix('designer')->group(function(){
 
 
 
-Route::get('/interiordashboardhome', function () {
-    return view('InteriorDesignerDashboard.InteriorDesignerDashboard');
-});
+
 
 
 Route::get('/interiordesignerappointmentsrequests', function () {

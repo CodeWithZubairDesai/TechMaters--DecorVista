@@ -10,8 +10,7 @@ class Appointment extends Model
 {
     use HasFactory;
 
-    public $timestamps = false; // Disable automatic timestamp management
-
+    public $timestamps = false; 
     /**
      * The attributes that are mass assignable.
      *
@@ -21,9 +20,6 @@ class Appointment extends Model
         'user_id',
         'designer_id',
         'notes',
-        'status',
-        'created_by',
-        'created_date',
     ];
 
     /**
@@ -42,13 +38,6 @@ class Appointment extends Model
         return $this->belongsTo(User::class, 'designer_id');
     }
 
-    /**
-     * Scope a query to only include appointments of a given status.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param mixed $status
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
     public function scopeStatus($query, $status)
     {
         if ($status !== '') {
@@ -62,6 +51,7 @@ class Appointment extends Model
     protected static function booted()
     {
         static::creating(function ($model) {
+            $model->status = 1;
             $model->created_by = Auth::user()->name;
             $model->created_date = now(); // Current date and time
         });

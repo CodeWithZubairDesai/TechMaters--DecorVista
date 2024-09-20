@@ -24,6 +24,7 @@
                                     <th>Product Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
+                                    <th>SKU</th>
                                     <th>Tags</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -78,6 +79,7 @@
                     { data: 'name', name: 'name' },
                     { data: 'category_name', name: 'category_name' },
                     {data: 'price', name: 'price'},
+                    {data: 'sku', name: 'sku'},
                     {data: 'tags', name: 'tags'},
                     { data: 'status', name: 'status' },
                     { data: 'action', name: 'action', orderable: false, searchable: false, class: 'text-center' }

@@ -23,7 +23,7 @@ class ProductController extends Controller
 
 
     public function show($id){
-        $product = Product::with(['variants', 'productcategory','reviews.user'])
+        $product = Product::with(['images', 'productcategory','reviews.user' ,'inventory'])
             ->where('id', $id)
             ->first();
     

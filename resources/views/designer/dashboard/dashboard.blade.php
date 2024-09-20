@@ -1,5 +1,9 @@
-@extends('InteriorDesignerDashboard.layouts.layout')
+@extends('designer.layouts.layout')
+@section('title')
+Dashboard
+@endsection
 
+@section('main-section')
 <style>
 	body {
     background-color: #434c50;
