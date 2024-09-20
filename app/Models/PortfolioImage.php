@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class PortfolioImage extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+    public $timestamps = false; 
+
     /**
      * The attributes that are mass assignable.
      *

@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" type="images/png" href="{{ asset('user_assets/assets/images/fav-icon/favicon.ico')}}">
 
 		<!-- Google fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://font	.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -82,9 +82,9 @@
 				<nav class="navbar navbar-expand-xl navbar-light nav-border hover-menu" aria-label="Offcanvas navbar large">	
 					<div class="container-fluid max-width">										
 						<div class="d-flex align-items-end">
-							<a class="navbar-brand py-0" href="index.html">
+							<a class="navbar-brand py-0" href="{{route('home')}}">
 								<span class="logo">
-													<img src="{{asset('user_assets/assets/admin_assets/assets/images/logo.png')}}" alt="logo">
+													<img src="{{asset('user_assets/assets/images/fav-icon/favicon.ico')}}" alt="logo">
 									<svg width="219" height="31" viewBox="0 0 219 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M196.212 30.2799L203.852 19.3199L196.172 8.43994H203.132L208.892 16.9199H205.852L211.612 8.43994H218.572L210.892 19.3199L218.492 30.2799H211.572L205.932 21.7999H208.812L203.172 30.2799H196.212Z"/>
 									<path d="M187.541 30.28V8.43998H193.541V30.28H187.541ZM187.541 6.47998V0.47998H193.541V6.47998H187.541Z"/>
@@ -98,46 +98,13 @@
 									<path d="M31.0569 30.28V8.43995H36.6569V13.68L36.2569 12.92C36.7369 11.08 37.5236 9.83995 38.6169 9.19995C39.7369 8.53329 41.0569 8.19995 42.5769 8.19995H43.8569V13.4H41.9769C40.5102 13.4 39.3236 13.8533 38.4169 14.76C37.5102 15.64 37.0569 16.8933 37.0569 18.52V30.28H31.0569Z"/>
 									<path d="M0 30.28L10.08 0.47998H18.32L28.4 30.28H21.64L19.64 24.2H8.72L6.72 30.28H0ZM10.44 18.8H17.92L13.36 4.71998H15.04L10.44 18.8Z"/>
 									</svg>
-								</span>						
-							</a>
-							<div class="dropdown text-uppercase fw-semibold d-block d-xl-none" >
-								<a href="#" class="text-decoration-none dropdown-language nav-link-icon d-flex align-items-center gap-1" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
-									en 
-									<!-- <span class="dropdown-icon-2">
+								</span>															<span class="dropdown-icon-2">
 										<svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M0.396 0.673999L2.484 0.673999L5.238 7.028L4.5 7.028L7.272 0.673999L9.36 0.673999L5.85 8.648L3.906 8.648L0.396 0.673999Z"/>
 										</svg>
-									</span> -->
-									<span class="dropdown-icon">
-										<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M11 8L6 2L1 8"/>
-										</svg> 
 									</span>
-								</a>
-								
-								<ul class="dropdown-menu dropdown-menu-style-2">
-									<li >
-										<a href="#" class="dropdown-item d-flex gap-1 align-items-center"><img src="admin_admin_assets/assets/admin_assets/assets/images/flag-us.png')}}" alt="flag-us">
-											<span class="text-uppercase">en</span>
-										</a>											
-									</li>	
-									<li >
-										<a href="#" class="dropdown-item d-flex gap-1 align-items-center"><img src="admin_admin_assets/assets/admin_assets/assets/images/flag-de.png')}}" alt="flag-de">
-											<span class="text-uppercase">de</span>
-										</a>											
-									</li>
-									<li >
-										<a href="#" class="dropdown-item d-flex gap-1 align-items-center"><img src="admin_admin_assets/assets/admin_assets/assets/images/flag-fr.png')}}" alt="flag-fr">
-											<span class="text-uppercase">fr</span>
-										</a>											
-									</li>
-									<li >
-										<a href="#" class="dropdown-item d-flex gap-1 align-items-center"><img src="{{ asset('user_assets/assets/images/flag-ar.png')}}" alt="flag-ar">
-											<span class="text-uppercase">ar</span>
-										</a>											
-									</li>										
-								</ul>
-							</div>
+							</a>
+							
 						</div>
 						<a href="javascript:void(0)" class="toggler-icon text-decoration-none d-block d-xl-none" data-bs-toggle="offcanvas" data-bs-target="#architronixNavbar" aria-controls="architronixNavbar" aria-label="Toggle navigation">
 							<svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -150,7 +117,7 @@
 							<div class="offcanvas-header">
 								<span class="offcanvas-title" id="architronixNavbarLabel">
 									<span class="logo">
-											<img src="{{ asset('user_assets/assets/images/logo.png')}}" alt="logo">										
+											<img src="{{ asset('user_assets/assets/images/fav-icon/favicon.ico')}}" alt="logo">										
 										<svg width="219" height="31" viewBox="0 0 219 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M196.212 30.2799L203.852 19.3199L196.172 8.43994H203.132L208.892 16.9199H205.852L211.612 8.43994H218.572L210.892 19.3199L218.492 30.2799H211.572L205.932 21.7999H208.812L203.172 30.2799H196.212Z"/>
 										<path d="M187.541 30.28V8.43998H193.541V30.28H187.541ZM187.541 6.47998V0.47998H193.541V6.47998H187.541Z"/>
@@ -171,131 +138,24 @@
 							<div class="offcanvas-body">
 							<ul class="navbar-nav justify-content-end flex-grow-1 align-items-xl-center">
 
-								<li class="nav-item dropdown ">
-									<a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
-										Home
-										<span class="dropdown-icon">
-											<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M11 8L6 2L1 8"/>
-											</svg> 
-										</span> 
-									</a>
-									<ul class="dropdown-menu ">
-										<li><a class="dropdown-item" href="home-1.html" aria-label="single-pages">
-												<span class="link-hover-animation-1">Home 1</span>												
-											</a>
-										</li>										
-										<li><a class="dropdown-item" href="home-2.html" aria-label="single-pages">
-											<span class="link-hover-animation-1">Home 2</span>
-											</a>
-										</li>	
-										<li><a class="dropdown-item" href="home-3.html" aria-label="single-pages">
-											<span class="link-hover-animation-1">Home 3</span>
-											</a>
-										</li>	
-										<li><a class="dropdown-item" href="home-4.html" aria-label="single-pages">
-											<span class="link-hover-animation-1">Home 4</span>
-											</a>
-										</li>						
-									</ul>
-								</li>
-
+							
 								<li class="nav-item">
-									<a class="nav-link" href="project-archive.html">
+									<a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{route('home')}}">
+										Home										   
+									</a>									
+								</li>	
+								<li class="nav-item">
+									<a class="nav-link " href="/projects">
 										Projects										   
+									</a>									
+								</li>	
+								<li class="nav-item">
+									<a class="nav-link {{ Route::currentRouteName() == 'services' ? 'active' : '' }}" href="/projects">
+										Services										   
 									</a>									
 								</li>	
 
 
-								<li class="nav-item dropdown has-megamenu">
-									<a class="nav-link  d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
-										Services
-										<span class="dropdown-icon">
-											<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M11 8L6 2L1 8"/>
-											</svg> 
-										</span> 
-									</a>
-									<div class="dropdown-menu  megamenu mb-3 mb-xl-0" role="menu">
-										<div class="container">
-											<div class="megamenu-contents">
-												<div class="row g-0">
-													<div class="col-xl-3">															
-														<div class="d-flex gap-30 flex-column py-40 ps-30 pe-40">
-															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Residential Design</a>
-																<p class="small mb-0 pt-10">Everything from concept to completion</p>
-															</div>	
-															<!-- menu-description -->
-															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Commercial Design</a>
-																<p class="small mb-0 pt-10">Focuses on optimizing functionality and aesthetics</p>
-															</div>	
-															<!-- menu-description -->
-															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Space Planning</a>
-																<p class="small mb-0 pt-10">Maximize the potential of your space</p>
-															</div>	
-															<!-- menu-description -->
-														</div>															
-													</div>
-													<!-- col -->
-													<div class="col-xl-3">															
-														<div class="d-flex gap-30 flex-column py-40 ps-30 pe-40 separator h-100">
-															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Color Consultation</a>
-																<p class="small mb-0 pt-10">We help you choose the perfect palette</p>
-															</div>	
-															<!-- menu-description -->
-															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Project Management</a>
-																<p class="small mb-0 pt-10">We oversee every detail for a successful project</p>
-															</div>	
-															<!-- menu-description -->
-															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Custom Furnishings</a>
-																<p class="small mb-0 pt-10">Elevate your space with unique furnishings</p>
-															</div>	
-															<!-- menu-description -->
-														</div>															
-													</div>
-													<!-- col -->
-													<div class="col-xl-3">															
-														<div class="d-flex gap-30 flex-column py-40 ps-30 pe-40 separator h-100">
-															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Concept Development</a>
-																<p class="small mb-0 pt-10">Develop a design concept</p>
-															</div>	
-															<!-- menu-description -->
-															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Revamps & Remodels</a>
-																<p class="small mb-0 pt-10">Renovation and remodeling services that breathe new life</p>
-															</div>	
-															<!-- menu-description -->
-														</div>															
-													</div>
-													<!-- col -->
-													<div class="col-xl-3">
-														<div class="menu-image-wrapper position-relative h-100">
-															<img src="{{ asset('user_assets/assets/images/menu-image-1.png')}}" class="w-100 h-100" alt="img">
-															<div class="menu-image-contents px-3">
-																<h4 class="mb-90 px-0 px-xl-10 fw-extra-bold">Embark on a Design Journey with Us</h4>
-																<div class="architronix-button">
-																	<a href="contact-2.html" class="btn btn-secondary d-inline-flex gap-10 w-100" target="_blank">Lets Talk							
-																		<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-																			<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-																		</svg>							
-																	</a>
-																</div>
-															</div>																
-														</div>
-													</div>
-												</div>	
-												<!-- row -->
-											</div>											
-										</div>																													 
-									</div>
-								</li>
 								
 
 								<li class="nav-item dropdown ">
@@ -343,48 +203,60 @@
 								
 
 								<li class="nav-item">
-									<a class="nav-link" href="{{route('users.blogs.index')}}">
+									<a class="nav-link  {{ Route::currentRouteName() == 'users.blogs.index' ? 'active' : '' }}" href="{{ route('users.blogs.index') }}">
 										Blog										   
 									</a>									
 								</li>	
 								
 
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="contact-2.html">
+									<a class="nav-link" aria-current="page" href="{{route('users.contact.index')}}">
 										Contact										   
 									</a>									
 								</li>
+	
 								
-								<li class="nav-item">
-									<div class="d-flex gap-4 align-items-center">
-										<a class="nav-link nav-link-icon" href="#" data-bs-toggle="modal" data-bs-target="#FullScreenModal">
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<g clip-path="url(#clip0_142_460)">
-												<path d="M23.7068 22.2938L17.7378 16.3248C19.3644 14.3354 20.1642 11.7969 19.9716 9.23432C19.7791 6.67179 18.609 4.28129 16.7034 2.55728C14.7977 0.833269 12.3024 -0.0923492 9.73342 -0.0281174C7.16447 0.0361144 4.71849 1.08528 2.9014 2.90237C1.08431 4.71946 0.0351379 7.16545 -0.029094 9.7344C-0.0933258 12.3034 0.832293 14.7987 2.5563 16.7043C4.28031 18.61 6.67081 19.7801 9.23334 19.9726C11.7959 20.1651 14.3344 19.3654 16.3238 17.7388L22.2928 23.7078C22.4814 23.8899 22.734 23.9907 22.9962 23.9884C23.2584 23.9862 23.5092 23.881 23.6946 23.6956C23.88 23.5102 23.9852 23.2594 23.9875 22.9972C23.9897 22.735 23.8889 22.4824 23.7068 22.2938ZM9.99978 18.0008C8.41753 18.0008 6.87081 17.5316 5.55522 16.6525C4.23963 15.7735 3.21425 14.524 2.60875 13.0622C2.00324 11.6004 1.84482 9.99189 2.1535 8.44004C2.46218 6.88819 3.22411 5.46272 4.34293 4.3439C5.46175 3.22508 6.88721 2.46316 8.43906 2.15448C9.99091 1.84579 11.5994 2.00422 13.0613 2.60972C14.5231 3.21522 15.7725 4.2406 16.6515 5.5562C17.5306 6.87179 17.9998 8.41851 17.9998 10.0008C17.9974 12.1218 17.1538 14.1552 15.654 15.655C14.1542 17.1548 12.1208 17.9984 9.99978 18.0008Z" />
-												</g>
-												<defs>
-												<clipPath id="clip0_142_460">
-												<rect width="24" height="24"/>
-												</clipPath>
-												</defs>
+									<li class="nav-item">
+										<div class="d-flex gap-4 align-items-center">
+			
+											<a class="nav-link nav-link-icon d-block d-xl-none" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" aria-expanded="false" aria-label="Toggle navigation">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<g clip-path="url(#clip0_142_452)">
+													<path d="M21 6H18C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6H3C2.20435 6 1.44129 6.31607 0.87868 6.87868C0.31607 7.44129 0 8.20435 0 9L0 19C0.00158786 20.3256 0.528882 21.5964 1.46622 22.5338C2.40356 23.4711 3.67441 23.9984 5 24H19C20.3256 23.9984 21.5964 23.4711 22.5338 22.5338C23.4711 21.5964 23.9984 20.3256 24 19V9C24 8.20435 23.6839 7.44129 23.1213 6.87868C22.5587 6.31607 21.7956 6 21 6ZM12 2C13.0609 2 14.0783 2.42143 14.8284 3.17157C15.5786 3.92172 16 4.93913 16 6H8C8 4.93913 8.42143 3.92172 9.17157 3.17157C9.92172 2.42143 10.9391 2 12 2ZM22 19C22 19.7956 21.6839 20.5587 21.1213 21.1213C20.5587 21.6839 19.7956 22 19 22H5C4.20435 22 3.44129 21.6839 2.87868 21.1213C2.31607 20.5587 2 19.7956 2 19V9C2 8.73478 2.10536 8.48043 2.29289 8.29289C2.48043 8.10536 2.73478 8 3 8H6V10C6 10.2652 6.10536 10.5196 6.29289 10.7071C6.48043 10.8946 6.73478 11 7 11C7.26522 11 7.51957 10.8946 7.70711 10.7071C7.89464 10.5196 8 10.2652 8 10V8H16V10C16 10.2652 16.1054 10.5196 16.2929 10.7071C16.4804 10.8946 16.7348 11 17 11C17.2652 11 17.5196 10.8946 17.7071 10.7071C17.8946 10.5196 18 10.2652 18 10V8H21C21.2652 8 21.5196 8.10536 21.7071 8.29289C21.8946 8.48043 22 8.73478 22 9V19Z" />
+													</g>
+													<defs>
+													<clipPath id="clip0_142_452">
+													<rect width="24" height="24"/>
+													</clipPath>
+													</defs>
+												</svg> 
+											</a>
+										</div>									
+									</li>
+								<li class="nav-item dropdown ">
+									<a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
+									<i class="fa-regular fa-user"></i>
+										<span class="dropdown-icon">
+											<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M11 8L6 2L1 8"/>
 											</svg> 
-										</a>
-		
-										<a class="nav-link nav-link-icon d-block d-xl-none" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" aria-expanded="false" aria-label="Toggle navigation">
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<g clip-path="url(#clip0_142_452)">
-												<path d="M21 6H18C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6H3C2.20435 6 1.44129 6.31607 0.87868 6.87868C0.31607 7.44129 0 8.20435 0 9L0 19C0.00158786 20.3256 0.528882 21.5964 1.46622 22.5338C2.40356 23.4711 3.67441 23.9984 5 24H19C20.3256 23.9984 21.5964 23.4711 22.5338 22.5338C23.4711 21.5964 23.9984 20.3256 24 19V9C24 8.20435 23.6839 7.44129 23.1213 6.87868C22.5587 6.31607 21.7956 6 21 6ZM12 2C13.0609 2 14.0783 2.42143 14.8284 3.17157C15.5786 3.92172 16 4.93913 16 6H8C8 4.93913 8.42143 3.92172 9.17157 3.17157C9.92172 2.42143 10.9391 2 12 2ZM22 19C22 19.7956 21.6839 20.5587 21.1213 21.1213C20.5587 21.6839 19.7956 22 19 22H5C4.20435 22 3.44129 21.6839 2.87868 21.1213C2.31607 20.5587 2 19.7956 2 19V9C2 8.73478 2.10536 8.48043 2.29289 8.29289C2.48043 8.10536 2.73478 8 3 8H6V10C6 10.2652 6.10536 10.5196 6.29289 10.7071C6.48043 10.8946 6.73478 11 7 11C7.26522 11 7.51957 10.8946 7.70711 10.7071C7.89464 10.5196 8 10.2652 8 10V8H16V10C16 10.2652 16.1054 10.5196 16.2929 10.7071C16.4804 10.8946 16.7348 11 17 11C17.2652 11 17.5196 10.8946 17.7071 10.7071C17.8946 10.5196 18 10.2652 18 10V8H21C21.2652 8 21.5196 8.10536 21.7071 8.29289C21.8946 8.48043 22 8.73478 22 9V19Z" />
-												</g>
-												<defs>
-												<clipPath id="clip0_142_452">
-												<rect width="24" height="24"/>
-												</clipPath>
-												</defs>
-											</svg> 
-										</a>
-									</div>									
-								</li>
-								
+										</span> 
+									</a>
+									<div class="dropdown-menu dropdown-menu-lg">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="d-flex flex-column">
+													@if(Auth::user() == true)
+													<a class="dropdown-item" href="{{route('users.logout')}}" aria-label="single-pages"><span class="link-hover-animation-1">Logout</span></a>	
+													@else									
+													<a class="dropdown-item" href="{{route('users.login')}}" aria-label="single-pages"><span class="link-hover-animation-1">Login</span></a>										
+													<a class="dropdown-item" href="{{route('users.register')}}" aria-label="single-pages"><span class="link-hover-animation-1">Register</span></a>		
+													@endif								
+												</div>
+											</div>
+										</div>						
+									</div>
+								</li>	
 								<li class="nav-item d-none d-xl-block">
 									<a class="nav-link nav-link-icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" aria-expanded="false" aria-label="Toggle navigation">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -398,9 +270,10 @@
 										</defs>
 									</svg> 
 									</a>
-								</li>						
+								</li>		
+			
 
-								<li class="nav-item dropdown text-uppercase fw-semibold d-none d-xl-block">
+								<!-- <li class="nav-item dropdown text-uppercase fw-semibold d-none d-xl-block">
 									<a href="#" class="nav-link nav-link-icon d-flex align-items-center gap-1" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
 										en 
 										<span class="dropdown-icon">
@@ -432,7 +305,7 @@
 											</a>											
 										</li>										
 									</ul>
-								</li>
+								</li> -->
 							</ul>						  
 							</div>
 						</div>
@@ -507,7 +380,7 @@
 
 
 			<!--Full-Screen-Modal (Search-Modal) ======================-->
-			<div class="modal fade" id="FullScreenModal" aria-hidden="true"  tabindex="-1">
+			<!-- <div class="modal fade" id="FullScreenModal" aria-hidden="true"  tabindex="-1">
 				<div class="modal-dialog modal-fullscreen">
 				  <div class="modal-content">
 					<div class="modal-header">					  
@@ -539,10 +412,10 @@
 								</div>										  
 							</form>							
 						</div>
-					</div>					
-				  </div>
+			
+					</div>
 				</div>
-			</div>
+			</div> -->
 			<!--Full-Screen-Modal (Search-Modal) ======================-->
 
 
@@ -579,7 +452,7 @@
 								<div>
 									<a class="navbar-brand py-0" href="index.html">
 									<span class="logo">
-											<img src="{{ asset('user_assets/assets/images/logo.png')}}" alt="logo">
+											<img src="{{ asset('user_assets/assets/images/fav-icon/favicon.ico')}}" alt="logo">
 										<svg width="219" height="31" viewBox="0 0 219 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M196.212 30.2799L203.852 19.3199L196.172 8.43994H203.132L208.892 16.9199H205.852L211.612 8.43994H218.572L210.892 19.3199L218.492 30.2799H211.572L205.932 21.7999H208.812L203.172 30.2799H196.212Z"/>
 										<path d="M187.541 30.28V8.43998H193.541V30.28H187.541ZM187.541 6.47998V0.47998H193.541V6.47998H187.541Z"/>
@@ -678,7 +551,7 @@
 			<script src="{{ asset('user_assets/assets/js/script.js')}}"></script>	
 
 
-			<script src="{{ asset('customize/presets.js')}}"></script>
+			<!-- <script src="{{ asset('customize/presets.js')}}"></script> -->
 
 
         <!-- Custom Scripts -->

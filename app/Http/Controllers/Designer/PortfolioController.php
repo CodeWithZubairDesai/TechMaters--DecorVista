@@ -17,7 +17,7 @@ class PortfolioController extends Controller
         return view('designer.portfolio.create');
     }
 
-
+    
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -37,6 +37,7 @@ class PortfolioController extends Controller
             ]);
         }
     
+
         // Create Portfolio
         $portfolio = Portfolio::create([
             'designer_id' => auth()->id(), // Assuming the designer is authenticated
@@ -72,6 +73,7 @@ class PortfolioController extends Controller
             'status' => 'success',
             'message' => 'Portfolio created successfully!',
         ]);
+
     }
 
     

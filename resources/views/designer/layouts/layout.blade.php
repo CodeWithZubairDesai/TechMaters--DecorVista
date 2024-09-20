@@ -37,6 +37,9 @@
 	<title>Interior Designer Dashboard -- DecorVista</title>
 	
 	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.js"></script>
 	
 	<link href="{{ asset('user_dashboard/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('user_dashboard/vendor/nouislider/nouislider.min.css')}}">
@@ -825,18 +828,17 @@
 	<script src="{{ asset('user_dashboard/js/dlabnav-init.js')}}"></script>
 	<script src="{{ asset('user_dashboard/js/demo.js')}}"></script>
    <script src="{{ asset('user_dashboard/js/styleSwitcher.js')}}"></script>
+       <!-- Scripts -->
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- Ensure this is the only jQuery inclusion -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
-	         <!-- Custom Scripts -->
-					 <script src="{{ URL::asset('admin_assets/assets/js/hummingbird-treeview.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/ajaxPost.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/status-update.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/form-upload.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/image-preview.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/pagination.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/filemanager.js')}}"></script>
-
-@stack('scripts')
-
+		     <!-- Additional Scripts -->
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 	
 </body>
 </html>

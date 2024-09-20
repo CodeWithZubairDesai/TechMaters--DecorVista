@@ -199,6 +199,7 @@ Route::prefix('frontend')->group(function(){
         Route::get('/login', 'loginform')->name('users.login');
         Route::get('/verify_otp', 'verifyOtpform')->name('users.verifyOtp');
         Route::get('/logouts', 'logout')->name('users.logout');
+        Route::get('/' , 'index')->name('home');
     });
 
     Route::controller(UserBlogController::class)->prefix('blogs')->group(function () {
@@ -274,7 +275,9 @@ Route::prefix('designer')->group(function(){
 
 
 
-
+// Route::get('/interiordashboardhome', function () {
+//     return view('InteriorDesignerDashboard.InteriorDesignerDashboard');
+// });
 
 
 Route::get('/interiordesignerappointmentsrequests', function () {
