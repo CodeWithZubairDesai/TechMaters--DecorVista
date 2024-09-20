@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Blog;
+use Illuminate\Support\Facades\Auth;
 
-use Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BlogImages extends Model
 {
@@ -23,7 +24,7 @@ class BlogImages extends Model
 
     public function blog()
     {
-        return $this->belongsTo(Blogs::class, 'blog_id');
+        return $this->belongsTo(Blog::class, 'blog_id');
     }
 
     function scopeStatus($query,$status)

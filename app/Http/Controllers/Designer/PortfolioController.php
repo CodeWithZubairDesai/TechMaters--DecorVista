@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Designer;
 use App\Http\Controllers\Controller;
 use App\Models\Consultant;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Portfolio;
 use App\Models\PortfolioImage;
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Auth;
 use Datatables;
 class PortfolioController extends Controller
 {
+    public function index() {
+            // Fetch portfolios with necessary relationships
+            $portfolios = Portfolio::with(['designer', 'consultants', 'images'])
+                ->where('designer_id', Auth::user()->id)
+                ->get();
+        
+            return view('designer.portfolio.index', compact('portfolios'));
+        } 
+    
     public function create() {
         return view('designer.portfolio.create');
     }
@@ -111,5 +121,6 @@ class PortfolioController extends Controller
 
     
     
+
 
 }

@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Designer;
 
-use App\Http\Controllers\Controller;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
 {
     //
     public function index(){
-        return view('designer.dashboard.dashboard');        
+        $portfolios =  Portfolio::with(['images' , 'designer','consultants'])
+        ->where('designer_id', Auth::user()->id)
+        ->get();
+        return view('designer.dashboard.dashboard', compact('portfolios'));
     }
 
 

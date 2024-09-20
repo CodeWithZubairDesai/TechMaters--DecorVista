@@ -143,112 +143,83 @@ Dashboard
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xl-12">
-					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title">My Portfolio</h4>
-						</div>
-						<div class="card-body pb-3">
-							<div class="row align-items-center">
-								<div class="col-xl-4 mb-3">
-									<p class="mb-2">Title</p>
-								</div>
-								<div class="col-xl-8 d-flex flex-wrap justify-content-between align-items-center">
-									<div class="d-flex me-3 mb-3 ms-2 align-items-start">
-										<!-- <i class="fa fa-phone scale-2 me-4 mt-2 text-primary"></i> -->
-										<!-- <div>
-												<p class="mb-2">Telephone</p>
-												<h4 class="mb-0">+12 345 5662 66</h4>
-											</div> -->
-									</div>
-									<div class="d-flex me-3 mb-3 ms-2 align-items-start">
-										<i class="fa fa-envelope text-danger scale-2 me-4 mt-2"></i>
-										<div>
-											<p class="mb-2">Email</p>
-											<h4 class="mb-0">samuelbro@mail.com</h4>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="card-body pb-3 transaction-details d-flex flex-wrap justify-content-between align-items-center">
-							<div class="user-bx-2 me-3 mb-3">
-								<img src="user_dashboard/images/profile/1.png" class="rounded" alt="">
-								<div>
-									<h3>Richard Michael</h3>
-								</div>
-							</div>
-							<div class="me-3 mb-3">
-								<p class="mb-2">Payment Method</p>
-								<h4 class="mb-0">MasterCard 404</h4>
-							</div>
-							<div class="me-3 mb-3">
-								<p class="mb-2">Invoice Date</p>
-								<h4 class="mb-0">April 29, 2020</h4>
-							</div>
-							<div class="me-3 mb-3">
-								<p class="mb-2">Due Date</p>
-								<h4 class="mb-0">June 5, 2020</h4>
-							</div>
-							<div class="me-3 mb-3">
-								<p class="mb-2">Date Paid</p>
-								<h4 class="mb-0">June 4, 2020</h4>
-							</div>
-							<!-- <div class="amount-bx mb-3">
-									<i class="fas fa-dollar-sign"></i>
-									<div>
-										<p class="mb-1">Amount</p>
-										<h3 class="mb-0">$ 986.23</h3>
-									</div>
-								</div> -->
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="card-body pb-3 transaction-details d-flex flex-wrap justify-content-between align-items-center">
-										<div class="user-bx-2 me-3 mb-3">
-											<div>
-												<h4 class="card-title">Description</h4>
-												<p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="container gallery-container">
+		@foreach($portfolios as $portfolio)
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">My Portfolio</h4>
+                </div>
+                <div class="card-body pb-3">
+                    <div class="row align-items-center">
+                        <div class="col-xl-8 mb-3">
+                            <p class="mb-2">Title</p>
+                            <h2 class="mb-0">{{ $portfolio->title }}</h2>
+                        </div>
+                        <div class="col-xl-4 d-flex flex-wrap justify-content-between align-items-center">
+                            <div class="d-flex me-3 mb-3 ms-2 align-items-start">
+                                <i class="fa fa-envelope text-danger scale-2 me-4 mt-2"></i>
+                                <div>
+                                    <p class="mb-2">Main Image</p>
+                                    <h4 class="mb-0">{{ $portfolio->designer->email ?? 'No Email Provided' }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body pb-3 transaction-details d-flex flex-wrap justify-content-between align-items-center">
+                    <div class="user-bx-2 me-3 mb-3">
+                        <div>
+						<p class="mb-2">Title</p>
+						<h2 class="mb-0">{{ $portfolio->title }}</h2>
+                        </div>
+                    </div>
+                    <div class="user-bx-2 me-3 mb-3">
+                        <img src="{{ asset($portfolio->image_path) }}" class="rounded" alt="{{ $portfolio->title }}">
+                        <div>
+                            <h3>{{ $portfolio->designer->name ?? 'Designer Name' }}</h3>
+                        </div>
+                    </div>
+                    <div class="me-3 mb-3">
+					@foreach ($portfolio->consultants as $consultant)
+                        	<p class="mb-2">Consulting Available Date</p>
+    						<h4>{{ $consultant->available_at }}</h4> <!-- Correct, iterating over consultants -->
+					@endforeach
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card-body pb-3 transaction-details">
+                            <div>
+                                <h4 class="card-title">Description</h4>
+                                <p class="mt-4">{{ $portfolio->description ?? 'No description available.' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container gallery-container">
+                    <div class="tz-gallery">
+                        <div class="row">
+                            @foreach($portfolio->images as $image)
+                            <div class="col-sm-6 col-md-4">
+                                <a class="lightbox" href="{{ asset($image->image_path) }}">
+                                    <img src="{{ asset($image->image_path) }}" alt="">
+                                </a>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 
-								<div class="tz-gallery">
-									<div class="row">
-
-										<div class="col-sm-12 col-md-4">
-											<a class="lightbox" href="">
-												<img src="user_dashboard/images/avatar/1.jpg" alt="">
-											</a>
-										</div>
-										<div class="col-sm-6 col-md-4">
-											<a class="lightbox" href="">
-												<img src="user_dashboard/images/avatar/1.jpg" alt="">
-											</a>
-										</div>
-										<div class="col-sm-6 col-md-4">
-											<a class="lightbox" href="">
-												<img src="user_dashboard/images/avatar/1.jpg" alt="">
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 
-</div>
-</div>
-</div>
-</div>
+
 <!--
         **********************************
             Content body end

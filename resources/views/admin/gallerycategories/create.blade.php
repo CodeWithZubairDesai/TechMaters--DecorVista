@@ -67,8 +67,8 @@
                 e.preventDefault(); // Prevent default form submission
 
                 // Define target URL and redirect URL
-                let targetUrl = '{{ route('admin.gallery.categories.store') }}';
-                let redirectUrl = '{{ route('admin.gallery.categories.index') }}';
+                let targetUrl = "{{ route('admin.gallery.categories.store') }}";
+                let redirectUrl = "{{ route('admin.gallery.categories.index') }}";
 
                 // Call the handleFileUploadForm function
                 handleFormUploadForm('POST', '#categoryCreateForm', '#submit', targetUrl, redirectUrl);

@@ -148,8 +148,8 @@ $(document).ready(function() {
             'POST',
             '#blogCreateForm',
             '#submit',
-            '{{ route('admin.blogs.store') }}',
-            '{{ route('admin.blogs.index') }}'
+            "{{ route('admin.blogs.store') }}",
+            "{{ route('admin.blogs.index') }}"
         );
     });
 });

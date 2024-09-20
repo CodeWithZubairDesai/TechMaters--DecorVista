@@ -28,6 +28,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(ProductReviews::class);
     }
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 
     public function portfolios()
     {

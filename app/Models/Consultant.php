@@ -16,9 +16,6 @@ class Consultant extends Model
         'message',
     ];
 
-    /**
-     * Define the relationship with the User model.
-     */
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -27,9 +24,9 @@ class Consultant extends Model
     /**
      * Define the relationship with the Designer model.
      */
-    public function portfolio()
+    public function portfolio() 
     {
-        return $this->belongsTo(User::class, 'portfolio_id');
+        return $this->belongsTo(Portfolio::class, 'portfolio_id');
     }
      function scopeStatus($query,$status)
      {

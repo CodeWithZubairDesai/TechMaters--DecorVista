@@ -13,51 +13,48 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.js"></script>
+	
+    <!-- Bootstrap Cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
 
-		<!-- Bootstrap Cdn -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Additional CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
 
-		<!-- DataTables CSS -->
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
+    <!-- App favicon -->
 
-		<!-- Additional CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
+    <!-- Vendor CSS -->
 
-	<!-- favicon -->
+    <!-- Custom css -->
+    <link href="{{ asset('admin_assets/assets/css/custom/pagination.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- Ensure this is the only jQuery inclusion -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="user_dashboard/images/favicon.png')}}">
 
-	<!-- Page Title Here -->
 	<title>Interior Designer Dashboard -- DecorVista</title>
-	
-	
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify.min.js"></script>
 	
 	<link href="{{ asset('user_dashboard/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('user_dashboard/vendor/nouislider/nouislider.min.css')}}">
 	<!-- Style css -->
      <link href="{{ asset('user_dashboard/css/style.css')}}" rel="stylesheet">
 
-	    <!-- Scripts -->
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- Ensure this is the only jQuery inclusion -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-		     <!-- Additional Scripts -->
-		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
+    <!-- Scripts -->
     @stack('styles')    
 	
 </head>
@@ -72,7 +69,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="{{route('designer.dashboard.index')}}" class="brand-logo">
 				<svg class="logo-abbr" width="53" height="53" viewBox="0 0 53 53">
 					<path d="M21.6348 8.04782C21.6348 5.1939 23.9566 2.87204 26.8105 2.87204H28.6018L28.0614 1.37003C27.7576 0.525342 26.9616 0 26.1132 0C25.8781 0 25.639 0.0403711 25.4052 0.125461L7.3052 6.7133C6.22916 7.105 5.67535 8.29574 6.06933 9.37096L7.02571 11.9814H21.6348V8.04782Z" fill="#759DD9"/>
 					<path d="M26.8105 5.97754C25.6671 5.97754 24.7402 6.90442 24.7402 8.04786V11.9815H42.8555V8.04786C42.8555 6.90442 41.9286 5.97754 40.7852 5.97754H26.8105Z" fill="#F8A961"/>
@@ -744,15 +741,15 @@
 							</div>
 						</a>
 						<div class="dropdown-menu dropdown-menu-end">
-							<a href="app-profile.html" class="dropdown-item ai-icon">
+							<a href="" class="dropdown-item ai-icon">
 								<svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
 								<span class="ms-2">Profile </span>
 							</a>
-							<a href="email-inbox.html" class="dropdown-item ai-icon">
+							<a href="" class="dropdown-item ai-icon">
 								<svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
 								<span class="ms-2">Inbox </span>
 							</a>
-							<a href="page-login.html" class="dropdown-item ai-icon">
+							<a href="{{route('logout')}}" class="dropdown-item ai-icon">
 								<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
 								<span class="ms-2">Logout </span>
 							</a>
@@ -808,9 +805,32 @@
         Scripts
     ***********************************-->
 
-
-		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 		
+
+
+	
+<!-- Vendor Javascript -->
+<script src="{{ asset('admin_assets/assets/js/vendor.js') }}"></script>
+<script src="{{ asset('admin_assets/assets/js/app.js') }}"></script>
+
+<!-- Additional Scripts -->
+<script src="{{ asset('admin_assets/assets/vendor/jsvectormap/js/jsvectormap.min.js')}}"></script>
+<script src="{{ asset('admin_assets/assets/vendor/jsvectormap/maps/world-merc.js')}}"></script>
+<script src="{{ asset('admin_assets/assets/vendor/jsvectormap/maps/world.js')}}"></script>
+<script src="{{ asset('admin_assets/assets/js/pages/dashboard.js')}}"></script>
+
+<!-- Custom Scripts -->
+<script src="{{ URL::asset('admin_assets/assets/js/hummingbird-treeview.js')}}"></script>
+<script src="{{ URL::asset('admin_assets/assets/js/custom/ajaxPost.js')}}"></script>
+<script src="{{ URL::asset('admin_assets/assets/js/custom/status-update.js')}}"></script>
+<script src="{{ URL::asset('admin_assets/assets/js/custom/form-upload.js')}}"></script>
+<script src="{{ URL::asset('admin_assets/assets/js/custom/image-preview.js')}}"></script>
+<script src="{{ URL::asset('admin_assets/assets/js/custom/pagination.js')}}"></script>
+<script src="{{ URL::asset('admin_assets/assets/js/custom/filemanager.js')}}"></script>
+
+@stack('scripts')
+
+
     <!-- Required vendors -->
     <script src="{{ asset('user_dashboard/vendor/global/global.min.js')}}"></script>
 	<script src="{{ asset('user_dashboard/vendor/chart-js/chart.bundle.min.js')}}"></script>
@@ -823,32 +843,10 @@
 	
 	<!-- Dashboard 1 -->
 	<script src="{{ asset('user_dashboard/js/dashboard/dashboard-1.js')}}"></script>
-
+	<!-- Scripts -->
       <script src="{{ asset('user_dashboard/js/custom.min.js')}}"></script>
 	<script src="{{ asset('user_dashboard/js/dlabnav-init.js')}}"></script>
 	<script src="{{ asset('user_dashboard/js/demo.js')}}"></script>
    <script src="{{ asset('user_dashboard/js/styleSwitcher.js')}}"></script>
-       <!-- Scripts -->
-	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- Ensure this is the only jQuery inclusion -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-				      <!-- Custom Scripts -->
-							<script src="{{ URL::asset('admin_assets/assets/js/hummingbird-treeview.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/ajaxPost.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/status-update.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/form-upload.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/image-preview.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/pagination.js')}}"></script>
-  <script src="{{ URL::asset('admin_assets/assets/js/custom/filemanager.js')}}"></script>
-
-		     <!-- Additional Scripts -->
-		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-	@stack('scripts')
-
 </body>
 </html>

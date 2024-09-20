@@ -37,6 +37,14 @@ class Appointment extends Model
     {
         return $this->belongsTo(User::class, 'designer_id');
     }
+        /**
+     * Define the relationship with the Consultant model.
+     */
+    public function consultant()
+    {
+        return $this->belongsTo(Consultant::class, 'consultancy_id');
+    }
+    
 
     public function scopeStatus($query, $status)
     {

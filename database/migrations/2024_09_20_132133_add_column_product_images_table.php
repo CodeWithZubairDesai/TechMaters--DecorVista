@@ -15,12 +15,4 @@ return new class extends Migration
             $table->string('type')->comment('1 = PortfolioMainImage, 2 = PortfolioHeroImage, 3 = PortfolioCarouselImage')->after('image_path');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-       
-    }
 };

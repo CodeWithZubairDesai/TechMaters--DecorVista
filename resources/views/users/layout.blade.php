@@ -260,9 +260,9 @@
 										<div class="col-lg-12">
 											<div class="d-flex flex-column">
 													@if(Auth::check())  <!-- Use Auth::check() instead of comparing with 'true' -->
-															<button class="dropdown-item" onclick="UserLogout('{{ route('auth.logout') }}')" aria-label="single-pages">
+															<!-- <button class="dropdown-item" onclick="UserLogout('{{ route('auth.logout') }}')" aria-label="single-pages">
 																	<span class="link-hover-animation-1">Logout</span>
-															</button>    
+															</button>     -->
 													@else                                    
 															<a class="dropdown-item" href="{{ route('users.login') }}" aria-label="single-pages">
 																	<span class="link-hover-animation-1">Login</span>

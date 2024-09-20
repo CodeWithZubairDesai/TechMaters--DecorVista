@@ -11,6 +11,7 @@ use App\Http\Controllers\User\ContactUsController as UserContactUsController;
 use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\ReviewController as UserReviewController;
 use App\Http\Controllers\User\PortfolioController as UserPortfolioController;
+use App\Http\Controllers\User\AppointmentController as UserAppointmentController;
 use App\Http\Controllers\User\CartController as UserCartController;
 
 // Interior Designer Controller
@@ -210,8 +211,11 @@ Route::prefix('frontend')->group(function(){
         Route::post('/store', 'store')->name('users.contact.store');
     });
 
+    Route::controller(UserAppointmentController::class)->prefix('appointment')->group(function () {
+        Route::get('/', 'create')->name('users.appointments.index');
+        Route::post('/store', 'store')->name('users.appointments.store');
+    });
 
-    
     Route::controller(UserProductController::class)->prefix('products')->group(function () {
         Route::get('/', 'index')->name('users.products.index');
         Route::get('/detail/{id}/', 'show')->name('users.products.show');
@@ -269,7 +273,6 @@ Route::prefix('designer')->group(function(){
         });
     });
 
-    Route::get('portfolio/{id}', [DesignerPortfolioController::class, 'show']);
 
     
 
@@ -278,36 +281,5 @@ Route::prefix('designer')->group(function(){
 
 
 
-// Interior designer routes
 
-
-
-// Route::get('/interiordashboardhome', function () {
-//     return view('InteriorDesignerDashboard.InteriorDesignerDashboard');
-// });
-
-
-Route::get('/interiordesignerappointmentsrequests', function () {
-    return view('InteriorDesignerDashboard.InteriorDesignerAppointmentsRequests');
-});
-
-Route::get('/interiordesignerappointmentsreviews', function () {
-    return view('InteriorDesignerDashboard.InteriorDesignerCompletedAppointmentsReviews');
-});
-
-Route::get('/interiordesignercreateportfolio', function () {
-    return view('InteriorDesignerDashboard.InteriorDesignerCreatePortfolio');
-});
-
-Route::get('/interiordesigneraddinspirationgallery', function () {
-    return view('InteriorDesignerDashboard.InteriorDesignerAddInspirationGallery');
-});
-
-Route::get('/login', function () {
-    return view('InteriorDesignerDashboard.Auth.Login');
-});
-
-Route::get('/register', function () {
-    return view('InteriorDesignerDashboard.Auth.Register');
-});
 

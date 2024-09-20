@@ -189,9 +189,9 @@ Portfolio
             $('#slotsContainer').append(slotHtml);
         });
 
-        window.removeSlot = function (slotId) {
-            $(`#slot-${slotId}`).remove();
-        };
+        // window.removeSlot = function (slotId) {
+        //     $(#slot-${slotId}).remove();
+        // };
 
         // Handle form submission
     $('#portfolioCreateForm').on('submit', function(e) {
@@ -201,8 +201,8 @@ Portfolio
             'POST',
             '#portfolioCreateForm',
             '#submit',
-            '{{ route('designer.portfolio.store') }}',
-            '{{ route('designer.portfolio.index') }}'
+            "{{ route('designer.portfolio.store') }}",
+            "{{ route('designer.portfolio.index') }}"
         );
     });
     });
