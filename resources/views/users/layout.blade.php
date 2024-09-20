@@ -54,7 +54,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.21.1/tagify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
-    @stack('styles')     
+    @stack('styles')  
+	
+	<style>
+		.nav-link.active {
+    color: white !important;
+}
+.nav-link:hover {
+    color: white !important;
+}
+
+
+	</style>
 		
 	</head>
 
