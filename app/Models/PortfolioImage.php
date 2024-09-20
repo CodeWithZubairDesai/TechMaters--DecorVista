@@ -19,6 +19,7 @@ class PortfolioImage extends Model
     protected $fillable = [
         'portfolio_id',
         'image_path',
+        'type',
     ];
 
     /**
