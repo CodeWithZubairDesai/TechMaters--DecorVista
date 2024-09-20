@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('product_images', function (Blueprint $table) {
-            $table->string('type')->comment('1 = PortfolioImage, 2 = PortfolioMainImage, 3 = PortfolioHeroImage, 4 = PortfolioCarouselImage')->after('image_path');
+        Schema::table('portfolio_images', function (Blueprint $table) {
+            $table->string('type')->comment('1 = PortfolioMainImage, 2 = PortfolioHeroImage, 3 = PortfolioCarouselImage')->after('image_path');
         });
     }
 
@@ -21,8 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('type');
-        });
+       
     }
 };
