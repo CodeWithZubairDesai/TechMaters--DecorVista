@@ -23,10 +23,10 @@ Home
 						<div class="col-md-6">
 							<div class="hero-image-responsive">							
 								<picture>						
-									<source media="(max-width:500px)" srcset="user_assets/assets/images/hero-8-sm.jpg">
-									<source media="(max-width:767px)" srcset="user_assets/assets/images/hero-8-md.jpg">				
-									<source media="(max-width:1400px)" srcset="user_assets/assets/images/hero-8-xxl.jpg">				
-									<img src="user_assets/assets/images/hero-8.jpg" alt="hero-img">
+									<source media="(max-width:500px)" srcset="{{ asset('user_assets/assets/images/hero-8-sm.jpg')}}">
+									<source media="(max-width:767px)" srcset="{{ asset('user_assets/assets/images/hero-8-md.jpg')}}">				
+									<source media="(max-width:1400px)" srcset="{{ asset('user_assets/assets/images/hero-8-xxl.jpg')}}">				
+									<img src="{{ asset('user_assets/assets/images/hero-8.jpg')}}" alt="hero-img">
 								</picture>
 							</div>
 						</div>
@@ -36,19 +36,19 @@ Home
 				<div class="row g-0">
 					<div class="col-sm-6 col-lg-4">
 						<div class="overlay">
-							<img src="user_assets/assets/images/hero-5.jpg" class="img-fluid w-100" alt="img">
+							<img src="{{ asset('user_assets/assets/images/hero-5.jpg')}}" class="img-fluid w-100" alt="img">
 							<h5 class="hero-hightlighted-text hero-heading-color fw-extra-bold">Space Alchemy</h5>
 						</div>
 					</div>
 					<div class="col-sm-6 col-lg-4">
 						<div class="overlay">
-							<img src="user_assets/assets/images/hero-6.jpg" class="img-fluid w-100" alt="img">
+							<img src="{{ asset('user_assets/assets/images/hero-6.jpg')}}" class="img-fluid w-100" alt="img">
 							<h5 class="hero-hightlighted-text hero-heading-color fw-extra-bold">Design Symphony</h5>
 						</div>
 					</div>
 					<div class="col-sm-6 col-lg-4">
 						<div class="position-relative">
-							<img src="user_assets/assets/images/hero-7.jpg" class="img-fluid w-100" alt="img">
+							<img src="{{ asset('user_assets/assets/images/hero-7.jpg')}}" class="img-fluid w-100" alt="img">
 							<h5 class="hero-hightlighted-text hero-heading-color fw-extra-bold">Personalized Elegance</h5>
 						</div>
 					</div>					
@@ -78,7 +78,7 @@ Home
 						<div class="row align-items-center">
 							<div class="col-lg-6">
 								<div class="about-image overflow-hidden">
-									<img src="user_assets/assets/images/about-image.jpg" class="img-fluid wow slideInLeft" alt="about-image">
+									<img src="{{ asset('user_assets/assets/images/about-image.jpg')}}" class="img-fluid wow slideInLeft" alt="about-image">
 								</div>
 							</div>
 							<div class="col-lg-6">
@@ -201,7 +201,7 @@ Home
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">
-								<img src="user_assets/assets/images/gallery-1.jpg" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
+								<img src="{{ asset('user_assets/assets/images/gallery-1.jpg')}}" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
 								<div class="gallery-info-wrapper">
 									<div class="gallery-info">
 										<a href="project-single.html" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">Cozy Living Room</h4></a>
@@ -220,7 +220,7 @@ Home
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">
-								<img src="user_assets/assets/images/gallery-2.jpg" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
+								<img src="{{ asset('user_assets/assets/images/gallery-2.jpg')}}" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
 								<div class="gallery-info-wrapper">
 									<div class="gallery-info">
 										<a href="project-single.html" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">Luxurious Living Room</h4></a>
@@ -239,7 +239,7 @@ Home
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">
-								<img src="user_assets/assets/images/gallery-3.jpg" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
+								<img src="{{ asset('user_assets/assets/images/gallery-3.jpg')}}" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
 								<div class="gallery-info-wrapper">
 									<div class="gallery-info">
 										<a href="project-single.html" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">Elegant Bedroom</h4></a>
@@ -258,7 +258,7 @@ Home
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">
-								<img src="user_assets/assets/images/gallery-4.jpg" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
+								<img src="{{ asset('user_assets/assets/images/gallery-4.jpg')}}" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
 								<div class="gallery-info-wrapper">
 									<div class="gallery-info">
 										<a href="project-single.html" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">Rustic Comfort</h4></a>
@@ -277,7 +277,7 @@ Home
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">
-								<img src="user_assets/assets/images/gallery-5.jpg" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
+								<img src="{{ asset('user_assets/assets/images/gallery-5.jpg')}}" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
 								<div class="gallery-info-wrapper">
 									<div class="gallery-info">
 										<a href="project-single.html" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">Urban Living Space</h4></a>
@@ -469,7 +469,7 @@ Home
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="user_assets/assets/images/team-1.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-1.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="team-single.html" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -500,7 +500,7 @@ Home
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="user_assets/assets/images/team-2.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-2.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="team-single.html" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -531,7 +531,7 @@ Home
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="user_assets/assets/images/team-3.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-3.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="team-single.html" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -615,7 +615,7 @@ Home
 									<div class="video-image-wrapper position-relative overflow-hidden">
 										<div class="wow slideInLeft">
 											<div class="video-image">
-												<img src="user_assets/assets/images/video-image.jpg" class="img-fluid" alt="img">
+												<img src="{{ asset('user_assets/assets/images/video-image.jpg')}}" class="img-fluid" alt="img">
 											</div>
 											<a href="https://www.youtube.com/watch?v=lfDZJqSrIuk" class="video-popup video-popup-link">
 												<span class="video-icon">												
@@ -668,8 +668,8 @@ Home
 							<div class="project-contents position-relative">
 								<div class="project-image overlay">
 									<picture>		
-										<source media="(max-width:470px)" srcset="user_assets/assets/images/project-1-sm.jpg">				
-										<img src="user_assets/assets/images/project-1.jpg" class="w-100 h-100 object-fit-cover" alt="img">
+										<source media="(max-width:470px)" srcset="{{ asset('user_assets/assets/images/project-1-sm.jpg')}}">				
+										<img src="{{ asset('user_assets/assets/images/project-1.jpg')}}" class="w-100 h-100 object-fit-cover" alt="img">
 									</picture>											
 								</div>
 								<ul class="project-details list-unstyled mb-0 d-flex align-items-center">
@@ -709,8 +709,8 @@ Home
 							<div class="project-contents position-relative">
 								<div class="project-image overlay">
 									<picture>		
-										<source media="(max-width:470px)" srcset="user_assets/assets/images/project-2-sm.jpg">				
-										<img src="user_assets/assets/images/project-2.jpg" class="w-100 h-100 object-fit-cover" alt="img">
+										<source media="(max-width:470px)" srcset="{{ asset('user_assets/assets/images/project-2-sm.jpg')}}">				
+										<img src="{{ asset('user_assets/assets/images/project-2.jpg')}}" class="w-100 h-100 object-fit-cover" alt="img">
 									</picture>											
 								</div>
 								<ul class="project-details list-unstyled mb-0 d-flex align-items-center">
@@ -750,8 +750,8 @@ Home
 							<div class="project-contents position-relative">
 								<div class="project-image overlay">
 									<picture>		
-										<source media="(max-width:470px)" srcset="user_assets/assets/images/project-3-sm.jpg">				
-										<img src="user_assets/assets/images/project-3.jpg" class="w-100 h-100 object-fit-cover" alt="img">
+										<source media="(max-width:470px)" srcset="{{ asset('user_assets/assets/images/project-3-sm.jpg')}}">				
+										<img src="{{ asset('user_assets/assets/images/project-3.jpg')}}" class="w-100 h-100 object-fit-cover" alt="img">
 									</picture>											
 								</div>
 								<ul class="project-details list-unstyled mb-0 d-flex align-items-center">
@@ -954,7 +954,7 @@ Home
 								<div class="shop-details">
 									<div class="shop-image-wrapper position-relative">
 										<div class="shop-image">
-											<img src="user_assets/assets/images/shop-image-1.jpg" class="w-100 h-100 object-fit-cover" alt="img">
+											<img src="{{ asset('user_assets/assets/images/shop-image-1.jpg')}}" class="w-100 h-100 object-fit-cover" alt="img">
 										</div>
 										<div class="shop-image-hover">
 											<a class="btn btn-sm btn-outline-secondary  gap-10" href="product-single.html"> 	
@@ -993,7 +993,7 @@ Home
 								<div class="shop-details">
 									<div class="shop-image-wrapper position-relative">
 										<div class="shop-image">
-											<img src="user_assets/assets/images/shop-image-2.jpg" class="w-100 h-100 object-fit-cover" alt="img">
+											<img src="{{ asset('user_assets/assets/images/shop-image-2.jpg')}}" class="w-100 h-100 object-fit-cover" alt="img">
 										</div>
 										<div class="shop-image-hover">
 											<a class="btn btn-sm btn-outline-secondary  gap-10" href="product-single.html"> 	
@@ -1032,7 +1032,7 @@ Home
 								<div class="shop-details">
 									<div class="shop-image-wrapper position-relative">
 										<div class="shop-image">
-											<img src="user_assets/assets/images/shop-image-3.jpg" class="w-100 h-100 object-fit-cover" alt="img">
+											<img src="{{ asset('user_assets/assets/images/shop-image-3.jpg')}}" class="w-100 h-100 object-fit-cover" alt="img">
 										</div>
 										<div class="shop-image-hover">
 											<a class="btn btn-sm btn-outline-secondary  gap-10" href="product-single.html"> 	
@@ -1071,7 +1071,7 @@ Home
 								<div class="shop-details">
 									<div class="shop-image-wrapper position-relative">
 										<div class="shop-image">
-											<img src="user_assets/assets/images/shop-image-4.jpg" class="w-100 h-100 object-fit-cover" alt="img">
+											<img src="{{ asset('user_assets/assets/images/shop-image-4.jpg')}}" class="w-100 h-100 object-fit-cover" alt="img">
 										</div>
 										<div class="shop-image-hover">
 											<a class="btn btn-sm btn-outline-secondary  gap-10" href="product-single.html"> 	
@@ -1110,7 +1110,7 @@ Home
 								<div class="shop-details">
 									<div class="shop-image-wrapper position-relative">
 										<div class="shop-image">
-											<img src="user_assets/assets/images/shop-image-2.jpg" class="w-100 h-100 object-fit-cover" alt="img">
+											<img src="{{ asset('user_assets/assets/images/shop-image-2.jpg')}}" class="w-100 h-100 object-fit-cover" alt="img">
 										</div>
 										<div class="shop-image-hover">
 											<a class="btn btn-sm btn-outline-secondary  gap-10" href="product-single.html"> 	
@@ -1195,7 +1195,7 @@ Home
 								<div class="swiper-slide">
 									<div class="blog-wrapper">
 										<div class="blog-image">
-											<img src="user_assets/assets/images/blog-image-1.jpg" class="img-fluid" alt="img">
+											<img src="{{ asset('user_assets/assets/images/blog-image-1.jpg')}}" class="img-fluid" alt="img">
 										</div>
 										<div class="blog-details">
 											<p>14 December '23 / Interior</p>
@@ -1207,7 +1207,7 @@ Home
 								<div class="swiper-slide">
 									<div class="blog-wrapper">
 										<div class="blog-image">
-											<img src="user_assets/assets/images/blog-image-2.jpg" class="img-fluid" alt="img">
+											<img src="{{ asset('user_assets/assets/images/blog-image-2.jpg')}}" class="img-fluid" alt="img">
 										</div>
 										<div class="blog-details">
 											<p>23 November '23 / Interior</p>
@@ -1219,7 +1219,7 @@ Home
 								<div class="swiper-slide">
 									<div class="blog-wrapper">
 										<div class="blog-image">
-											<img src="user_assets/assets/images/blog-image-3.jpg" class="img-fluid" alt="img">
+											<img src="{{ asset('user_assets/assets/images/blog-image-3.jpg')}}" class="img-fluid" alt="img">
 										</div>
 										<div class="blog-details">
 											<p>15 November '23 / Interior</p>
@@ -1231,7 +1231,7 @@ Home
 								<div class="swiper-slide">
 									<div class="blog-wrapper">
 										<div class="blog-image">
-											<img src="user_assets/assets/images/blog-image-2.jpg" class="img-fluid" alt="img">
+											<img src="{{ asset('user_assets/assets/images/blog-image-2.jpg')}}" class="img-fluid" alt="img">
 										</div>
 										<div class="blog-details">
 											<p>23 November '23 / Interior</p>

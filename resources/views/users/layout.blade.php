@@ -233,7 +233,7 @@
 											</a>
 										</div>									
 									</li>
-								<li class="nav-item dropdown ">
+								<!-- <li class="nav-item dropdown ">
 									<a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
 									<i class="fa-regular fa-user"></i>
 										<span class="dropdown-icon">
@@ -256,7 +256,7 @@
 											</div>
 										</div>						
 									</div>
-								</li>	
+								</li>	 -->
 								<li class="nav-item d-none d-xl-block">
 									<a class="nav-link nav-link-icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" aria-expanded="false" aria-label="Toggle navigation">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -501,7 +501,7 @@
 									</div>
 									<div class="d-flex flex-column">
 										<p class="mb-0 d-flex align-items-center gap-2">Phone: <a href="tel:3368856670" class="text-decoration-none link-hover-animation-1">336 885 6670</a></p>
-										<p class="mb-0 d-flex align-items-center gap-2">Email: <a href="mailto:hello@architronix.com" class="text-decoration-none link-hover-animation-1">hello@architronix.com</a></p>
+										<p class="mb-0 d-flex align-items-center gap-2">Email: <a href="mailto:hello@architronix.com" class="text-decoration-none link-hover-animation-1">techmasters@gmail.com</a></p>
 									</div>									
 								</div>
 							</div>
@@ -509,8 +509,8 @@
 						</div>
 					</div>
 					<div class="copyright d-flex flex-column gap-2 flex-lg-row justify-content-lg-between align-items-lg-center text-center text-sm-start">
-						<p class="mb-0">Made with Love by <a href="https://themeperch.net/" class="text-decoration-none link-hover-animation-1" target="_blank">Themeperch</a></p>
-						<p class="mb-0">&copy; <span class="dynamic-year"></span>, Architronix, All Rights Reserved</p>
+						<p class="mb-0">Made with Love by <a href="https://themeperch.net/" class="text-decoration-none link-hover-animation-1" target="_blank">DecorVista</a></p>
+						<p class="mb-0">&copy; <span class="dynamic-year"></span>, TechMasters, All Rights Reserved</p>
 					</div>
 				</div>
 				<!-- container -->
