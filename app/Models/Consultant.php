@@ -27,9 +27,9 @@ class Consultant extends Model
     /**
      * Define the relationship with the Designer model.
      */
-    public function designer()
+    public function portfolio()
     {
-        return $this->belongsTo(User::class, 'designer_id');
+        return $this->belongsTo(User::class, 'portfolio_id');
     }
      function scopeStatus($query,$status)
      {

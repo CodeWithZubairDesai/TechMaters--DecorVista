@@ -48,7 +48,7 @@ Product
 																			@endif
 																	</div>
 																	<div class="shop-image-hover">
-																			<a class="btn btn-sm btn-outline-secondary gap-10" href="{{ route('users.products.show', $product->id) }}">    
+																			<a class="btn btn-sm btn-outline-secondary gap-10" href="{{ route('users.carts.store', $product->id) }}">    
 																					Add to Cart                                                    
 																					<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 																							<g clip-path="url(#clip0_381_163)">
@@ -91,6 +91,34 @@ Product
 			</section>            
 			<!-- Shop Section ====================== -->
 
+<!-- 
+			@foreach($products as $p)
+                          <div class="col-lg-4 col-sm-6">
+                                <div class="product-item">
+                                    <div class="pi-pic">
+                                        <img src="img/{{$p->img}}" alt="">
+                                        <div class="sale pp-sale">Sale</div>
+                                        <div class="icon">
+                                            <i class="icon_heart_alt"></i>
+                                        </div>
+                                        <ul>
+                                            <li class="w-icon active"><a href="/addtocart/{{$p->id}}"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pi-text">
+                                        <div class="catagory-name">{{$p->PdtDesc}}</div>
+                                        <a href="#">
+                                            <h5>{{$p->PdtName}}</h5>
+                                        </a>
+                                        <div class="product-price">
+                                            ${{$p->PdtPrice}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           @endforeach -->
 			
 
 

@@ -34,6 +34,11 @@ class Portfolio extends Model
         return $this->hasMany(PortfolioImage::class, 'portfolio_id');
     }
 
+    public function consultants()
+    {
+        return $this->hasMany(Consultant::class, 'portfolio_id');
+    }
+
     /**
      * Boot method for setting created_by and created_date on creation.
      */

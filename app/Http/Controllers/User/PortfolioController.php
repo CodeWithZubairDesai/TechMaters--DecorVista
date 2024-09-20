@@ -28,9 +28,11 @@ class PortfolioController extends Controller
     public function show($id)
     {
         $status = 1;
-        $portfolio =  Portfolio::with(['images' , 'designer'])
+        $portfolio =  Portfolio::with(['images' , 'designer','consultants'])
         ->where('status', $status)
         ->find($id);   
+        log::info("Portfolio Detail Data".$portfolio);
+
     
         if (!$portfolio) {
             return response()->json([

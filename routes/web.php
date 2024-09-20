@@ -11,6 +11,7 @@ use App\Http\Controllers\User\ContactUsController as UserContactUsController;
 use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\ReviewController as UserReviewController;
 use App\Http\Controllers\User\PortfolioController as UserPortfolioController;
+use App\Http\Controllers\User\CartController as UserCartController;
 
 // Interior Designer Controller
 use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioController;
@@ -214,6 +215,12 @@ Route::prefix('frontend')->group(function(){
     Route::controller(UserProductController::class)->prefix('products')->group(function () {
         Route::get('/', 'index')->name('users.products.index');
         Route::get('/detail/{id}/', 'show')->name('users.products.show');
+    });
+    
+    Route::controller(UserCartController::class)->prefix('carts')->group(function () {
+        Route::get('/store/{id}', 'addtocart')->name('users.carts.store');
+        Route::get('/', 'showCart')->name('users.carts.index');
+        Route::get('/destroy', 'deletefromsession')->name('users.carts.destroy');
     });
 
 
