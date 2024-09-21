@@ -21,5 +21,13 @@ class AppointmentController extends Controller
         log::info('Appointment Data' . $Appointments);
     return view('designer.appointments.index', compact('Appointments'));
 }
+
+public function destroy($id)
+{
+    $gallery = Appointment::findOrFail($id);
+    $gallery->delete();
+    return redirect()->route('designer.appointments.index')->with('success', 'Appointment canceled successfully.');
+}
+
 }
 

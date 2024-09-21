@@ -15,7 +15,6 @@ use Datatables;
 class PortfolioController extends Controller
 {
     public function index() {
-            // Fetch portfolios with necessary relationships
             $portfolios = Portfolio::with(['designer', 'consultants', 'images'])
                 ->where('designer_id', Auth::user()->id)
                 ->get();

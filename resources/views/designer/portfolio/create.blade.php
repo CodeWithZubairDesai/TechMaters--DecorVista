@@ -201,8 +201,8 @@ Portfolio
             'POST',
             '#portfolioCreateForm',
             '#submit',
-            "{{ route('designer.portfolio.store') }}",
-            "{{ route('designer.portfolio.index') }}"
+            "{{ route('designer.gallery.store') }}",
+            "{{ route('designer.gallery.index') }}"
         );
     });
     });

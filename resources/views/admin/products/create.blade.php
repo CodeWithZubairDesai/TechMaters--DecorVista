@@ -121,8 +121,8 @@
                     'POST',
                     '#productCreateForm',
                     '#submit',
-                    '{{ route('admin.products.store') }}',
-                    '{{ route('admin.products.index') }}'
+                    "{{ route('admin.products.store') }}",
+                    "{{ route('admin.products.index') }}"
                 );
             });
         });

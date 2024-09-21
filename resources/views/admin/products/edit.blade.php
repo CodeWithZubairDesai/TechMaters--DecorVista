@@ -128,8 +128,8 @@
                     'POST',
                     '#productEditForm',
                     '#submit',
-                    '{{ route('admin.products.update', $product->id) }}',
-                    '{{ route('admin.products.index') }}'
+                    "{{ route('admin.products.update', $product->id) }}",
+                    "{{ route('admin.products.index') }}"
                 );
             });
         });

@@ -6,11 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-
-class GalleryCategories extends Model
+class Gallery extends Model
 {
     use HasFactory;
-    protected $table = 'gallery_categories';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -18,27 +16,18 @@ class GalleryCategories extends Model
      * @var array
      */
     protected $fillable = [
-        'parent_id',
         'name',
+        'category_id',
     ];
 
-    public function galleries()
-    {
-        return $this->hasMany(Gallery::class, 'category_id');
-    }
-    public function categories()
-    {
-        return $this->hasMany(GalleryCategories::class, 'parent_id');
-    }
 
-    public function childCategories()
+    public function gallerycategory()
     {
-        return $this->hasMany(GalleryCategories::class, 'parent_id')->with('categories');
+        return $this->belongsTo(GalleryCategories::class, 'category_id', 'id');
     }
-
-    public function parentCategory()
+    public function user()
     {
-        return $this->belongsTo(GalleryCategories::class, 'parent_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     function scopeStatus($query,$status)
@@ -51,6 +40,7 @@ class GalleryCategories extends Model
     protected static function booted()
     {
         static::creating(function ($model) {
+            $model->user_id = Auth::user()->id;
             $model->created_by = Auth::user()->name;
             $model->created_date = date('Y-m-d');
             $model->status = 1;

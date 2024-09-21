@@ -18,6 +18,7 @@ use App\Http\Controllers\User\CartController as UserCartController;
 use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioController;
 use App\Http\Controllers\Designer\GeneralController as DesignerGenerealController;
 use App\Http\Controllers\Designer\AppointmentController as DesignerAppointmentController;
+use App\Http\Controllers\Designer\GalleryController as DesignerGalleryController;
 
 //Admin Controller
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -253,6 +254,7 @@ Route::prefix('designer')->group(function(){
         });
         Route::controller(DesignerGenerealController::class)->group(function () {        
                 Route::get('/dashboard', 'index')->name('designer.dashboard.index');
+                Route::get('/get-categories', 'gallerycategories');
                 Route::get('/register', 'register')->name('designer.register');
                 Route::get('/login', 'login')->name('designer.login');
                 Route::get('/verify-otp', 'verifyOTP')->name('designer.verify-otp');
@@ -268,7 +270,18 @@ Route::prefix('designer')->group(function(){
             Route::post('/status', 'status')->name('designer.appointments.status');
             Route::get('/{id}/edit', 'edit')->name('designer.appointmets.edit');
             Route::post('/update', 'update')->name('designer.appointmets.update');
-            Route::post('/destroy/{id}', 'destroy')->name('designer.appointmets.destroy');
+            Route::post('/destroy/{id}', 'destroy')->name('designer.appointments.destroy');
+        });
+        });
+        Route::controller(DesignerGalleryController::class)->group(function () {
+            Route::prefix('gallery')->group(function () {            
+            Route::get('/', 'index')->name('designer.gallery.index');
+            Route::get('/create', 'create')->name('designer.gallery.create');
+            Route::post('/store', 'store')->name('designer.gallery.store');
+            Route::post('/status', 'status')->name('designer.gallery.status');
+            Route::get('/{id}/edit', 'edit')->name('designer.gallery.edit');
+            Route::post('/update', 'update')->name('designer.gallery.update');
+            Route::post('/destroy/{id}', 'destroy')->name('designer.gallery.destroy');
         });
         });
     });

@@ -29,22 +29,26 @@ Appointments
                                 <th>Recipient</th>
                                 <th>Email</th>
                                 <th>Status</th>
-                                <th >Action</th> <!-- Added Action column -->
-                                <th >Action</th> <!-- Added Action column -->
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                          @foreach($Appointments as $ap)
-                          <tr>
-                            <td>{{$ap->id}}</td>
-                            <td>{{$ap->consultant->available_at}}</td>
-                            <td>{{$ap->user->name}}</td>
-                            <td>{{$ap->user->email}}</td>
-                            <td>{{$ap->status}}</td>
-                            <td><a href="">Edit</a></td>
-                            <td><a href="">Cancel</a></td>
-                          </tr>
-                          @endforeach
+                            @foreach($Appointments as $ap)
+                            <tr>
+                                <td>{{$ap->id}}</td>
+                                <td>{{$ap->consultant->available_at}}</td>
+                                <td>{{$ap->user->name}}</td>
+                                <td>{{$ap->user->email}}</td>
+                                <td>{{$ap->status}}</td>
+                                <td>
+                                    <form action="{{ route('designer.appointments.destroy', $ap->id) }}" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit" class="btn btn-danger">Cancel</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -56,4 +60,3 @@ Appointments
             Content body end
         ***********************************-->
 @endsection
-
