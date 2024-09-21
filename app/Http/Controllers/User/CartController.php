@@ -11,54 +11,29 @@ class CartController extends Controller
     //
     public function addtocart($id)
     {
-        try {
-            // Find the product by ID
-            $prod = Product::find($id);
+        $product = Product::findOrFail($id);
+        
+        // Assuming you have a Cart implementation, this could vary depending on how your cart works.
+        $cart = session()->get('cart', []);
 
-    
-            // Check if the product exists
-            if (!$prod) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Product not found',
-                    'data' => null,
-                ], 404);
-            }
-    
-            // Retrieve the cart from the session or initialize an empty array
-            $cart = session()->get("cart1", []);
-    
-            // If product is already in the cart, increase the quantity
-            if (isset($cart[$id])) {
-                $cart[$id]['quantity']++;
-            } else {
-                // Add the product to the cart with initial quantity 1
-                $cart[$id] = [
-                    "PdtName" => $prod->name,
-                    "PdtPrice" => $prod->price,
-                    "PdtDesc" => $prod->description,
-                    "quantity" => 1,
-                ];
-            }
-    
-            // Update the cart in the session
-            session()->put("cart1", $cart);
-    
-            // Return a success response
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Product added to cart successfully',
-                'data' => $cart,
-            ], 200);
-    
-        } catch (\Throwable $th) {
-            // Catch any errors and return an error response
-            return response()->json([
-                'status' => 'error',
-                'message' => $th->getMessage(),
-                'data' => null,
-            ], 500);
+        // Check if the product already exists in the cart
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            // If product doesn't exist in cart, add it with a quantity of 1
+            $cart[$id] = [
+                'name' => $product->name,
+                'quantity' => 1,
+                'price' => $product->price,
+                'image' => $product->images->first()->image_path ?? 'default-product-image.jpg'
+            ];
         }
+
+        // Save the cart back to the session
+        session()->put('cart', $cart);
+
+        // You can return a JSON response or a redirect, depending on your needs
+        return response()->json(['message' => 'Product added to cart successfully!', 'cart' => $cart]);
     }
     
 
@@ -80,10 +55,43 @@ class CartController extends Controller
     }
 
 
-    public function showCart()
+    public function cart2()
     {
-        $cart = session('cart1', []);
-        return view('users.cart', compact('cart'));
+        $cart = session('cart', []);
+        return view('users.cart2', compact('cart'));
+    }
+
+
+    public function removeFromCart($id)
+    {
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+            session()->put('cart', $cart);
+        }
+
+        return response()->json(['message' => 'Product removed successfully!', 'cart' => $cart]);
+    }
+
+
+    public function calculateCart()
+    {
+        $cart = session()->get('cart', []);
+        $total = 0;
+        $shippingFee = 125.00;  // Shipping fee (can be dynamic or fixed)
+
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+
+        $grandTotal = $total + $shippingFee;
+
+        return response()->json([
+            'total' => $total,
+            'shippingFee' => $shippingFee,
+            'grandTotal' => $grandTotal
+        ]);
     }
 
 }

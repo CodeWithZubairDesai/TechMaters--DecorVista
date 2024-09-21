@@ -13,6 +13,7 @@ use App\Http\Controllers\User\ReviewController as UserReviewController;
 use App\Http\Controllers\User\PortfolioController as UserPortfolioController;
 use App\Http\Controllers\User\AppointmentController as UserAppointmentController;
 use App\Http\Controllers\User\CartController as UserCartController;
+use App\Http\Controllers\User\CheckoutController as UserCheckoutController;
 use App\Http\Controllers\User\GalleryController as UserGalleryController;
 
 // Interior Designer Controller
@@ -25,6 +26,7 @@ use App\Http\Controllers\Designer\GalleryController as DesignerGalleryController
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\ProductCategoryController as AdminProductCategoryController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\GalleryCategoryController as AdminGalleryCategoryController;
 
@@ -42,6 +44,10 @@ use App\Http\Controllers\Admin\GalleryCategoryController as AdminGalleryCategory
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Remove an item from the cart
+
+
 
 
 Route::controller(AuthController::class)->group(function(){
@@ -225,10 +231,19 @@ Route::prefix('frontend')->group(function(){
         Route::get('/detail/{id}/', 'show')->name('users.products.show');
     });
     
+    Route::controller(UserCheckoutController::class)->prefix('checkout')->group(function () {
+        Route::get('/', 'index')->name('users.checkout.index');
+        Route::post('/store', 'store')->name('users.checkout.store');
+    });
+    
     Route::controller(UserCartController::class)->prefix('carts')->group(function () {
-        Route::get('/store/{id}', 'addtocart')->name('users.carts.store');
-        Route::get('/', 'showCart')->name('users.carts.index');
-        Route::get('/destroy', 'deletefromsession')->name('users.carts.destroy');
+        Route::get('/cart2', 'cart2')->name('users.cart.index');
+        Route::get('/add-to-cart/{id}',[UserCartController::class,'addtocart']);
+        Route::get('/',[UserCartController::class,'showCart']);
+        Route::get('/remove-from-cart/{id}',  'removeFromCart')->name('remove.from.cart');
+
+// Calculate total and grand total for the cart
+        Route::get('/calculate',  'calculateCart');
     });
 
 

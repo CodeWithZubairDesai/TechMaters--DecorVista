@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-use App\Models\GalleryCategories;
-use App\Helpers\CommonHelper;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\JsonResponse;
-use Validator;
-use Auth;
 use DB;
+
+use Auth;
 use DataTables;
+use Illuminate\Http\Request;
+use App\Helpers\CommonHelper;
+use App\Models\GalleryCategories;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Validator;
 
 class GalleryCategoryController extends Controller
 {

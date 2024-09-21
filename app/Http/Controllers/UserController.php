@@ -34,6 +34,9 @@ class UserController extends Controller
         return view("user.cart");
     }
 
+
+
+    
     public function checkout(){
         return view("user.checkout");
     }
