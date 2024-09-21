@@ -695,7 +695,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Portfolio</h2>
+                <h2>Gallery</h2>
                 <div id="portfolio-filters" class="button-group">
                     <button class="btn" data-filter="*">All</button>
                     <button class="btn" data-filter=".web-design">Web Design</button>

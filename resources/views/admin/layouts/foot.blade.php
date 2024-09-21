@@ -12,14 +12,13 @@
 <!-- ========== Footer End ========== -->
 
 <!-- Vendor Javascript -->
-<script src="{{ asset('admin_assets/assets/js/vendor.js') }}"></script>
-<script src="{{ asset('admin_assets/assets/js/app.js') }}"></script>
+<script src="../admin_assets/assets/js/vendor.js"></script>
+<script src="../admin_assets/assets/js/app.js"></script>
 
 <!-- Additional Scripts -->
-<script src="{{ asset('admin_assets/assets/vendor/jsvectormap/js/jsvectormap.min.js')}}"></script>
-<script src="{{ asset('admin_assets/assets/vendor/jsvectormap/maps/world-merc.js')}}"></script>
-<script src="{{ asset('admin_assets/assets/vendor/jsvectormap/maps/world.js')}}"></script>
-<script src="{{ asset('admin_assets/assets/js/pages/dashboard.js')}}"></script>
+<script src="../admin_assets/assets/vendor/jsvectormap/js/jsvectormap.min.js"></script>
+<script src="../admin_assets/assets/vendor/jsvectormap/maps/world-merc.js"></script>
+<script src="../admin_assets/assets/vendor/jsvectormap/maps/world.js"></script>
 
 <!-- Custom Scripts -->
 <script src="{{ URL::asset('admin_assets/assets/js/hummingbird-treeview.js')}}"></script>

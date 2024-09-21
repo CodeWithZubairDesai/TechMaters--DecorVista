@@ -17702,7 +17702,7 @@ fieldset:disabled .btn {
   }
 }
 
-.topbar {
+@extends('admin.layouts.main-file') {
   top: 0;
   z-index: 1005;
   position: sticky;
@@ -17713,7 +17713,7 @@ fieldset:disabled .btn {
   padding-left: var(--bs-main-nav-width);
 }
 
-.topbar .navbar-header {
+@extends('admin.layouts.main-file') .navbar-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17726,7 +17726,7 @@ fieldset:disabled .btn {
   justify-content: space-between;
 }
 
-.topbar .app-search .form-control {
+@extends('admin.layouts.main-file') .app-search .form-control {
   border: none;
   padding-left: 40px;
   padding-right: 15px;
@@ -17736,7 +17736,7 @@ fieldset:disabled .btn {
   height: 42px;
 }
 
-.topbar .app-search .search-widget-icon {
+@extends('admin.layouts.main-file') .app-search .search-widget-icon {
   position: absolute;
   z-index: 10;
   font-size: 18px;
@@ -17748,12 +17748,12 @@ fieldset:disabled .btn {
   cursor: pointer;
 }
 
-.topbar .app-search .search-widget-icon-close {
+@extends('admin.layouts.main-file') .app-search .search-widget-icon-close {
   right: 7px;
   left: auto !important;
 }
 
-.topbar .topbar-item {
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17766,22 +17766,22 @@ fieldset:disabled .btn {
   height: var(--bs-topbar-height);
 }
 
-.topbar .topbar-item .button-toggle-menu {
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item .button-toggle-menu {
   border: none;
   border-radius: 0;
   color: var(--bs-topbar-item-color);
   background-color: transparent;
 }
 
-.topbar .topbar-item .button-toggle-menu.active,
-.topbar .topbar-item .button-toggle-menu:active,
-.topbar .topbar-item .button-toggle-menu:hover,
-.topbar .topbar-item .button-toggle-menu:focus {
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item .button-toggle-menu.active,
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item .button-toggle-menu:active,
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item .button-toggle-menu:hover,
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item .button-toggle-menu:focus {
   color: var(--bs-topbar-item-color);
   background-color: transparent;
 }
 
-.topbar .topbar-item .topbar-button {
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item @extends('admin.layouts.main-file')-button {
   border: none;
   border-radius: 50%;
   background: transparent;
@@ -17792,14 +17792,14 @@ fieldset:disabled .btn {
   position: relative;
 }
 
-.topbar .topbar-item .topbar-button.show,
-.topbar .topbar-item .topbar-button.active,
-.topbar .topbar-item .topbar-button:active,
-.topbar .topbar-item .topbar-button:hover {
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item @extends('admin.layouts.main-file')-button.show,
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item @extends('admin.layouts.main-file')-button.active,
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item @extends('admin.layouts.main-file')-button:active,
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-item @extends('admin.layouts.main-file')-button:hover {
   color: #ff6c2f;
 }
 
-.topbar .topbar-badge {
+@extends('admin.layouts.main-file') @extends('admin.layouts.main-file')-badge {
   right: -7px;
   top: 7px !important;
 }
@@ -17810,28 +17810,28 @@ fieldset:disabled .btn {
   content: "\eacb";
 }
 
-html[data-bs-theme=dark] .topbar #light-dark-mode i::before {
+html[data-bs-theme=dark] @extends('admin.layouts.main-file') #light-dark-mode i::before {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   content: "\eebe";
 }
 
-html[data-menu-size=hidden] .topbar {
+html[data-menu-size=hidden] @extends('admin.layouts.main-file') {
   padding: 0;
 }
 
 @media (max-width: 375px) {
-  .topbar {
+  @extends('admin.layouts.main-file') {
     padding: 0 0.75rem !important;
   }
 }
 
 @media (max-width: 600px) {
-  .topbar .dropdown {
+  @extends('admin.layouts.main-file') .dropdown {
     position: static;
   }
 
-  .topbar .dropdown .dropdown-menu {
+  @extends('admin.layouts.main-file') .dropdown .dropdown-menu {
     width: 100%;
   }
 }
@@ -18276,7 +18276,7 @@ html[data-menu-size=condensed] .main-nav .navbar-nav .sub-nav-item .menu-arrow::
   transform: rotate(-90deg);
 }
 
-html[data-menu-size=condensed] .topbar {
+html[data-menu-size=condensed] @extends('admin.layouts.main-file') {
   padding-left: var(--bs-main-nav-width-sm);
 }
 
@@ -18326,7 +18326,7 @@ html[data-menu-size=condensed] .page-content {
   background-color: var(--bs-main-nav-item-hover-bg);
 }
 
-html[data-menu-size=sm-hover] .topbar {
+html[data-menu-size=sm-hover] @extends('admin.layouts.main-file') {
   padding-left: var(--bs-main-nav-width-sm);
 }
 
@@ -20578,7 +20578,7 @@ input.form-control[type=range] {
 
 @media print {
 
-  .topbar,
+  @extends('admin.layouts.main-file'),
   .main-nav,
   .footer,
   .page-title-box {

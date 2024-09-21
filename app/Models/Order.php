@@ -23,11 +23,11 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-    public function billing_id()
+    public function billings()
     {
         return $this->belongsTo(OrderBillingAddress::class, 'billing_id');
     }
-    public function orderdetail_id()
+    public function orderdetails()
     {
         return $this->hasMany(OrderDetail::class, 'orderdetail_id');
     }

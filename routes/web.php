@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\ProductCategoryController as AdminProductCategoryController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\GalleryCategoryController as AdminGalleryCategoryController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
 
 
@@ -139,6 +140,7 @@ Route::middleware(['admin.auth'])->group(function () {
     });
 
 
+
     Route::controller(AdminProductController::class)->group(function () {
         Route::prefix('products')->group(function () {
             Route::get('/', 'index')->name('admin.products.index');
@@ -153,6 +155,20 @@ Route::middleware(['admin.auth'])->group(function () {
         });
     });
 
+});
+
+Route::controller(AdminOrderController::class)->group(function () {
+    Route::prefix('orders')->group(function () {
+        Route::get('/', 'index')->name('admin.orders.index');
+        Route::get('/{id}/detail', 'show')->name('admin.orders.detail');
+        Route::get('/create', 'create')->name('admin.orders.create');
+        Route::post('/store', 'store')->name('admin.orders.store');
+        Route::put('/{id}/detail', 'show')->name('admin.orders.show');
+        Route::post('/status', 'status')->name('admin.orders.status');
+        Route::get('/{id}/edit', 'edit')->name('admin.orders.edit');
+        Route::post('/update', 'update')->name('admin.orders.update');
+        Route::post('/destroy/{id}', 'destroy')->name('admin.orders.destroy');
+    });
 });
 });
 
@@ -217,7 +233,7 @@ Route::prefix('frontend')->group(function(){
         Route::get('/', 'create')->name('users.contact.index');
         Route::post('/store', 'store')->name('users.contact.store');
     });
-    Route::controller(UserGalleryController::class)->prefix('gallery')->group(function () {
+    Route::controller(controller: UserGalleryController::class)->prefix('gallery')->group(function () {
         Route::get('/', 'index')->name('users.gallery.index');
     });
 
