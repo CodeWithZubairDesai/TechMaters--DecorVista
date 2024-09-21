@@ -13,7 +13,6 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'billing_id',
-        'orderdetail_id',
         'sub_total',
         'shipping_charges',
         'grand_total'
@@ -29,7 +28,7 @@ class Order extends Model
     }
     public function orderdetails()
     {
-        return $this->hasMany(OrderDetail::class, 'orderdetail_id');
+        return $this->hasMany(OrderDetail::class);
     }
 
 

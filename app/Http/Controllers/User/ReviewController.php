@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use Auth;
 use App\Models\Product;
-use App\Models\ProductReviews;
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
+use App\Models\ProductReviews;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
-use Validator;
-use Auth;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Validator;
 
 class ReviewController extends Controller
 {

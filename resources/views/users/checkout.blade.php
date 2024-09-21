@@ -52,7 +52,7 @@ CheckOut
 										</div>
 										<!-- checkout-form -->										
 									</div>
-									<form id="OrderForm" method="POST" class="contact-form row g-30">
+									<form action="{{route('users.checkout.store')}}" method="POST" class="contact-form row g-30">
 										@csrf
 										<div class="col-md-6">
 											<input type="text" class="form-control" id="InputName" name="name" placeholder="Name *" required="">
@@ -158,6 +158,7 @@ CheckOut
         <div>
             <button type="submit" id="orderbtn" class="btn btn-primary w-100">Place Order</button>
         </div>
+</form>
     </div>
 </div>
 
@@ -199,8 +200,4 @@ CheckOut
 			@endsection
 			<script>
 
-    $("#orderbtn").click(()=>{
-      
-        $("#OrderForm").submit();
-    });
 </script>
