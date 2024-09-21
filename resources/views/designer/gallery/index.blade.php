@@ -35,7 +35,7 @@
                                     @foreach($gallery as $p)
                                     <tr>
                                         <td><strong>{{$p->id}}</strong></td>
-                                        <td><img src="{{$p->name}}" alt="" ></td>
+                                        <td><img src="{{env('ASSET2_URL').$p->name}}" alt="" ></td>
                                         <td>{{$p->gallerycategory->name}}</td>
                                         <td class="text-end">
                                             <form action="{{ route('designer.gallery.destroy', $p->id) }}" method="POST">

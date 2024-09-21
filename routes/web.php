@@ -13,6 +13,7 @@ use App\Http\Controllers\User\ReviewController as UserReviewController;
 use App\Http\Controllers\User\PortfolioController as UserPortfolioController;
 use App\Http\Controllers\User\AppointmentController as UserAppointmentController;
 use App\Http\Controllers\User\CartController as UserCartController;
+use App\Http\Controllers\User\GalleryController as UserGalleryController;
 
 // Interior Designer Controller
 use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioController;
@@ -26,7 +27,6 @@ use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\GalleryCategoryController as AdminGalleryCategoryController;
-use App\Http\Controllers\Admin\ProductCategoryController as AdminProductCategoryController;
 
 
 
@@ -210,6 +210,9 @@ Route::prefix('frontend')->group(function(){
     Route::controller(UserContactUsController::class)->prefix('contact')->group(function () {
         Route::get('/', 'create')->name('users.contact.index');
         Route::post('/store', 'store')->name('users.contact.store');
+    });
+    Route::controller(UserGalleryController::class)->prefix('gallery')->group(function () {
+        Route::get('/', 'index')->name('users.gallery.index');
     });
 
     Route::controller(UserAppointmentController::class)->prefix('appointment')->group(function () {

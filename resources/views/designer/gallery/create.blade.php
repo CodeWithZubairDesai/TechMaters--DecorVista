@@ -20,6 +20,10 @@ Gallery
                                     <div class="col-md-12">
                                         <label class="form-label" for="">Category</label>
                                         <select id="categorySelect" name="category_id" class="default-select form-control wide mt-3">
+                                        <option value="">Select Category</option>
+                                    @foreach($categories as $cRow)
+                                        <option value="{{ $cRow->id }}">{{ $cRow->name }}</option>
+                                    @endforeach
 
                                         </select>
                                     </div>

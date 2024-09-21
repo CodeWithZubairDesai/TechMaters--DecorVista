@@ -21,7 +21,8 @@ class GalleryController extends Controller
     }
     public function create()
     {
-        return view('designer.gallery.create');
+        $categories = GalleryCategories::all();
+        return view('designer.gallery.create', compact('categories'));
     }
     public function store(Request $request)
 {
@@ -37,16 +38,18 @@ class GalleryController extends Controller
         ]);
     }
 
-    $gallery = Gallery::create([
-        'name' => $request->name,
-        'category_id' => $request->category_id
-    ]);
+
 
     if ($request->hasFile('name')) {
         $file = $request->file('name');
         $fileName = time() . '_' . $file->getClientOriginalName();
         $filePath = $file->storeAs('gallery_images/', $fileName, 'public');
     }
+
+    $gallery = Gallery::create([
+        'name' => $filePath,
+        'category_id' => $request->category_id
+    ]);
 
     return response()->json([
         'status' => 'success',
