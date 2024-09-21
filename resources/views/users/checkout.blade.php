@@ -58,7 +58,7 @@ CheckOut
 											<input type="text" class="form-control" id="InputName" name="name" placeholder="Name *" required="">
 										</div>			
 										<div class="col-md-6">
-											<input type="email" class="form-control" id="InputEmail" name="enail" placeholder="Email Address *" required="">
+											<input type="email" class="form-control" id="InputEmail" name="email" placeholder="Email Address *" required="">
 										</div>		
 										<div class="col-md-6">
 											<input type="number" class="form-control" id="InputNumber" name="phone" placeholder="Phone *" required="">
