@@ -93,12 +93,12 @@ CheckOut
         <!-- Order Items -->
         <ul class="list-unstyled fw-bold headings-color mb-0 d-flex justify-content-between pb-10 border-bottom border-1">
             <li>Products</li>
-            <li>Subtotal</li>
+            <li>Price 		</li>
         </ul>
 
         @php
             $subTotal = 0;
-            $shippingCharges = 0;
+            $shippingCharges = 125.00;
         @endphp
 
         @foreach(session('cart', []) as $item)
@@ -118,22 +118,11 @@ CheckOut
                 <ul class="list-unstyled mb-0 d-flex flex-column gap-10">
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="check-input-shipping" id="check-input1" value="0" checked>
-                            <label class="form-check-label" for="check-input1">
-                                Free Shipping
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="check-input-shipping" id="check-input3" value="20" 
-                            @if($shippingCharges == 125) checked @endif>
                             <label class="form-check-label" for="check-input3">
-                                Flat Rate: <span class="fw-semibold">$20.00</span>
+                                Flat Rate: <span class="fw-semibold">$125.00</span>
                             </label>
                         </div>
                     </li>
-                    <li>Shipping Options will be updated during checkout</li>
                 </ul>
             </li>
         </ul>
@@ -160,7 +149,7 @@ CheckOut
             <label class="form-check-label" for="check-input5">
                 <span class="d-inline-flex gap-3">
                     <span>Paypal</span>
-                    <span class="mt-n1"><img src="{{ asset('assets/images/payment-card.png') }}" alt="payment-card"></span>
+                    <span class="mt-n1"><img src="{{ asset('user_assets/assets/images/payment-card.png') }}" alt="payment-card"></span>
                 </span>
             </label>
         </div>
