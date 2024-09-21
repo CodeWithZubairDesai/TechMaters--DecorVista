@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('designer_id'); 
             $table->string('title');
             $table->text('description');
+            $table->string('portfolio_link');
+            $table->string('image_path')->nullable();
             $table->integer('status')->default(1)->comment('1 = Active , 2 = Inactive');
             $table->string('created_by');
             $table->date('created_date');

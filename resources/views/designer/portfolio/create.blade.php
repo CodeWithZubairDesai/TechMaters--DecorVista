@@ -21,7 +21,7 @@ Portfolio
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="mainImage" class="form-label">Main Image</label>
-                                        <input class="form-control" name="main_image" type="file" id="mainImage" multiple>
+                                        <input class="form-control" name="main_image" type="file" id="mainImage">
                                     </div>
                                 </div>
                                 <div class="row mt-2">
@@ -31,31 +31,11 @@ Portfolio
                                     </div>
                                 </div>
 
-                                <!-- Hero Images (max 2) -->
-                                <div class="row mt-4 mb-3">
+                                <!-- Portfolio Link -->
+                                <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <label for="heroImages" class="form-label">Hero Images (Max 2)</label>
-                                        <input class="form-control" name="hero_images[]" type="file" id="heroImages" multiple accept="image/*">
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-md-12">
-                                        <label class="form-label">Hero Images Preview</label>
-                                        <div id="heroImagePreview" class="d-flex flex-wrap gap-3"></div>
-                                    </div>
-                                </div>
-
-                                <!-- Carousel Images (Min 3) -->
-                                <div class="row mt-4 mb-3">
-                                    <div class="col-md-12">
-                                        <label for="carouselImages" class="form-label">Carousel Images (Min 3)</label>
-                                        <input class="form-control" name="carousel_images[]" type="file" id="carouselImages" multiple accept="image/*">
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-md-12">
-                                        <label class="form-label">Carousel Images Preview</label>
-                                        <div id="carouselImagePreview" class="d-flex flex-wrap gap-3"></div>
+                                        <label for="portfolioLink" class="form-label">Portfolio Link</label>
+                                        <input type="url" class="form-control" name="portfolio_link" placeholder="https://example.com/portfolio" required>
                                     </div>
                                 </div>
 
@@ -81,7 +61,7 @@ Portfolio
                                     </div>
                                     <div class="col-md-2 text-end">
                                         <button type="button" id="addSlot" class="btn btn-rounded btn-info">
-                                            </span>Add Slot
+                                            Add Slot
                                         </button>
                                     </div>
                                 </div>
@@ -115,27 +95,19 @@ Portfolio
 @push('scripts')
 <script>
     $(document).ready(function () {
-        // Function to handle previews and removals for various image inputs
-        function setupImagePreview(inputId, previewContainerId, maxImages = null) {
+        // Function to handle main image preview
+        function setupImagePreview(inputId, previewContainerId) {
             $(`#${inputId}`).on('change', function (e) {
                 const files = e.target.files;
                 const previewContainer = $(`#${previewContainerId}`);
                 previewContainer.empty(); // Clear previous previews
-                
-                // Limit file input based on maxImages, if applicable
-                if (maxImages && files.length > maxImages) {
-                    alert(`You can only upload a maximum of ${maxImages} images.`);
-                    this.value = '';
-                    return;
-                }
 
-                Array.from(files).forEach((file, index) => {
+                Array.from(files).forEach((file) => {
                     const reader = new FileReader();
                     reader.onload = function (event) {
                         const imgHtml = `
                             <div class="position-relative">
                                 <img src="${event.target.result}" class="img-thumbnail" style="max-width: 150px;">
-                                <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0" onclick="removeImage('${inputId}', ${index})">&times;</button>
                             </div>
                         `;
                         previewContainer.append(imgHtml);
@@ -145,27 +117,8 @@ Portfolio
             });
         }
 
-        window.removeImage = function (inputId, index) {
-            const input = document.getElementById(inputId);
-            const dt = new DataTransfer();
-            const { files } = input;
-
-            // Loop through files and reassign to input except the removed one
-            for (let i = 0; i < files.length; i++) {
-                if (i !== index) {
-                    dt.items.add(files[i]);
-                }
-            }
-            input.files = dt.files; // Update input files
-
-            // Trigger change event to refresh the preview
-            $(`#${inputId}`).trigger('change');
-        };
-
-        // Setup previews for each image input
+        // Setup preview for main image
         setupImagePreview('mainImage', 'mainImagePreview');
-        setupImagePreview('heroImages', 'heroImagePreview', 2); // Max 2 images for Hero
-        setupImagePreview('carouselImages', 'carouselImagePreview', 10); // Carousel images
 
         // Add Consultation Time Slots
         let slotCount = 1;
@@ -189,22 +142,22 @@ Portfolio
             $('#slotsContainer').append(slotHtml);
         });
 
-        // window.removeSlot = function (slotId) {
-        //     $(#slot-${slotId}).remove();
-        // };
+        window.removeSlot = function (slotId) {
+            $(`#slot-${slotId}`).remove();
+        };
 
         // Handle form submission
-    $('#portfolioCreateForm').on('submit', function(e) {
-        e.preventDefault();
+        $('#portfolioCreateForm').on('submit', function(e) {
+            e.preventDefault();
 
-        handleFormUploadForm(
-            'POST',
-            '#portfolioCreateForm',
-            '#submit',
-            "{{ route('designer.gallery.store') }}",
-            "{{ route('designer.gallery.index') }}"
-        );
-    });
+            handleFormUploadForm(
+                'POST',
+                '#portfolioCreateForm',
+                '#submit',
+                "{{ route('designer.portfolio.store') }}",
+                "{{ route('designer.portfolio.index') }}"
+            );
+        });
     });
 </script>
 @endpush

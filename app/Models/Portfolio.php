@@ -19,6 +19,8 @@ class Portfolio extends Model
         'designer_id',
         'title',
         'description',
+        'portfolio_link',
+        'image_path'
     ];
 
     /**
@@ -27,11 +29,6 @@ class Portfolio extends Model
     public function designer()
     {
         return $this->belongsTo(User::class, 'designer_id');
-    }
-
-    public function images()
-    {
-        return $this->hasMany(PortfolioImage::class, 'portfolio_id');
     }
     public function consultants()
     {

@@ -19,7 +19,7 @@ class Appointment extends Model
     protected $fillable = [
         'user_id',
         'designer_id',
-        'notes',
+        'portfolio_id',
     ];
 
     /**
@@ -40,9 +40,9 @@ class Appointment extends Model
         /**
      * Define the relationship with the Consultant model.
      */
-    public function consultant()
+    public function portfolios()
     {
-        return $this->belongsTo(Consultant::class, 'consultancy_id');
+        return $this->belongsTo(Portfolio::class, 'portfolio_id');
     }
     
 

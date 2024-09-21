@@ -255,7 +255,7 @@ Product-Single
 									<a href="product-single.html" class="text-decoration-none">
 										<div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
 											<div class="shopping-item-details">
-												<h5 class="fw-semibold product-title">SX Bathtubs</h5>
+												<h5 class="fw-semibold product-title">SX Bathtu bs</h5>
 												<span class="product-price fs-5">$499.99</span>
 											</div>
 											<div>

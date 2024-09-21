@@ -69,7 +69,7 @@ class CheckoutController extends Controller
             foreach ($cartItems as $item) {
                 $subTotal += $item['price'] * $item['quantity'];
             }
-            $shippingCharges = 10; // Assuming flat rate shipping
+            $shippingCharges = 125; // Assuming flat rate shipping
             $grandTotal = $subTotal + $shippingCharges;
     
             // Create a new Order
@@ -93,6 +93,7 @@ class CheckoutController extends Controller
     
             // Clear the cart
             session()->forget('cart');
+            return redirect()->route('home');
     
             return response()->json([
                 'status' => 'success',

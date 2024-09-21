@@ -18,7 +18,7 @@ class PortfolioController extends Controller
     public function index()
     {
         $status = 1;
-        $portfolios = Portfolio::with(['images' , 'designer'])
+        $portfolios = Portfolio::with('designer')
                     ->where('status', $status)
                     ->get();
         log::info("Portfolio Data".$portfolios);
@@ -28,7 +28,7 @@ class PortfolioController extends Controller
     public function show($id)
     {
         $status = 1;
-        $portfolio =  Portfolio::with(['images' , 'designer','consultants'])
+        $portfolio =  Portfolio::with(['designer','consultants'])
         ->where('status', $status)
         ->find($id);   
         log::info("Portfolio Detail Data".$portfolio);
