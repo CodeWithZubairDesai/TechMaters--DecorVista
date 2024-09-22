@@ -41,7 +41,7 @@ Register
 				<nav class="navbar navbar-expand-xl navbar-light nav-border hover-menu" aria-label="Offcanvas navbar large">	
 					<div class="container-fluid max-width">										
 						<div class="d-flex align-items-end">
-							<a class="navbar-brand py-0" href="index.html">
+							<a class="navbar-brand py-0" href="{{route('home')}}">
 								<span class="logo">
 													<!-- <img src="assets/images/logo.png" alt="logo"> -->
 									<svg width="219" height="31" viewBox="0 0 219 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -140,27 +140,15 @@ Register
 										</span> 
 									</a>
 									<ul class="dropdown-menu ">
-										<li><a class="dropdown-item" href="home-1.html" aria-label="single-pages">
-												<span class="link-hover-animation-1">Home 1</span>												
+										<li><a class="dropdown-item" href="home-1service-single.html" aria-label="single-pages">
+												<span class="link-hover-animation-1">Home</span>												
 											</a>
-										</li>										
-										<li><a class="dropdown-item" href="home-2.html" aria-label="single-pages">
-											<span class="link-hover-animation-1">Home 2</span>
-											</a>
-										</li>	
-										<li><a class="dropdown-item" href="home-3.html" aria-label="single-pages">
-											<span class="link-hover-animation-1">Home 3</span>
-											</a>
-										</li>	
-										<li><a class="dropdown-item" href="home-4.html" aria-label="single-pages">
-											<span class="link-hover-animation-1">Home 4</span>
-											</a>
-										</li>						
+										</li>															
 									</ul>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="project-archive.html">
-										Projects										   
+									<a class="nav-link" href="{{route('users.portfolios.index')}}">
+										Portfolios										   
 									</a>									
 								</li>	
 
@@ -181,17 +169,17 @@ Register
 													<div class="col-xl-3">															
 														<div class="d-flex gap-30 flex-column py-40 ps-30 pe-40">
 															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Residential Design</a>
+																<a href="" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Residential Design</a>
 																<p class="small mb-0 pt-10">Everything from concept to completion</p>
 															</div>	
 															<!-- menu-description -->
 															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Commercial Design</a>
+																<a href="" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Commercial Design</a>
 																<p class="small mb-0 pt-10">Focuses on optimizing functionality and aesthetics</p>
 															</div>	
 															<!-- menu-description -->
 															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Space Planning</a>
+																<a href="" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Space Planning</a>
 																<p class="small mb-0 pt-10">Maximize the potential of your space</p>
 															</div>	
 															<!-- menu-description -->
@@ -201,17 +189,17 @@ Register
 													<div class="col-xl-3">															
 														<div class="d-flex gap-30 flex-column py-40 ps-30 pe-40 separator h-100">
 															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Color Consultation</a>
+																<a href="" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Color Consultation</a>
 																<p class="small mb-0 pt-10">We help you choose the perfect palette</p>
 															</div>	
 															<!-- menu-description -->
 															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Project Management</a>
+																<a href="" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Project Management</a>
 																<p class="small mb-0 pt-10">We oversee every detail for a successful project</p>
 															</div>	
 															<!-- menu-description -->
 															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Custom Furnishings</a>
+																<a href="" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Custom Furnishings</a>
 																<p class="small mb-0 pt-10">Elevate your space with unique furnishings</p>
 															</div>	
 															<!-- menu-description -->
@@ -221,12 +209,12 @@ Register
 													<div class="col-xl-3">															
 														<div class="d-flex gap-30 flex-column py-40 ps-30 pe-40 separator h-100">
 															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Concept Development</a>
+																<a href="" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Concept Development</a>
 																<p class="small mb-0 pt-10">Develop a design concept</p>
 															</div>	
 															<!-- menu-description -->
 															<div class="menu-description">
-																<a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Revamps & Remodels</a>
+																<a href="" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">Revamps & Remodels</a>
 																<p class="small mb-0 pt-10">Renovation and remodeling services that breathe new life</p>
 															</div>	
 															<!-- menu-description -->
@@ -239,7 +227,7 @@ Register
 															<div class="menu-image-contents px-3">
 																<h4 class="mb-90 px-0 px-xl-10 fw-extra-bold">Embark on a Design Journey with Us</h4>
 																<div class="architronix-button">
-																	<a href="contact-2.html" class="btn btn-secondary d-inline-flex gap-10 w-100" target="_blank">Lets Talk							
+																	<a href="{{route('users.contact.index')}}" class="btn btn-secondary d-inline-flex gap-10 w-100" target="_blank">Lets Talk							
 																		<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 																			<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
 																		</svg>							
@@ -269,24 +257,24 @@ Register
 										<div class="row">
 											<div class="col-lg-6">
 												<div class="d-flex flex-column">
-													<a class="dropdown-item" href="about-us.html" aria-label="single-pages"><span class="link-hover-animation-1">About Us</span></a>										
-													<a class="dropdown-item" href="services.html" aria-label="single-pages"><span class="link-hover-animation-1">Services</span></a>	
-													<a class="dropdown-item" href="service-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Service Single</span></a>	
-													<a class="dropdown-item" href="project-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Project Single</span></a>
-													<a class="dropdown-item" href="product-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Product Single</span></a>
-													<a class="dropdown-item" href="product-archive.html" aria-label="single-pages"><span class="link-hover-animation-1">Product Archive</span></a>
-													<a class="dropdown-item" href="checkout.html" aria-label="single-pages"><span class="link-hover-animation-1">Checkout Page</span></a>
+													<a class="dropdown-item" href="about-usservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">About Us</span></a>										
+													<a class="dropdown-item" href="servicesservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Services</span></a>	
+													<a class="dropdown-item" href="" aria-label="single-pages"><span class="link-hover-animation-1">Service Single</span></a>	
+													<a class="dropdown-item" href="project-singleservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Project Single</span></a>
+													<a class="dropdown-item" href="product-singleservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Product Single</span></a>
+													<a class="dropdown-item" href="product-archiveservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Product Archive</span></a>
+													<a class="dropdown-item" href="checkoutservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Checkout Page</span></a>
 												</div>
 											</div>
 											<div class="col-lg-6">
 												<div class="d-flex flex-column dropdown-items-separator separator">
-													<a class="dropdown-item" href="cart.html" aria-label="single-pages"><span class="link-hover-animation-1">Cart Page</span></a>							
-													<a class="dropdown-item" href="career.html" aria-label="single-pages"><span class="link-hover-animation-1">Career</span></a>							
-													<a class="dropdown-item" href="job-details.html" aria-label="single-pages"><span class="link-hover-animation-1">Job Details</span></a>							
-													<a class="dropdown-item" href="team.html" aria-label="single-pages"><span class="link-hover-animation-1">Team</span></a>								
-													<a class="dropdown-item" href="team-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Team Single</span></a>
-													<a class="dropdown-item" href="contact.html" aria-label="single-pages"><span class="link-hover-animation-1">Contact</span></a>
-													<a class="dropdown-item" href="404-page.html" aria-label="single-pages"><span class="link-hover-animation-1">404 Page</span></a>
+													<a class="dropdown-item" href="cartservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Cart Page</span></a>							
+													<a class="dropdown-item" href="careerservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Career</span></a>							
+													<a class="dropdown-item" href="job-detailsservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Job Details</span></a>							
+													<a class="dropdown-item" href="teamservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Team</span></a>								
+													<a class="dropdown-item" href="team-singleservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Team Single</span></a>
+													<a class="dropdown-item" href="contactservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Contact</span></a>
+													<a class="dropdown-item" href="404-pageservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">404 Page</span></a>
 												</div>
 											</div>
 										</div>						
@@ -304,15 +292,15 @@ Register
 										</span> 
 									</a>
 									<ul class="dropdown-menu ">
-										<li><a class="dropdown-item" href="blog-archive.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Archive</span></a></li>										
-										<li><a class="dropdown-item" href="blog-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Single</span></a></li>										
-										<li><a class="dropdown-item" href="blog-left-sidebar.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Left Sidebar</span></a></li>										
-										<li><a class="dropdown-item" href="blog-right-sidebar.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Right Sidebar</span></a></li>						
+										<li><a class="dropdown-item" href="blog-archiveservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Archive</span></a></li>										
+										<li><a class="dropdown-item" href="blog-singleservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Single</span></a></li>										
+										<li><a class="dropdown-item" href="blog-left-sidebarservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Left Sidebar</span></a></li>										
+										<li><a class="dropdown-item" href="blog-right-sidebarservice-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Blog Right Sidebar</span></a></li>						
 									</ul>
 								</li>
 								
 								<li class="nav-item">
-									<a class="nav-link" href="contact-2.html">
+									<a class="nav-link" href="contact-2service-single.html">
 										Contact										   
 									</a>									
 								</li>

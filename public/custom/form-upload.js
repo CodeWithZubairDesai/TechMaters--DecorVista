@@ -129,6 +129,7 @@ function UserLogout(targetUrl, timer = 3000) {
   });
 }
 
+
 function BookAppointment(targetUrl, timer = 3000) {
 
   // Make the AJAX request
@@ -183,7 +184,7 @@ function BookAppointment(targetUrl, timer = 3000) {
 
       // Re-enable the submit button
       $(btnId).prop("disabled", false);
-      $(btnId).html("Submit");
+      $(btnId).html("Book Appointment");
     },
   });
 }

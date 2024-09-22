@@ -1,35 +1,36 @@
 <?php
 
-use App\Http\Controllers\UserController as FUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\User\UserController ;
 
 // User Controller
+use App\Http\Controllers\User\WishlistController as UserWishlistController;
+use App\Http\Controllers\UserController as FUserController;
 use App\Http\Controllers\User\BlogController as UserBlogController;
-use App\Http\Controllers\User\UserController ;
-use App\Http\Controllers\User\ContactUsController as UserContactUsController;
-use App\Http\Controllers\User\ProductController as UserProductController;
-use App\Http\Controllers\User\ReviewController as UserReviewController;
-use App\Http\Controllers\User\PortfolioController as UserPortfolioController;
-use App\Http\Controllers\User\AppointmentController as UserAppointmentController;
 use App\Http\Controllers\User\CartController as UserCartController;
-use App\Http\Controllers\User\CheckoutController as UserCheckoutController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\User\ReviewController as UserReviewController;
 use App\Http\Controllers\User\GalleryController as UserGalleryController;
+use App\Http\Controllers\User\ProductController as UserProductController;
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 
 // Interior Designer Controller
-use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioController;
-use App\Http\Controllers\Designer\GeneralController as DesignerGenerealController;
-use App\Http\Controllers\Designer\AppointmentController as DesignerAppointmentController;
-use App\Http\Controllers\Designer\GalleryController as DesignerGalleryController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\User\CheckoutController as UserCheckoutController;
+use App\Http\Controllers\User\ContactUsController as UserContactUsController;
+use App\Http\Controllers\User\PortfolioController as UserPortfolioController;
 
 //Admin Controller
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Admin\BlogController as AdminBlogController;
-use App\Http\Controllers\Admin\ProductController as AdminProductController;
-use App\Http\Controllers\Admin\ProductCategoryController as AdminProductCategoryController;
-use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
+use App\Http\Controllers\Designer\GalleryController as DesignerGalleryController;
+use App\Http\Controllers\User\AppointmentController as UserAppointmentController;
+use App\Http\Controllers\Designer\GeneralController as DesignerGenerealController;
+use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioController;
+use App\Http\Controllers\Designer\AppointmentController as DesignerAppointmentController;
 use App\Http\Controllers\Admin\GalleryCategoryController as AdminGalleryCategoryController;
-use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\ProductCategoryController as AdminProductCategoryController;
 
 
 
@@ -217,6 +218,7 @@ Route::prefix('frontend')->group(function(){
         Route::get('/verify_otp', 'verifyOtpform')->name('users.verifyOtp');
         Route::get('/logouts', 'logout')->name('users.logout');
         Route::get('/' , 'index')->name('home');
+        Route::get('/about-us' , 'about')->name('aboutus');
     });
 
     Route::controller(UserBlogController::class)->prefix('blogs')->group(function () {
@@ -239,7 +241,7 @@ Route::prefix('frontend')->group(function(){
 
     Route::controller(UserAppointmentController::class)->prefix('appointment')->group(function () {
         Route::get('/', 'create')->name('users.appointments.index');
-        Route::post('/store', 'store')->name('users.appointments.store');
+        Route::post('/store/{id}', 'store')->name('users.appointments.store');
     });
 
     Route::controller(UserProductController::class)->prefix('products')->group(function () {
@@ -257,9 +259,14 @@ Route::prefix('frontend')->group(function(){
         Route::get('/add-to-cart/{id}',[UserCartController::class,'addtocart']);
         Route::get('/',[UserCartController::class,'showCart']);
         Route::get('/remove-from-cart/{id}',  'removeFromCart')->name('remove.from.cart');
-
-// Calculate total and grand total for the cart
         Route::get('/calculate',  'calculateCart');
+    });
+    Route::controller(UserWishlistController::class)->prefix('wishlist')->group(function () {
+
+        Route::post('/add/{id}', 'addtowishlist')->name('wishlist.add');
+        Route::delete('/remove', 'deletefromwishlist')->name('wishlist.remove');
+        
+
     });
 
 
@@ -299,6 +306,7 @@ Route::prefix('designer')->group(function(){
         Route::controller(DesignerAppointmentController::class)->group(function () {
             Route::prefix('appointmets')->group(function () {            
             Route::get('/', 'index')->name('designer.appointments.index');
+            Route::patch('designer/appointments/{id}/status/{status}', 'updateStatus')->name('designer.appointments.updateStatus');
             Route::get('/create', 'create')->name('designer.appointmets.create');
             Route::post('/store', 'store')->name('designer.appointmets.store');
             Route::post('/status', 'status')->name('designer.appointments.status');

@@ -73,9 +73,9 @@ About
 						</div>
 						<div class="col-md-6 col-lg-4 col-xl-3">
 							<div class="separator d-flex align-items-center display-3 fw-extra-bold">
-								<span class="odometer" data-count-to=420></span><span class="odometer-icon">k</span>
+								<span class="odometer" data-count-to=30></span><span class="odometer-icon">k</span>
 							</div>
-							<p class="fs-5 fw-bold mb-0 mt-1 mt-lg-2 mt-xxl-3">Square feet Covered</p>								
+							<p class="fs-5 fw-bold mb-0 mt-1 mt-lg-2 mt-xxl-3">Happy CUustomers</p>								
 
 						</div>
 						<div class="col-md-6 col-lg-4 col-xl-3">
@@ -182,16 +182,9 @@ About
 					
 					<div class="container">	
 						<div class="section-title section-separator">
-							<h2 class="fw-extra-bold heading-title separator lh-1">Architects of Architronix</h2>
+							<h2 class="fw-extra-bold heading-title separator lh-1">Interior Designers of DecorVista</h2>
 							<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
-								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Where Imagination Meets Expertise and Dreams Take Shape</p>	
-								<div class="architronix-button">
-									<a href="team.html" class="btn btn-outline-primary  gap-10">All Architects 							
-										<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-										</svg>							
-									</a>
-								</div>								
+								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Where Imagination Meets Expertise and Dreams Take Shape</p>								
 							</div>
 						</div>
 					</div>
@@ -211,7 +204,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-1.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -242,7 +235,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-2.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -273,7 +266,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-3.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -304,7 +297,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-4.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -335,7 +328,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-5.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -366,7 +359,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-6.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -397,7 +390,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-7.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -428,7 +421,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-8.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -459,7 +452,7 @@ About
 									<div class="team-author-image overflow-hidden">
 										<img src="assets/images/team-9.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
-									<a href="team-single.html" class="text-decoration-none stretched-link">
+									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
 											<div class="team-details-inner position-relative d-flex align-items-center justify-content-between">
 												<div>
@@ -489,24 +482,5 @@ About
 
 			
 
-			<!--Feedback Section ======================-->
-			<section class="section-feedback feedback-1 text-secondary">
-				<div class="container">
-					<div class="feedback-wrapper position-relative">
-						<div class="feedback-content d-flex flex-column gap-4 flex-lg-row align-items-lg-end justify-content-lg-around">
-							<h2 class="fw-extra-bold feedback-title">Drop Us a Line</h2>
-							<div class="architronix-button">
-								<a href="contact-2.html" class="btn btn-secondary gap-10"> 
-									Lets Talk
-									<svg class="arrow" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
-									</svg>
-								</a>
-							</div>							
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--Feedback Section ======================-->
 			
 			@endsection

@@ -183,24 +183,14 @@
 										<div class="row">
 											<div class="col-lg-6">
 												<div class="d-flex flex-column">
-													<a class="dropdown-item" href="about-us.html" aria-label="single-pages"><span class="link-hover-animation-1">About Us</span></a>										
-													<a class="dropdown-item" href="services.html" aria-label="single-pages"><span class="link-hover-animation-1">Services</span></a>
-													<a class="dropdown-item" href="service-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Service Single</span></a>	
-													<a class="dropdown-item" href="project-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Project Single</span></a>
-													<a class="dropdown-item" href="product-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Product Single</span></a>
-													<a class="dropdown-item" href="product-archive.html" aria-label="single-pages"><span class="link-hover-animation-1">Product Archive</span></a>
-													<a class="dropdown-item" href="checkout.html" aria-label="single-pages"><span class="link-hover-animation-1">Checkout Page</span></a>
+													<a class="dropdown-item" href="{{route('aboutus')}}" aria-label="single-pages"><span class="link-hover-animation-1">About Us</span></a>										
+													<a class="dropdown-item" href="{{route('users.blogs.index')}}" aria-label="single-pages"><span class="link-hover-animation-1">Blogs</span></a>
 												</div>
 											</div>
 											<div class="col-lg-6">
 												<div class="d-flex flex-column dropdown-items-separator separator">
-													<a class="dropdown-item" href="cart.html" aria-label="single-pages"><span class="link-hover-animation-1">Cart Page</span></a>							
-													<a class="dropdown-item" href="career.html" aria-label="single-pages"><span class="link-hover-animation-1">Career</span></a>							
-													<a class="dropdown-item" href="job-details.html" aria-label="single-pages"><span class="link-hover-animation-1">Job Details</span></a>							
-													<a class="dropdown-item" href="team.html" aria-label="single-pages"><span class="link-hover-animation-1">Team</span></a>								
-													<a class="dropdown-item" href="team-single.html" aria-label="single-pages"><span class="link-hover-animation-1">Team Single</span></a>
-													<a class="dropdown-item" href="contact.html" aria-label="single-pages"><span class="link-hover-animation-1">Contact</span></a>
-													<a class="dropdown-item" href="404-page.html" aria-label="single-pages"><span class="link-hover-animation-1">404 Page</span></a>
+													<a class="dropdown-item" href="{{route('users.cart.index')}}" aria-label="single-pages"><span class="link-hover-animation-1">Cart Page</span></a>							
+													<a class="dropdown-item" href="{{route('users.contact.index')}}" aria-label="single-pages"><span class="link-hover-animation-1">Contact</span></a>							
 												</div>
 											</div>
 										</div>						
@@ -336,65 +326,6 @@
 
 
 
-			<!--offcanvasCart ======================-->
-			<div class="offcanvas offcanvas-end" id="offcanvasCart" tabindex="-1">
-				<div class="offcanvas-header">
-
-					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-				</div>
-				<div class="offcanvas-body px-3 py-40 py-xxl-100 px-lg-5">				
-					<div class="cart-items">
-						<span class="cart-items-heading">Your Cart (2)</span>
-						<a href="#" class="cart-items-heading text-decoration-none">Remove All (X)</a>
-					</div>		
-					<div class="cart-items pt-40 pt-xxl-60">
-						<div class="cart-items-inner d-flex align-items-center gap-3">
-							<img src="{{ asset('user_assets/assets/images/shop-image-sm-1.png')}}" alt="img">
-							<div class="d-flex flex-column gap-3">
-								<h6 class="cart-items-heading">Pendant Lamp</h6>
-								<span class="d-flex gap-3 align-items-center">
-									<span>Qty</span>
-									<span class="cart-items-heading">1</span>
-								</span>
-							</div>
-						</div>
-						<div class="d-flex flex-column gap-3 align-items-end">
-							<a class="text-decoration-none" href="#">(X)</a>
-							<h6 class="cart-items-heading">$499.99</h6>
-						</div>
-					</div>		
-					<div class="cart-items pt-4">
-						<div class="cart-items-inner d-flex align-items-center gap-3">
-							<img src="{{ asset('user_assets/assets/images/shop-image-sm-2.png')}}" alt="img">
-							<div class="d-flex flex-column gap-3">
-								<h6 class="cart-items-heading">Scandal Wall Sconce</h6>
-								<span class="d-flex gap-3 align-items-center">
-									<span>Qty</span>
-									<span class="cart-items-heading">1</span>
-								</span>
-							</div>
-						</div>
-						<div class="d-flex flex-column gap-3 align-items-end">
-							<a class="text-decoration-none" href="#">(X)</a>
-							<h6 class="cart-items-heading">$134.99</h6>
-						</div>
-					</div>	
-
-					<div class="offcanvas-cart-btn cart-items justify-content-between">
-						<div>
-							<h6 class="cart-items-heading mb-4 mb-xxl-30">Subtotal:</h6>
-							<a href="cart.html" class="btn btn-md btn-primary ">View Cart</a>
-						</div>
-
-						<div>
-							<h6 class="cart-items-heading mb-4 mb-xxl-30 text-end">$634.99</h6>
-							<a href="checkout.html" class="btn btn-md btn-secondary ">Checkout</a>
-						</div>							
-					</div>						
-					
-				</div>
-			</div>
-			<!--offcanvasCart ======================-->
 
 
 
@@ -448,7 +379,7 @@
 						<div class="feedback-content d-flex flex-column gap-4 flex-lg-row align-items-lg-end justify-content-lg-around">
 							<h2 class="fw-extra-bold feedback-title">Drop Us a Line</h2>
 							<div class="architronix-button">
-								<a href="contact-2.html" class="btn btn-secondary gap-10"> 
+								<a href="{{route('users.contact.index')}}" class="btn btn-secondary gap-10"> 
 									Lets Talk
 									<svg class="arrow" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
@@ -469,7 +400,7 @@
 						<div class="row gy-5 gy-lg-0 align-items-center justify-content-between">
 							<div class="col-lg-4">
 								<div>
-									<a class="navbar-brand py-0" href="index.html">
+									<a class="navbar-brand py-0" href="{{route('home')}}">
 									<span class="logo">
 											<img src="{{ asset('user_assets/assets/images/fav-icon/favicon.ico')}}" alt="logo">
 										<svg width="219" height="31" viewBox="0 0 219 31" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -136,16 +136,15 @@ function UserLogout(targetUrl, timer = 3000) {
   });
 }
 function BookAppointment(targetUrl, timer = 3000) {
-
   // Make the AJAX request
   $.ajax({
-    url: targetUrl,
-    type: "POST",
-    processData: false, 
-    contentType: false, 
+    url: targetUrl,  // The ID is already part of the targetUrl if passed in route
+    type: "POST",    // Ensure this is POST since we're storing data
+    data: {},        // If you need to send extra data, include it here (in this case, no extra data)
     headers: {
-      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), // Include CSRF token
+      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),  // Include CSRF token
     },
+
     success: function(data) {
       if (data.status === "success") {
         // Show success message
@@ -159,7 +158,7 @@ function BookAppointment(targetUrl, timer = 3000) {
 
         // Redirect after showing success message
         setTimeout(() => {
-          window.location.reload();
+          window.location.reload();  // Reload the page to reflect the new appointment status
         }, timer);
       } else {
         // Show warning or error message
@@ -172,9 +171,8 @@ function BookAppointment(targetUrl, timer = 3000) {
           backgroundColor: toastColor,
         }).showToast();
 
-        // Re-enable the submit button
+        // Re-enable the submit button (if applicable)
         $(btnId).prop("disabled", false);
-        $(btnId).html("Submit");
       }
     },
     error: function(jqXHR) {
@@ -187,9 +185,9 @@ function BookAppointment(targetUrl, timer = 3000) {
         backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
       }).showToast();
 
-      // Re-enable the submit button
+      // Re-enable the submit button (if applicable)
       $(btnId).prop("disabled", false);
-      $(btnId).html("Submit");
+      $(btnId).html("Book Appointment");
     },
   });
 }

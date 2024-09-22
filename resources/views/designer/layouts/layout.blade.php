@@ -602,12 +602,6 @@
 							</div>
 						</div>
 						<ul class="navbar-nav header-right">
-							<li class="nav-item">
-								<div class="input-group search-area">
-									<input type="text" class="form-control" placeholder="Search here...">
-									<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
-								</div>
-							</li>
 							<li class="nav-item dropdown notification_dropdown">
 								<a class="nav-link bell dz-theme-mode p-0 active" href="#">
 									<i id="icon-light" class="fas fa-sun"></i>

@@ -193,7 +193,7 @@ Job details
 									<!-- col-2 -->
 									<div class="col-lg-2">
 										<div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
-											<a href="job-details.html" class="btn btn-primary btn-md">Apply</a>
+											<a href="" class="btn btn-primary btn-md">Apply</a>
 			
 										</div>
 									</div>
@@ -232,7 +232,7 @@ Job details
 									<!-- col-2 -->
 									<div class="col-lg-2">
 										<div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
-											<a href="job-details.html" class="btn btn-primary btn-md">Apply</a>
+											<a href="" class="btn btn-primary btn-md">Apply</a>
 			
 										</div>
 									</div>
@@ -271,7 +271,7 @@ Job details
 									<!-- col-2 -->
 									<div class="col-lg-2">
 										<div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
-											<a href="job-details.html" class="btn btn-primary btn-md">Apply</a>
+											<a href="" class="btn btn-primary btn-md">Apply</a>
 			
 										</div>
 									</div>

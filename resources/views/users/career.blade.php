@@ -66,7 +66,7 @@ Career
 								<!-- col-2 -->
 								<div class="col-lg-2">
 									<div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
-										<a href="job-details.html" class="btn btn-primary btn-md">Apply</a>
+										<a href="" class="btn btn-primary btn-md">Apply</a>
 
 									</div>
 								</div>
@@ -105,7 +105,7 @@ Career
 								<!-- col-2 -->
 								<div class="col-lg-2">
 									<div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
-										<a href="job-details.html" class="btn btn-primary btn-md">Apply</a>
+										<a href="" class="btn btn-primary btn-md">Apply</a>
 
 									</div>
 								</div>
@@ -144,7 +144,7 @@ Career
 								<!-- col-2 -->
 								<div class="col-lg-2">
 									<div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
-										<a href="job-details.html" class="btn btn-primary btn-md">Apply</a>
+										<a href="" class="btn btn-primary btn-md">Apply</a>
 
 									</div>
 								</div>
@@ -183,7 +183,7 @@ Career
 								<!-- col-2 -->
 								<div class="col-lg-2">
 									<div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
-										<a href="job-details.html" class="btn btn-primary btn-md">Apply</a>
+										<a href="" class="btn btn-primary btn-md">Apply</a>
 
 									</div>
 								</div>
@@ -222,7 +222,7 @@ Career
 								<!-- col-2 -->
 								<div class="col-lg-2">
 									<div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
-										<a href="job-details.html" class="btn btn-primary btn-md">Apply</a>
+										<a href="" class="btn btn-primary btn-md">Apply</a>
 
 									</div>
 								</div>
@@ -259,7 +259,7 @@ Career
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">01</text></svg>
 								</h2>
-								<a href="service-single.html" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Residential Design</h4></a>								
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Residential Design</h4></a>								
 								<p class="mb-0">Our residential design services cover everything from concept to completion</p>
 							</div>
 						</div>
@@ -269,7 +269,7 @@ Career
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">02</text></svg>
 								</h2>
-								<a href="service-single.html" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Commercial Design</h4></a>
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Commercial Design</h4></a>
 								<p class="mb-0">Our expertise in commercial design focuses on optimizing functionality and aesthetics</p>
 							</div>
 						</div>
@@ -279,7 +279,7 @@ Career
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">03</text></svg>
 								</h2>
-								<a href="service-single.html" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Space Planning</h4></a>
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Space Planning</h4></a>
 								<p class="mb-0">We maximize the potential of your space, ensuring it's organized, and aesthetically pleasing.</p>
 							</div>	
 						</div>
@@ -289,7 +289,7 @@ Career
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">04</text></svg>
 								</h2>
-								<a href="service-single.html" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Color Consultation</h4></a>
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Color Consultation</h4></a>
 								<p class="mb-0">Colors play a significant role in design. We help you choose the perfect palette for your space.</p>
 							</div>
 						</div>
@@ -299,7 +299,7 @@ Career
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">05</text></svg>
 								</h2>
-								<a href="service-single.html" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Project Management</h4></a>
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Project Management</h4></a>
 								<p class="mb-0">From initial concepts to final installation, we oversee every detail for a successful project.</p>
 							</div>
 						</div>
@@ -309,7 +309,7 @@ Career
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">06</text></svg>
 								</h2>
-								<a href="service-single.html" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Custom Furnishings</h4></a>
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Custom Furnishings</h4></a>
 								<p class="mb-0">Elevate your space with unique, furnishings that are designed to suit your style and needs.</p>
 							</div>
 						</div>
@@ -319,7 +319,7 @@ Career
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">07</text></svg>
 								</h2>
-								<a href="service-single.html" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Concept Development</h4></a>
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Concept Development</h4></a>
 								<p class="mb-0">We work closely with you to develop a design concept that resonates with your vision.</p>
 							</div>	
 						</div>
@@ -329,7 +329,7 @@ Career
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">08</text></svg>
 								</h2>
-								<a href="service-single.html" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Revamps & Remodels</h4></a>
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">Revamps & Remodels</h4></a>
 								<p class="mb-0">We provide renovation and remodeling services that breathe new life into existing structures.</p>
 							</div>
 						</div>

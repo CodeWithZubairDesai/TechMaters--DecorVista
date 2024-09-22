@@ -24,7 +24,7 @@ class Consultant extends Model
     /**
      * Define the relationship with the Designer model.
      */
-    public function portfolio() 
+    public function portfolios() 
     {
         return $this->belongsTo(Portfolio::class, 'portfolio_id');
     }

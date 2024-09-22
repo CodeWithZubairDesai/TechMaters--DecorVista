@@ -14,7 +14,7 @@ class AppointmentController extends Controller
     {
         return view("");
     }
-    public function store(Request $request, $id)
+    public function store($id)
     {
         // Check if the user is authenticated
         if (!Auth::check()) {
@@ -46,7 +46,7 @@ class AppointmentController extends Controller
                 'data' => null
             ], 409); // Conflict
         }
-    
+        
         // Create the appointment
         $appointment = Appointment::create([
             'user_id'     => Auth::user()->id,

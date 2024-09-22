@@ -5,7 +5,6 @@ Appointments
 
 @section('main-section')
 
-
 <!--**********************************
             Content body start
         ***********************************-->
@@ -15,7 +14,7 @@ Appointments
         <div class="d-flex mb-3">
             <div class="mb-3 align-items-center me-auto">
                 <h4 class="card-title">Consult Appointments</h4>
-                <span class="fs-12">Here, Proffesional Interior Designers will view the consulation appointment requests</span>
+                <span class="fs-12">Here, Professional Interior Designers will view the consultation appointment requests</span>
             </div>
         </div>
         <div class="row">
@@ -35,16 +34,39 @@ Appointments
                         <tbody>
                             @foreach($Appointments as $ap)
                             <tr>
-                                <td>{{$ap->id}}</td>
-                                <td>{{$ap->consultant->available_at}}</td>
-                                <td>{{$ap->user->name}}</td>
-                                <td>{{$ap->user->email}}</td>
-                                <td>{{$ap->status}}</td>
+                                <td>{{ $ap->id }}</td>
                                 <td>
-                                    <form action="{{ route('designer.appointments.destroy', $ap->id) }}" method="POST">
+                                    @if($ap->portfolios && $ap->portfolios->consultants)
+                                    @foreach($ap->portfolios->consultants as $consultant)
+                                        @if(is_array($consultant->available_at))
+                                            @foreach($consultant->available_at as $timeSlot)
+                                                {{ $timeSlot }}<br>
+                                            @endforeach
+                                        @else
+                                            {{ $consultant->available_at }}
+                                        @endif
+                                        <hr>
+                                    @endforeach
+                                    @else
+                                    N/A
+                                    @endif
+                                </td>
+                                <td>{{ $ap->user->name }}</td>
+                                <td>{{ $ap->user->email }}</td>
+                                <td>{{ $ap->status }}</td>
+                                <td>
+                                    <!-- Approve Button -->
+                                    <form action="{{ route('designer.appointments.updateStatus', ['id' => $ap->id, 'status' => 2]) }}" method="POST" style="display:inline-block;">
                                         @csrf
-                                        @method('POST')
-                                        <button type="submit" class="btn btn-danger">Cancel</button>
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-success">Approve</button>
+                                    </form>
+                                    
+                                    <!-- Reject Button -->
+                                    <form action="{{ route('designer.appointments.updateStatus', ['id' => $ap->id, 'status' => 4]) }}" method="POST" style="display:inline-block;">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-danger">Reject</button>
                                     </form>
                                 </td>
                             </tr>
