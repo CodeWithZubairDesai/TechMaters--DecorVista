@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->integer('quantity');
             $table->integer('sub_total');
             $table->integer('status')->default(1)->comment('1 = Active, 2 = Inactive');
@@ -21,7 +23,6 @@ return new class extends Migration
             $table->date('created_date');
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
     }
 

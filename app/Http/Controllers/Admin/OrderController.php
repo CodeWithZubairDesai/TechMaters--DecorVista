@@ -21,13 +21,6 @@ class OrderController extends Controller
     
             return DataTables::of($orders)
                 ->addIndexColumn()
-                ->addColumn('image', function ($model) {
-                    if ($model->images->isNotEmpty()) {
-                        return $model->images->first()->image_path;
-                    } else {
-                        return 'No Image';
-                    }
-                })
                 ->addColumn('action', function ($model) {
                     $detailRoute = route('admin.orders.show', $model->id);
                     return '<div class="d-flex gap-2">
@@ -47,7 +40,7 @@ class OrderController extends Controller
                 ->make(true);
         }
     
-        return view('admin.blogs.index', compact('ParentBlogs'));
+        return view('admin.orders.index');
     }
     
 }

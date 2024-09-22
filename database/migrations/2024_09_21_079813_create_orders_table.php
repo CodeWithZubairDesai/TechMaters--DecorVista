@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_number');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('billing_id');
             $table->string('sub_total');
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->date('created_date');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('billing_id')->references('id')->on('orderbillingaddresses')->onDelete('cascade');
+            $table->foreign('billing_id')->references('id')->on('order_billing_addresses')->onDelete('cascade');
         });
     }
 

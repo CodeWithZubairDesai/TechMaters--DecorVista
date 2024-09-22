@@ -75,6 +75,7 @@ class CheckoutController extends Controller
             // Create a new Order
             $order = Order::create([
                 'user_id' => $userid,
+                'order_number' => 'ORD-'.time(), // Generate unique order number
                 'billing_id' => $billingAddress->id,
                 'sub_total' => $subTotal,
                 'shipping_charges' => $shippingCharges,

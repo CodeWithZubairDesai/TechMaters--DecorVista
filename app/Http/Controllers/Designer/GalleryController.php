@@ -14,7 +14,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $gallery = Gallery::with(['gallerycategory', 'user'])
+        $gallery = Gallery::with(relations: ['gallerycategory', 'user'])
         ->where('user_id', Auth::user()->id)
         ->get();
         return view('designer.gallery.index', compact('gallery'));

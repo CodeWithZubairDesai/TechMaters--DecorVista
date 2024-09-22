@@ -5,29 +5,10 @@
     <div class="container-xxl">
 
         <div class="row">
-            @foreach($ParentBlogs as $cpRow)                                
-                <div class="col-md-6 col-xl-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <div class="rounded bg-secondary-subtle d-flex align-items-center justify-content-center mx-auto">
-                                <img src="{{ env("ASSET2_URL") }}{{$cpRow->images[0]->image_path}}" alt="" class="avatar-xl">
-                            </div>
-                            <h4 class="mt-3 mb-0">{{$cpRow->title}}</h4>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-        <div class="row">
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center gap-1">
-                        <h4 class="card-title flex-grow-1">All Blogs List</h4>
-
-                        <a href="{{ route('admin.orders.create') }}" class="btn btn-sm btn-primary">
-                            Add Blog
-                        </a>
+                        <h4 class="card-title flex-grow-1">All Orders List</h4>                       
                     </div>
 
                     <div class="card-body">

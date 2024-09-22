@@ -77,6 +77,20 @@ Route::prefix('admin')->group(function(){
         Route::post('reset_password', 'resetPassword')->name('reset_password');
     });
 
+    Route::controller(AdminOrderController::class)->group(function () {
+        Route::prefix('orders')->group(function () {
+            Route::get('/', 'index')->name('admin.orders.index');
+            Route::get('/{id}/detail', 'show')->name('admin.orders.detail');
+            Route::get('/create', 'create')->name('admin.orders.create');
+            Route::post('/store', 'store')->name('admin.orders.store');
+            Route::put('/{id}/detail', 'show')->name('admin.orders.show');
+            Route::post('/status', 'status')->name('admin.orders.status');
+            Route::get('/{id}/edit', 'edit')->name('admin.orders.edit');
+            Route::post('/update', 'update')->name('admin.orders.update');
+            Route::post('/destroy/{id}', 'destroy')->name('admin.orders.destroy');
+        });
+    });
+
 
 Route::middleware(['admin.auth'])->group(function () {
 
@@ -157,19 +171,7 @@ Route::middleware(['admin.auth'])->group(function () {
 
 });
 
-Route::controller(AdminOrderController::class)->group(function () {
-    Route::prefix('orders')->group(function () {
-        Route::get('/', 'index')->name('admin.orders.index');
-        Route::get('/{id}/detail', 'show')->name('admin.orders.detail');
-        Route::get('/create', 'create')->name('admin.orders.create');
-        Route::post('/store', 'store')->name('admin.orders.store');
-        Route::put('/{id}/detail', 'show')->name('admin.orders.show');
-        Route::post('/status', 'status')->name('admin.orders.status');
-        Route::get('/{id}/edit', 'edit')->name('admin.orders.edit');
-        Route::post('/update', 'update')->name('admin.orders.update');
-        Route::post('/destroy/{id}', 'destroy')->name('admin.orders.destroy');
-    });
-});
+
 });
 
 // User Routes
@@ -233,9 +235,7 @@ Route::prefix('frontend')->group(function(){
         Route::get('/', 'create')->name('users.contact.index');
         Route::post('/store', 'store')->name('users.contact.store');
     });
-    Route::controller(controller: UserGalleryController::class)->prefix('gallery')->group(function () {
-        Route::get('/', 'index')->name('users.gallery.index');
-    });
+  
 
     Route::controller(UserAppointmentController::class)->prefix('appointment')->group(function () {
         Route::get('/', 'create')->name('users.appointments.index');
@@ -329,4 +329,6 @@ Route::prefix('designer')->group(function(){
 
 
 
+
+route::get('/gallery' , [UserGalleryController::class , 'index']);
 
