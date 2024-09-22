@@ -4,34 +4,35 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Order;
+use App\Models\ContactUs;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
-class OrderController extends Controller
+class ContactUsController extends Controller
 {
     //
     public function index(Request $request)
     { 
     
         if ($request->ajax()) {    
-            $orders = Order::with(['billings', 'orderdetails','users'])->get();    
-            log::info($orders);
+            $ContactUss = ContactUs::get();    
+            log::info($ContactUss);
     
-            return DataTables::of($orders)
+            return DataTables::of($ContactUss)
                 ->addIndexColumn()
-                ->addColumn('customer_name', function ($model) {
-                    return $model->users ? $model->users->name : '-';
-                })
+                
                 ->addColumn('action', function ($model) {
-                    $detailRoute = route('admin.orders.show', $model->id);
+                    $editRoute = route('admin.blogs.edit', $model->id);
+                    $detailRoute = route('admin.blogs.show', $model->id);
                     return '<div class="d-flex gap-2">
                         <a href="' . $detailRoute . '" class="btn btn-light btn-sm">
                             <iconify-icon icon="solar:eye-broken" class="align-middle fs-18"></iconify-icon>
                         </a>
-                        
+                        <a href="' . $editRoute . '" class="btn btn-soft-primary btn-sm">
+                            <iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon>
+                        </a>
                     </div>';
                 })
                 ->addColumn('status', function ($model) {
@@ -40,28 +41,28 @@ class OrderController extends Controller
                         'id' => $model->id
                     ]);
                 })
-                ->rawColumns(['action', 'status'])
+                ->rawColumns(['image', 'action', 'status'])
                 ->make(true);
         }
     
-        return view('admin.orders.index');
+        return view('admin.contactus.index');
     }
 
     public function show($id)
     {
 
         // Fetch the blog by ID
-        $order = Order::with(['billings', 'orderdetails','users'])->find($id);
+        $ContactUs = ContactUs::with(['billings', 'ContactUsdetails','users'])->find($id);
     
-        // Check if the order was found
-        if (!$order) {
+        // Check if the ContactUs was found
+        if (!$ContactUs) {
             return response()->json([
                 'status' => 'warning',
-                'message' => 'order not found',
+                'message' => 'ContactUs not found',
                 'data' => null,
             ], 404);
         }
-        return view(  'admin.orders.show', compact('order'));
+        return view(  'admin.ContactUss.show', compact('ContactUs'));
     }
 
     public function status(Request $request): JsonResponse
@@ -76,19 +77,19 @@ class OrderController extends Controller
                     'message' => $validator->errors()->first(),
                 ]);
             }
-            $Order = Order::find($request->id);
-            if ($Order == null) {
+            $ContactUs = ContactUs::find($request->id);
+            if ($ContactUs == null) {
                 return response()->json([
                     'status' => 'warning',
-                    'message' => 'Order Not Found',
+                    'message' => 'ContactUs Not Found',
                 ]);
             }
-            $status = $Order->status == 1 ? 2 : 1;
-            $Order->status  = $status;
-            $Order->save();
+            $status = $ContactUs->status == 1 ? 2 : 1;
+            $ContactUs->status  = $status;
+            $ContactUs->save();
             return response()->json([
                 'status' => 'success',
-                'message' => 'Order Status Updated successfully',
+                'message' => 'ContactUs Status Updated successfully',
                 'data' => null,
             ]);
         } catch (\Exception $e) {

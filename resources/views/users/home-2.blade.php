@@ -118,56 +118,6 @@ Home
 				</div>
 			</section>
 			<!--Hero Section ======================-->
-			<!--Hero Section ======================-->
-			<section class="section-hero hero-2 position-relative overflow-hidden max-width">
-				<div class="bg-primary text-secondary">
-					<div class="row g-0">
-						<div class="col-md-6">
-							<div class="hero-inner-text vector-bg text-lg-end pe-lg-1">
-								<h1 class="huge-text hero-heading-color fw-extra-bold lh-1">Shaping Interior Excellence</h1>
-								<div class="d-inline-flex flex-column flex-sm-row justify-content-lg-end gap-3 gap-md-20 mt-4 mt-xxl-5 ps-1 ps-lg-0 pe-lg-30">
-									<a href="about-us.html" class="btn btn-outline-secondary  btn-sm">Who we are</a>
-									<a href="project-archive.html" class="btn btn-secondary  btn-sm">View Projects</a>
-								</div>
-							</div>
-						</div>
-						<!-- col-6 -->
-						<div class="col-md-6">
-							<div class="hero-image-responsive">							
-								<picture>						
-									<source media="(max-width:500px)" srcset="{{ asset('user_assets/assets/images/hero-8-sm.jpg')}}">
-									<source media="(max-width:767px)" srcset="{{ asset('user_assets/assets/images/hero-8-md.jpg')}}">				
-									<source media="(max-width:1400px)" srcset="{{ asset('user_assets/assets/images/hero-8-xxl.jpg')}}">				
-									<img src="{{ asset('user_assets/assets/images/hero-8.jpg')}}" alt="hero-img">
-								</picture>
-							</div>
-						</div>
-					</div>
-					<!-- row -->
-				</div>	
-				<div class="row g-0">
-					<div class="col-sm-6 col-lg-4">
-						<div class="overlay">
-							<img src="{{ asset('user_assets/assets/images/hero-5.jpg')}}" class="img-fluid w-100" alt="img">
-							<h5 class="hero-hightlighted-text hero-heading-color fw-extra-bold">Space Alchemy</h5>
-						</div>
-					</div>
-					<div class="col-sm-6 col-lg-4">
-						<div class="overlay">
-							<img src="{{ asset('user_assets/assets/images/hero-6.jpg')}}" class="img-fluid w-100" alt="img">
-							<h5 class="hero-hightlighted-text hero-heading-color fw-extra-bold">Design Symphony</h5>
-						</div>
-					</div>
-					<div class="col-sm-6 col-lg-4">
-						<div class="position-relative">
-							<img src="{{ asset('user_assets/assets/images/hero-7.jpg')}}" class="img-fluid w-100" alt="img">
-							<h5 class="hero-hightlighted-text hero-heading-color fw-extra-bold">Personalized Elegance</h5>
-						</div>
-					</div>					
-				</div>
-				
-			</section>
-			<!--Hero Section ======================-->
 
 
 			<!--About Section ======================-->
@@ -185,7 +135,7 @@ Home
 						</div>
 					</div>	
 				</div>		
-				<div class="about-bg bg-primary text-secondary position-relative">
+				<div class="about-bg bg-something text-secondary position-relative">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-lg-6">
@@ -807,7 +757,7 @@ Home
 										<a href="project-archive.html" class="btn btn-outline-secondary  gap-10">View Project</a>
 									</li>
 								</ul>
-								<div class="project-info bg-primary">
+								<div class="project-info bg-something">
 									<h5 class="project-title fw-extra-bold">Le Foresterie</h5>
 									<p class="mb-0">At the heart of the e+ project, made of natural anodised aluminium, glazing, sandstone and granite, the lobby ... <a class="text-decoration-none fw-extra-bold" href="project-archive.html">see more</a></p>
 
@@ -848,7 +798,7 @@ Home
 										<a href="project-archive.html" class="btn btn-outline-secondary  gap-10">View Project</a>
 									</li>
 								</ul>
-								<div class="project-info bg-primary">
+								<div class="project-info bg-something">
 									<h5 class="project-title fw-extra-bold">Oasis Urbaine</h5>
 									<p class="mb-0">At the heart of the e+ project, made of natural anodised aluminium, glazing, sandstone and granite, the lobby ... <a class="text-decoration-none fw-extra-bold" href="project-archive.html">see more</a></p>
 
@@ -1377,25 +1327,12 @@ Home
 			<!--Blog Section ======================-->
 
 
-			<!--Feedback Section ======================-->
-			<section class="section-feedback feedback-1 text-secondary">
-				<div class="container">
-					<div class="feedback-wrapper position-relative">
-						<div class="feedback-content d-flex flex-column gap-4 flex-lg-row align-items-lg-end justify-content-lg-around">
-							<h2 class="fw-extra-bold feedback-title">Drop Us a Line</h2>
-							<div class="architronix-button">
-								<a href="contact-2.html" class="btn btn-secondary gap-10"> 
-									Lets Talk
-									<svg class="arrow" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
-									</svg>
-								</a>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--Feedback Section ======================-->
-
 			@endsection
+
+			@push('styles')
+			<style>
+			.bg-something {
+				background-color: rgb(37 59 47) !important;
+			}
+			</style>
+			@endpush

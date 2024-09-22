@@ -17,6 +17,11 @@ Appointments
                 <span class="fs-12">Here, Professional Interior Designers will view the consultation appointment requests</span>
             </div>
         </div>
+        @if (session('success'))
+        <div class="alert alert-primary" role="alert">
+ {{ session('success') }}
+</div>
+        @endif
         <div class="row">
             <div class="col-xl-12">
                 <div class="table-responsive fs-14">
@@ -56,18 +61,13 @@ Appointments
                                 <td>{{ $ap->status }}</td>
                                 <td>
                                     <!-- Approve Button -->
-                                    <form action="{{ route('designer.appointments.updateStatus', ['id' => $ap->id, 'status' => 2]) }}" method="POST" style="display:inline-block;">
+                                    <form action="{{ route('designer.appointments.updateStatus', ['id' => $ap->id   ]) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('PATCH')
-                                        <button type="submit" class="btn btn-success">Approve</button>
+                                        <button type="submit" class="btn btn-success">Change Status</button>
                                     </form>
                                     
-                                    <!-- Reject Button -->
-                                    <form action="{{ route('designer.appointments.updateStatus', ['id' => $ap->id, 'status' => 4]) }}" method="POST" style="display:inline-block;">
-                                        @csrf
-                                        @method('PATCH')
-                                        <button type="submit" class="btn btn-danger">Reject</button>
-                                    </form>
+                                    
                                 </td>
                             </tr>
                             @endforeach

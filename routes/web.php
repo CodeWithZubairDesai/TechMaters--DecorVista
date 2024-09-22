@@ -31,6 +31,7 @@ use App\Http\Controllers\Designer\PortfolioController as DesignerPortfolioContro
 use App\Http\Controllers\Designer\AppointmentController as DesignerAppointmentController;
 use App\Http\Controllers\Admin\GalleryCategoryController as AdminGalleryCategoryController;
 use App\Http\Controllers\Admin\ProductCategoryController as AdminProductCategoryController;
+use App\Http\Controllers\Admin\ContactUsController as AdminContactUsController;
 
 
 
@@ -109,6 +110,18 @@ Route::middleware(['admin.auth'])->group(function () {
             Route::post('/destroy/{id}', 'destroy')->name('admin.gallery.categories.destroy');
         });
     });
+    Route::controller(AdminContactUsController::class)->group(function () {
+        Route::prefix('contactus')->group(function () {
+            Route::get('/', 'index')->name('admin.contactus.index');
+            Route::get('/create', 'create')->name('admin.contactus.create');
+            Route::post('/store', 'store')->name('admin.contactus.store');
+            Route::post('/status', 'status')->name('admin.contactus.status');
+            Route::get('/{id}/edit', 'edit')->name('admin.contactus.edit');
+            Route::post('/update', 'update')->name('admin.contactus.update');
+            
+            Route::post('/destroy/{id}', 'destroy')->name('admin.contactus.destroy');
+        });
+    });
 
 
     Route::controller(AdminProductCategoryController::class)->group(function () {
@@ -182,12 +195,19 @@ Route::prefix('frontend')->group(function(){
         Route::controller(UserReviewController::class)->prefix('review')->group(function () {
             Route::get('/', 'create')->name('users.review.index');
             Route::post('/store', 'store')->name('users.review.store');
+
+            
         });
+
+        Route::controller(UserCheckoutController::class)->prefix('checkout')->group(function () {
+            Route::get('/', 'index')->name('users.checkout.index');
+            Route::post('/store', 'store')->name('users.checkout.store');
+        }); 
     });
 
     Route::controller(FUserController::class)->group(function(){
         Route::get('/', 'index');
-        Route::get('/about', 'about')->name('about');
+        Route::get('/about', 'about')->name('users.about.index');
         Route::get('/account', 'account')->name('account');
         Route::get('/add-listing', 'addListing')->name('add-listing');
         Route::get('/blog-detail', 'blogDetail')->name('blog-detail');
@@ -306,7 +326,7 @@ Route::prefix('designer')->group(function(){
         Route::controller(DesignerAppointmentController::class)->group(function () {
             Route::prefix('appointmets')->group(function () {            
             Route::get('/', 'index')->name('designer.appointments.index');
-            Route::patch('designer/appointments/{id}/status/{status}', 'updateStatus')->name('designer.appointments.updateStatus');
+            Route::patch('designer/appointments/{id}', 'updateStatus')->name('designer.appointments.updateStatus');
             Route::get('/create', 'create')->name('designer.appointmets.create');
             Route::post('/store', 'store')->name('designer.appointmets.store');
             Route::post('/status', 'status')->name('designer.appointments.status');
@@ -338,5 +358,5 @@ Route::prefix('designer')->group(function(){
 
 
 
-route::get('/gallery' , [UserGalleryController::class , 'index']);
+route::get('/gallery' , [UserGalleryController::class , 'index'])->name('users.gallery.index');;
 

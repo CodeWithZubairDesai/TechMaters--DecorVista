@@ -31,12 +31,12 @@ About
 
 			<!--About Section ======================-->
 			<section class="section-about about-2 section-full-width position-relative pt-4 pt-lg-0">
-				<div class="about-bg bg-primary text-secondary position-relative">
+				<div class="about-bg bg-something text-secondary position-relative">
 					<div class="container">
 						<div class="row align-items-center justify-content-between">
 							<div class="col-lg-6">
 								<div class="about-image overflow-hidden">
-									<img src="assets/images/about-image-2.jpg" class="img-fluid wow slideInLeft" alt="about-image">
+									<img src="{{ asset('user_assets/assets/images/about-image-2.jpg')}}" class="img-fluid wow slideInLeft" alt="about-image">
 								</div>
 							</div>
 							<div class="col-lg-5">
@@ -111,7 +111,7 @@ About
 					<div class="row align-items-center">
 						<div class="col-lg-6">
 							<div class="expertise-image overflow-hidden">
-								<img src="assets/images/expertise.jpg" class="img-fluid w-100 wow slideInLeft" alt="img">
+								<img src="{{ asset('user_assets/assets/images/expertise.jpg')}}" class="img-fluid w-100 wow slideInLeft" alt="img">
 							</div>
 						</div>
 						<!-- col-6 -->
@@ -202,7 +202,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-1.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-1.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -233,7 +233,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-2.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-2.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -264,7 +264,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-3.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-3.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -295,7 +295,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-4.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-4.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -326,7 +326,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-5.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-5.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -357,7 +357,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-6.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-6.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -388,7 +388,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-7.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-7.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -419,7 +419,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-8.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-8.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -450,7 +450,7 @@ About
 										<li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
 									</ul>
 									<div class="team-author-image overflow-hidden">
-										<img src="assets/images/team-9.jpg" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
+										<img src="{{ asset('user_assets/assets/images/team-9.jpg')}}" class="w-100 h-100 object-fit-cover wow slideInLeft" alt="image">
 									</div>
 									<a href="" class="text-decoration-none stretched-link">
 										<div class="team-details">											
@@ -483,4 +483,15 @@ About
 			
 
 			
+			
+			
 			@endsection
+
+			
+			@push('styles')
+			<style>
+			.bg-something {
+				background-color: rgb(37 59 47) !important;
+			}
+			</style>
+			@endpush

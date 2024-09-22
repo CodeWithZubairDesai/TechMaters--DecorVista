@@ -24,13 +24,16 @@ class AppointmentController extends Controller
         return view('designer.appointments.index', compact('Appointments'));
     }
 
-    public function updateStatus(Request $request, $id, $status) {
+    public function updateStatus(Request $request, $id) {
         $appointment = Appointment::findOrFail($id);
         if ($appointment->status == 1) { // Only allow changes if the current status is 1
-            $appointment->status = $status;
+            $appointment->status = 2;
             $appointment->save();
-            return redirect()->route('designer.appointments.index')->with('success', 'Appointment status updated.');
+            return redirect()->route('designer.appointments.index')->with('success', 'Appointment status Apprved.');
+        }else{
+            $appointment->status = 1;
+            $appointment->save();
+            return redirect()->route('designer.appointments.index')->with('success', 'Appointment status Rejected.');
         }
-        return redirect()->route('designer.appointments.index')->with('error', 'Appointment cannot be updated.');
     }
 }

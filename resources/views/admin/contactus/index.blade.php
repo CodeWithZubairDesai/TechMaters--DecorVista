@@ -8,22 +8,20 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center gap-1">
-                        <h4 class="card-title flex-grow-1">All Orders List</h4>                       
+                        <h4 class="card-title flex-grow-1">All contactus List</h4>                       
                     </div>
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="ordersTable" class="table table-striped">
+                            <table id="contactusTable" class="table table-striped">
                                 <thead class="bg-light-subtle">
                                     <tr>
                                         <th>#</th>
-                                        <th>Order ID</th>
-                                        <th>Cutomer Name</th>
-                                        <th>Sub Total</th>
-                                        <th>Shipping Charges</th>
-                                        <th>Grand Total</th>
-                                        <th>Status</th>
-                                        <th>Action</th> <!-- Added Action column -->
+                                        <th>Name</th>
+                                        <th>Phone Number </th>
+                                        <th>Email</th>
+                                        <th>Message</th>
+                                        <th>Status</th> <!-- Added Action column -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,22 +47,20 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function() {
-        var table = $('#ordersTable').DataTable({
+        var table = $('#contactusTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route("admin.orders.index") }}',
+            ajax: '{{ route("admin.contactus.index") }}',
             responsive: true,
             pageLength: 10,
             paging: false,
             columns: [
                 { data: 'id', name: 'id' },
-                { data: 'order_number', name: 'order_id' },
-                { data: 'customer_name', name: 'customer_name' },
-                { data: 'sub_total', name: 'sub_total' },
-                { data: 'shipping_charges', name: 'shipping_charges' },
-                { data: 'grand_total', name: 'grand_total' },
+                { data: 'name', name: 'name' },
+                { data: 'phone_number', name: 'phone_number' },
+                { data: 'email', name: 'email' },
+                { data: 'message', name: 'message' },
                 { data: 'status', name: 'status' },
-                { data: 'action', name: 'action', orderable: false, searchable: false, class: 'text-center' } // For Edit button
             ],
             "drawCallback": function() {
                 $('#paginationControls').empty();
@@ -102,7 +98,7 @@
             var status = $(element).is(':checked') ? 1 : 0;
 
             updateStatus(
-                '{{ route("admin.orders.status") }}',
+                '{{ route("admin.contactus.status") }}',
                 id,
                 status
             );

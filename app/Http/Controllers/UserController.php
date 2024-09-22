@@ -11,7 +11,7 @@ class UserController extends Controller
     }
 
     public function about(){
-        return view("user.about");
+        return view("users.about-us");
     }
 
     public function account(){
